@@ -11,4 +11,4 @@ Jillian Fussner
 
 Hello, it's Jillian!
 
-Hey there! It's Sarah!
+Hi! It's Sarah!
