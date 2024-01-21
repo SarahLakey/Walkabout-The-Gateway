@@ -1,4 +1,4 @@
-package authentication.models;
+package org.models;
 
 import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotNull;
