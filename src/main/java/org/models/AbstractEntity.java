@@ -1,4 +1,4 @@
-package org;
+package org.models;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
