@@ -1,9 +1,7 @@
-package authentication.models.dto;
+package org.models.dto;
 
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-
-import java.util.Objects;
 
 public class AbstractEntity {
 
