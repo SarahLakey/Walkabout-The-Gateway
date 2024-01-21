@@ -2,7 +2,6 @@ package org.models;
 
 import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotNull;
-import org.AbstractEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
