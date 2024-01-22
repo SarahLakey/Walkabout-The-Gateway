@@ -1,12 +1,12 @@
-package org.controllers;
+package org.launchcode.walkabout.controllers;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
-import org.data.UserRepository;
-import org.models.User;
-import org.models.dto.LoginFormDTO;
-import org.models.dto.RegistrationFormDTO;
+import org.launchcode.walkabout.data.UserRepository;
+import org.launchcode.walkabout.models.User;
+import org.launchcode.walkabout.models.dto.LoginFormDTO;
+import org.launchcode.walkabout.models.dto.RegistrationFormDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

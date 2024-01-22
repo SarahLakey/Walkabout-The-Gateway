@@ -1,4 +1,4 @@
-package org.models;
+package org.launchcode.walkabout.models;
 
 import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotNull;
