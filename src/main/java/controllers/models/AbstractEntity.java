@@ -1,8 +1,7 @@
-package authentication.models.dto.controllers.models;
+package controllers.models;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Objects;
 
 public abstract class AbstractEntity {
@@ -31,5 +30,4 @@ public abstract class AbstractEntity {
     public int hashCode() {
         return Objects.hash(id);
     }
-
 }
