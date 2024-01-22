@@ -1,11 +1,9 @@
-package authentication.models.dto.controllers.models;
+package controllers.models;
 
-import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-@Entity
-public class UserModel extends AbstractEntity {
+public class User extends AbstractEntity {
 
     @NotNull
     private String username;
@@ -15,12 +13,13 @@ public class UserModel extends AbstractEntity {
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-    public UserModel(String username, String password) {
+    public User(String username, String password) {
         this.username = username;
         this.pwHash = encoder.encode(password);
     }
 
-    public UserModel() {}
+    public User() {
+    }
 
     public String getUsername() {
         return username;
