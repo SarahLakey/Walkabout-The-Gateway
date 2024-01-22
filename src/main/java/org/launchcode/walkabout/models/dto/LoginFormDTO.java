@@ -1,4 +1,4 @@
-package org.models.dto;
+package org.launchcode.walkabout.models.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
