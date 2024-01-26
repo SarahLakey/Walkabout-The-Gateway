@@ -1,3 +1,27 @@
 body {
-font-size: 18px
+font-size: 18px;
+background: #F2F3F4;
+}
+
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    background-color: #012773;
+    color: #F5DC0F;
+    font-size: 0.9rem;
+    font-weight: 400;
+    padding: 6px 30px;
+}
+
+a {
+    color: #F5DC0F
+}
+
+a:hover {
+    float: right;
+    color: #012773;
+    background-color: #F5DC0F;
 }
