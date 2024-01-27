@@ -22,6 +22,20 @@ p {
     padding: 6px 30px;
 }
 
+.nav-bar a {
+    color: #F5DC0F;
+    font-family: bebas-neue, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: .2rem;
+}
+
+.nav-bar a:hover {
+    float: right;
+    color: #012773;
+    background-color: #F5DC0F;
+}
+
 .homepage{
     display: flex;
     justify-content: space-between;
@@ -35,7 +49,7 @@ p {
 }
 
 a {
-    color: #F5DC0F;
+    color: #012773;
     font-family: bebas-neue, sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -43,7 +57,7 @@ a {
 }
 
 a:hover {
-    float: right;
     color: #012773;
     background-color: #F5DC0F;
 }
+

@@ -2,17 +2,28 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title></title>
+    <title>Login</title>
+    <link th:href="@{/styles.css}" rel="stylesheet" />
 </head>
 <body>
+    <header>
+        <div class="nav-bar">
+            <img th:src="@{/images/Logo-Yel-nav.png}" width="15%" /> | &nbsp;
+            <span><a href="/">HOME</a></span> | &nbsp;
+             <a class="navlink" href="/login">LOG IN</a>  | &nbsp;
+            <a class="navlink" href="/register">REGISTER</a>
+        </div>
+    </header>
 <main>
     <h1>Welcome Back! Please log in:</h1>
     <form method="post">
         <div>
             <label>Username</label>
+            <input th:field="${loginFormDTO.username}" />
         </div>
         <div>
             <label>Password</label>
+            <input th:field="${loginFormDTO.password}" type="password" />
         </div>
 
         <button type="submit">Sign In</button>
