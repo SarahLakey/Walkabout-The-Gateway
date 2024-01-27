@@ -3,6 +3,12 @@ font-size: 18px;
 background: #F2F3F4;
 }
 
+p {
+    font-family: bebas-neue, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
 .nav-bar {
     display: flex;
     flex-direction: row;
@@ -16,8 +22,24 @@ background: #F2F3F4;
     padding: 6px 30px;
 }
 
+.homepage{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.homepage img {
+    height: 250px;
+    align: center;
+    margin-right: 8px;
+}
+
 a {
-    color: #F5DC0F
+    color: #F5DC0F;
+    font-family: bebas-neue, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: .2rem;
 }
 
 a:hover {
