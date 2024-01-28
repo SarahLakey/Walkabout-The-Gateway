@@ -1,19 +1,8 @@
-<!-- The is the User's Profile Page-->
-
 <!DocType html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments :: head}"></head>
 <body>
-<!--<header th:replace="~{fragments :: header}"></header>-->
-<header>
-    <div class="nav-bar">
-        <img th:src="@{/images/Logo-Yel-nav.png}" width="15%" /> | &nbsp;
-        <a class="navlink" href="/profile">Profile</a>  | &nbsp;
-        <a class="navlink" href="/trips">My Trips</a>  | &nbsp;
-        <a class="navlink" href="/log-a-trip">Log a Trip</a>  | &nbsp;
-        <a class="navlink" href="/logout">Log Out</a>
-    </div>
-</header>
+<header th:replace="~{fragments :: header}"></header>
     <main>
         <h1>My Profile</h1>
     </main>

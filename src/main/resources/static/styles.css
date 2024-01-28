@@ -16,7 +16,7 @@ p {
     align-items: center;
     gap: 15px;
     background-color: #012773;
-    color: #F5DC0F;
+    color: #f0e442;
     font-size: 0.9rem;
     font-weight: 400;
     padding: 6px 30px;
@@ -33,7 +33,7 @@ p {
 .nav-bar a:hover {
     float: right;
     color: #012773;
-    background-color: #F5DC0F;
+    background-color: #f0e442;
 }
 
 .homepage{
@@ -61,6 +61,16 @@ a:hover {
     background-color: #F5DC0F;
 }
 
+button {
+    color: #012773;
+    background-color: #f0e442;
+    margin-top: 20px;
+    padding: 5px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+}
+
 .login, .register {
     text-align: center;
 }
@@ -70,3 +80,4 @@ a:hover {
     font-size: 0.9rem;
     margin: 0;
 }
+

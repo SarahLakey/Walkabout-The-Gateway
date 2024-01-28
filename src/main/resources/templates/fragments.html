@@ -12,23 +12,16 @@
 <header th:fragment="header">
     <div class="nav-bar">
         <img th:src="@{/images/Logo-Yel-nav.png}" width="15%" /> | &nbsp;
-        <!--        <img th:src="@{/images/Logo-Yel-nav.png}" width="15%" /> | &nbsp;-->
         <th:block th:unless="${loggedIn}">
-                <div class="nav-bar">
-<!--                    <img th:src="@{/images/Logo-Yel-nav.png}" width="15%" /> | &nbsp;-->
                 <a class="navlink" href="/">HOME</a>  | &nbsp;&nbsp;
                 <a class="navlink" href="/login">LOG IN</a>  | &nbsp;
                 <a class="navlink" href="/register">REGISTER</a>
             </th:block>
             <th:block th:if="${loggedIn}">
-                <div class="nav-bar">
-                    <img th:src="@{/images/Logo-Yel-nav.png}" width="15%" /> | &nbsp;
-<!--                <span><a href="/">Home</a></span> | &nbsp;-->
                 <a class="navlink" href="/profile">Profile</a>  | &nbsp;
-                <a class="navlink" href="/trips">Trips</a>  | &nbsp;
+                <a class="navlink" href="/trips">My Trips</a>  | &nbsp;
                 <a class="navlink" href="/log-a-trip">Log a Trip</a>  | &nbsp;
                 <a class="navlink" href="/logout">Log Out</a>
-                </div>
             </th:block>
     </div>
 </header>
