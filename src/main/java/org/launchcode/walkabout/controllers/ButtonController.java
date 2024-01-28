@@ -1,14 +1,22 @@
-package src.main.java.org.launchcode.walkabout.controllers;
+package org.launchcode.walkabout.controllers;
+
+import jdk.jfr.Event;
+import org.launchcode.walkabout.models.dto.ReportButtonDTO;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.swing.*;
+
 /* public class ButtonController {
 
-    @GetMapping("ReportButtonDTO") events/add-tag.html
-    public String displayAddTagForm (@RequestParam Event event, Model model);
-    Event event = result.get();
-    model.addAttribute("msg", "Report Here: " + event.getName());
-    model.addAttribute("tags", tagRepository.findAll());
-    ReportButtonDTO eventTag = new ReportButtonDTO();
-    eventTag.setEvent(event);
-    model.addAttribute("eventTag", eventTag);
-    //return "events/add-tag.html";
-}
-*/
+    public String displayAddTagForm(@RequestParam Event event, Model model) {
+        Event button = result.get();
+        model.addAttribute("msg", "Report Here: " + button.getName());
+        model.addAttribute("tags", tagRepository.findAll());
+        JButton newButton = null;
+        ReportButtonDTO eventTag = new ReportButtonDTO(newButton);
+        eventTag.setEvent(event);
+        model.addAttribute("eventTag");
+        return button;
+}} */
