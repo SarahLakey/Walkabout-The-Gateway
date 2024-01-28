@@ -45,7 +45,6 @@ public class AuthenticationController {
 
     }
 
-
     @GetMapping("/register")
     public String displayRegistrationForm(Model model, HttpSession session) {
         model.addAttribute(new RegistrationFormDTO());
@@ -79,12 +78,13 @@ public class AuthenticationController {
         User newUser = new User(registrationFormDTO.getUsername(), registrationFormDTO.getPassword());
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
-        return "redirect:/index";
+        return "redirect:/profile";
     }
 
     @GetMapping("/login")
     public String displayLoginForm(Model model, HttpSession session) {
         model.addAttribute(new LoginFormDTO());
+        model.addAttribute("loggedIn", session.getAttribute("user") != null);
         return "login";
     }
 
@@ -99,13 +99,16 @@ public class AuthenticationController {
 
         String password = loginFormDTO.getPassword();
 
+        //Send user back if username doesn't exist or password doesn't match
         if (theUser == null || !theUser.isMatchingPassword(password)) {
             errors.rejectValue("password", "login.invalid",
                     "Credentials invalid. Please try again with correct username/password.");
             return "login";
         }
+
+        //If username & password are correct - direct to profile
         setUserInSession(request.getSession(), theUser);
-        return "redirect:/index";
+        return "redirect:/profile";
     }
 
     @GetMapping("/logout")

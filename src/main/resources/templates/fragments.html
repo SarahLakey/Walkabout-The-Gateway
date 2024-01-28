@@ -1,0 +1,29 @@
+<!DocType html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title>Walkabout the Gateway</title>
+    <link th:href="@{/styles.css}" rel="stylesheet" />
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+    <link th:href="@{/css/techjobs.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+</head>
+<body>
+<header th:fragment="header">
+    <div class="nav-bar">
+        <img th:src="@{/images/Logo-Yel-nav.png}" width="15%" /> | &nbsp;
+        <th:block th:unless="${loggedIn}">
+                <a class="navlink" href="/">HOME</a>  | &nbsp;&nbsp;
+                <a class="navlink" href="/login">LOG IN</a>  | &nbsp;
+                <a class="navlink" href="/register">REGISTER</a>
+            </th:block>
+            <th:block th:if="${loggedIn}">
+                <a class="navlink" href="/profile">PROFILE</a>  | &nbsp;
+                <a class="navlink" href="/trips">MY TRIPS</a>  | &nbsp;
+                <a class="navlink" href="/log-a-trip">LOG A TRIP</a>  | &nbsp;
+                <a class="navlink" href="/logout">LOG OUT</a>
+            </th:block>
+    </div>
+</header>
+</body>
+</html>
