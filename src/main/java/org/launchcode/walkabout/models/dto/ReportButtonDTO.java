@@ -8,7 +8,11 @@ import java.awt.event.ActionListener;
 
 public class ReportButtonDTO {
 
-    public JButton button;
+}
+
+
+
+   /* public JButton button;
 
     public JButton createButton(){
         button = new JButton("REPORT HERE");
@@ -40,7 +44,7 @@ public class ReportButtonDTO {
 }
 
 
-   /*@NotNull
+   @NotNull
    private final Button event;
    public Label reportButton;
 
