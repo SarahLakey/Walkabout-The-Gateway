@@ -1,17 +1,24 @@
-package src.main.java.org.launchcode.walkabout.models.dto;
+package org.launchcode.walkabout.models.dto;
+import jakarta.validation.constraints.NotNull;
+import java.awt.*;
 
-/* public class ReportButtonDTO {
+public class ReportButtonDTO {
 
-    @NotNull
-    private Event event;
+   @NotNull
+   private final Button event;
+   public Label reportButton;
 
-    public ReportButtonDTO(){};
+    public ReportButtonDTO(){
+       event = new Button("Report Here");
+       event.setActionCommand();
+
+    };
 
     public Event getEvent() {
         return event;
     }
 
-    public void setEvent(Event event) {
-        this.event = event;
+    //public void setEvent(Event event) {
+        //this.event = event;
     }
-} */
+}
