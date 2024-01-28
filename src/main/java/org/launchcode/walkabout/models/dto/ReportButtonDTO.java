@@ -14,4 +14,4 @@ package src.main.java.org.launchcode.walkabout.models.dto;
     public void setEvent(Event event) {
         this.event = event;
     }
-} */
+
