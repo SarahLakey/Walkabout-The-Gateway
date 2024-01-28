@@ -61,3 +61,12 @@ a:hover {
     background-color: #F5DC0F;
 }
 
+.login, .register {
+    text-align: center;
+}
+
+.error {
+    color: #C70F2E;
+    font-size: 0.9rem;
+    margin: 0;
+}

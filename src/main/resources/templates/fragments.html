@@ -1,28 +1,36 @@
-<!--<!DocType html>-->
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
-<!--<head th:="head">-->
-<!--    <meta charset="UTF-8"/>-->
-<!--    <title>Walkabout the Gateway</title>-->
-<!--    <link th:href="@{/styles.css}" rel="stylesheet" />-->
-<!--</head>-->
-<!--<body>-->
-<!--<header th: fragment="header">-->
-<!--    <div class="nav-bar">-->
-<!--        <img th:src="@{/images/Logo-Yel-nav.png}" width="15%" /> | &nbsp;-->
-<!--        &lt;!&ndash;        <div class="nav-bar">&ndash;&gt;-->
-<!--        <span><a href="/">HOME</a></span> | &nbsp;-->
-<!--        &lt;!&ndash;            <th:block th:unless="${loggedIn}">&ndash;&gt;-->
-<!--        <a class="navlink" href="/login">LOG IN</a>  | &nbsp;-->
-<!--        <a class="navlink" href="/register">REGISTER</a>-->
-<!--        &lt;!&ndash;            </th:block>&ndash;&gt;-->
-<!--        &lt;!&ndash;            <th:block th:if="${loggedIn}">&ndash;&gt;-->
-<!--        &lt;!&ndash;            <span><a href="/">Home</a></span> | &nbsp;&ndash;&gt;-->
-<!--        &lt;!&ndash;            <a class="navlink" href="/profile">Profile</a>  | &nbsp;&ndash;&gt;-->
-<!--        &lt;!&ndash;            <a class="navlink" href="/trips">Trips</a>  | &nbsp;&ndash;&gt;-->
-<!--        &lt;!&ndash;            <a class="navlink" href="/log-a-trip">Log a Trip</a>  | &nbsp;&ndash;&gt;-->
-<!--        &lt;!&ndash;                <a class="navlink" href="/logout">Log Out</a>&ndash;&gt;-->
-<!--        &lt;!&ndash;            </th:block>&ndash;&gt;-->
-<!--    </div>-->
-<!--</header>-->
-<!--</body>-->
-<!--</html>-->
+<!DocType html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title>Walkabout the Gateway</title>
+    <link th:href="@{/styles.css}" rel="stylesheet" />
+    <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+    <link th:href="@{/css/techjobs.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+</head>
+<body>
+<header th:fragment="header">
+    <div class="nav-bar">
+        <img th:src="@{/images/Logo-Yel-nav.png}" width="15%" /> | &nbsp;
+        <!--        <img th:src="@{/images/Logo-Yel-nav.png}" width="15%" /> | &nbsp;-->
+        <th:block th:unless="${loggedIn}">
+                <div class="nav-bar">
+<!--                    <img th:src="@{/images/Logo-Yel-nav.png}" width="15%" /> | &nbsp;-->
+                <a class="navlink" href="/">HOME</a>  | &nbsp;&nbsp;
+                <a class="navlink" href="/login">LOG IN</a>  | &nbsp;
+                <a class="navlink" href="/register">REGISTER</a>
+            </th:block>
+            <th:block th:if="${loggedIn}">
+                <div class="nav-bar">
+                    <img th:src="@{/images/Logo-Yel-nav.png}" width="15%" /> | &nbsp;
+<!--                <span><a href="/">Home</a></span> | &nbsp;-->
+                <a class="navlink" href="/profile">Profile</a>  | &nbsp;
+                <a class="navlink" href="/trips">Trips</a>  | &nbsp;
+                <a class="navlink" href="/log-a-trip">Log a Trip</a>  | &nbsp;
+                <a class="navlink" href="/logout">Log Out</a>
+                </div>
+            </th:block>
+    </div>
+</header>
+</body>
+</html>
