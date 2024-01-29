@@ -4,7 +4,8 @@
 <body>
 <header th:replace="~{fragments :: header}"></header>
     <main>
-        <h1>My Profile</h1>
+        <h1>Welcome Back!</h1>
+        <h1 th:text="${user.username}">username</h1>
     </main>
 </body>
 </html>
