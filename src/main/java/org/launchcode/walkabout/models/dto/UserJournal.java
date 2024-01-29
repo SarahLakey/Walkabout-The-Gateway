@@ -1,12 +1,24 @@
 package org.launchcode.walkabout.models.dto;
-import java.time.LocalDate;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
-public class UserJournal {
+
+public class UserJournal{
+
+    @NotBlank(message = "Please add the journal entry.")
+    @Min(0)
     private String journalEntry;
+
+    @NotBlank(message = "Please add the journal location.")
+    @Min(0)
     private String journalLocation;
-    private LocalDateTime journalDate;
+
+    @NotNull(message = "Please add the journal date.")
+    private static LocalDateTime journalDate;
 
     public UserJournal(String journalEntry, String journalLocation, LocalDateTime journalDate) {
         this.journalEntry = journalEntry;
@@ -42,6 +54,11 @@ public class UserJournal {
 
     public void setJournalDate(LocalDateTime journalDate) {
         this.journalDate = journalDate;
+    }
+
+    @Override
+    public String toString(){
+        return journalEntry + journalLocation + journalDate;
     }
 
     public UserJournal createNewJournalEntry(){
