@@ -8,9 +8,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class HomeController {
 
     @GetMapping("/")
-    @ResponseBody
     public String renderHomePage(){
-        return "Welcome to Walkabout the Gateway!";
+        return "index";
     }
 
 }
