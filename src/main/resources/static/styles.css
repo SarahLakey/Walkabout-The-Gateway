@@ -1,10 +1,5 @@
-body {
-font-size: 18px;
-background: #F2F3F4;
-}
-
 p {
-    font-family: bebas-neue, sans-serif;
+    font-family: bebas-neue, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 400;
 }
@@ -36,10 +31,33 @@ p {
     background-color: #f0e442;
 }
 
+.footer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+    gap: 3.5 rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+    gap: 3.5 rem;
+    background-color: #012773;
+    color: #F5DC0F;
+    font-family: bebas-neue, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: .2rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
 .homepage{
     display: flex;
     justify-content: space-between;
     width: 100%;
+    font-size: 18px;
+    background: #F2F3F4;
 }
 
 .homepage img {

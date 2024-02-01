@@ -10,7 +10,7 @@
         <div class="container">
             <div class="row">
                 <div class ="col-4">
-                    <label>Username</label>
+                    <label th:for="username">Username</label>
                     <input th:field="${loginFormDTO.username}" />
                     <p class="error" th:errors="${loginFormDTO.username}"></p>
                 </div>
@@ -18,7 +18,7 @@
         </div>
         <div class="row">
             <div class ="col-4">
-                <label>Password</label>
+                <label th:for="password">Password</label>
                 <input th:field="${loginFormDTO.password}" type="password" />
                 <p class="error" th:errors="${loginFormDTO.password}"></p>
             </div>
@@ -29,5 +29,16 @@
         <p><a href="/register" >Click Here to Register Now!</a> </p>
     </div>
 </main>
+
+<footer class="footer">
+    <div class="footer-content">
+
+        <p>&copy;<script>document.write(new Date().getFullYear());</script> JSCubed</p>
+<!--        <p><box-icon  type="solid" color="#f0e442" name="report"></box-icon>Submit Geo Fact for Verification</p>-->
+        <p><i class='bx bxs-report' ></i>Submit Geo Fact for Verification</p>
+        <p><i class='bx bxs-error'></i>Report An Issue</p>
+    </div>
+</footer>
+
 </body>
 </html>
