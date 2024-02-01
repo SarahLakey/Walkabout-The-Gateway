@@ -15,12 +15,12 @@ public class User extends AbstractEntity {
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
+    public User() {}
+
     public User(String username, String password) {
         this.username = username;
         this.pwHash = encoder.encode(password);
     }
-
-    public User() {}
 
     public String getUsername() {
         return username;

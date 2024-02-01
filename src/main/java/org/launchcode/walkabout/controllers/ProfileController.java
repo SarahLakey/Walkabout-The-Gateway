@@ -27,20 +27,16 @@ private User getCurrentUser(HttpServletRequest request) {
     return authenticationController.getUserFromSession(session);
 }
 
-//        @GetMapping("profile")
-//        public String displayUserProfile(Model model, HttpSession session) {
-//            model.addAttribute("loggedIn", session.getAttribute("user") != null);
-//
-//            return "profile";
-//        }
 
         @GetMapping
-    public String displayProfilePage(HttpServletRequest request, Model model) {
+    public String displayProfilePage(HttpServletRequest request, HttpSession session, Model model) {
         User user = getCurrentUser(request);
 
         model.addAttribute("user", userRepository.findById(user.getId()));
+        model.addAttribute("loggedIn", session.getAttribute("user") != null);
 
-        return "profile/index";
+
+            return "profile/index";
         }
 
 
