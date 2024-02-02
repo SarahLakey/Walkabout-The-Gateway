@@ -1,3 +1,7 @@
+body {
+    background: #F2F3F4;
+}
+
 p {
     font-family: bebas-neue, Helvetica, sans-serif;
     font-style: normal;
@@ -17,12 +21,13 @@ p {
     padding: 6px 30px;
 }
 
-.nav-bar a {
+.nav-bar a, .footer-content a {
     color: #F5DC0F;
     font-family: bebas-neue, sans-serif;
     font-style: normal;
     font-weight: 400;
     letter-spacing: .2rem;
+    text-decoration: none;
 }
 
 .nav-bar a:hover {
@@ -31,18 +36,16 @@ p {
     background-color: #f0e442;
 }
 
-.footer{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, auto));
-    gap: 3.5 rem;
-}
+
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, auto));
-    gap: 3.5 rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+    padding: 5px 20px;
+    margin: 0 auto;
+    gap: 3.5rem;
     background-color: #012773;
-    color: #F5DC0F;
+    color: #f0e442;
     font-family: bebas-neue, sans-serif;
     font-style: normal;
     font-weight: 400;
