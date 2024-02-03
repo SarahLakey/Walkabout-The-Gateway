@@ -1,9 +1,23 @@
 let appName = "Walkabout the Gateway";
 
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
+window.addEventListener('load', function() {
 
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
+const myForm = document.getElementById('myForm');
+
+//myForm.addEventListener('click', function(event)){
+//    openForm();
+//    });
+
+
+        function openForm() {
+          document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+          document.getElementById("myForm").style.display = "none";
+        }
+
+        window.openForm = openForm;
+        window.closeForm = closeForm;
+
+});
