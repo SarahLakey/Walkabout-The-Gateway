@@ -33,10 +33,46 @@
 </header>
 
 <footer th:fragment="footer">
+<!--    <div class="footer-content">-->
+<!--        <p>&copy;<script>document.write(new Date().getFullYear());</script> JSCubed</p>-->
+<!--        <p><i class='bx bxs-report' ></i><a href="/submit-fact">Submit Fact</a></p>-->
+<!--        <p><i class='bx bxs-error'></i>Report An Issue</p>-->
+<!--    </div>-->
     <div class="footer-content">
         <p>&copy;<script>document.write(new Date().getFullYear());</script> JSCubed</p>
-        <p><i class='bx bxs-report' ></i><a href="/submit-fact">Submit Fact</a></p>
-        <p><i class='bx bxs-error'></i>Report An Issue</p>
+    </div>
+
+    <div>
+        <button class="open-button" onclick="openForm()"><i class='bx bxs-report' ></i> Submit Fact </button>
+
+        <div class="form-popup" id="myForm">
+            <form action="/action_page.php" class="form-container">
+                <h1>Submit Fact</h1>
+
+                <label><b>Name</b></label>
+                <input type="text" placeholder="Enter Your Name" name="name" required>
+
+                <label><b>Location</b></label>
+                <input type="text" placeholder="Enter Location / Building Name" name="location" required>
+
+                <label><b>Fact</b></label>
+                <input type="text" placeholder="Enter Fact to be Verified" name="fact" required>
+
+
+                <button type="submit" class="btn">SUBMIT FACT</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
+            </form>
+        </div>
+        <script>
+            function openForm() {
+              document.getElementById("myForm").style.display = "block";
+            }
+
+            function closeForm() {
+              document.getElementById("myForm").style.display = "none";
+            }
+        </script>
+
     </div>
 </footer>
 
