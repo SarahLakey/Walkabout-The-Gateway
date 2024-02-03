@@ -5,9 +5,6 @@ window.addEventListener('load', function() {
 const myForm = document.getElementById('myForm');
 
 //myForm.addEventListener('click', function(event)){
-//    openForm();
-//    });
-
 
         function openForm() {
           document.getElementById("myForm").style.display = "block";
@@ -19,5 +16,7 @@ const myForm = document.getElementById('myForm');
 
         window.openForm = openForm;
         window.closeForm = closeForm;
+
+  //    });
 
 });

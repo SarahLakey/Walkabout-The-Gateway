@@ -48,11 +48,12 @@
         <button class="open-button" onclick="openForm()"><i class='bx bxs-report' ></i> Submit Fact </button>
 
         <div class="form-popup" id="myForm">
-            <form action="/admin" class="form-container">
+            <form action="/profile" class="form-container">
+<!--            <form action="/profile" method="POST" class="form-container">-->
                 <h1>Submit Fact</h1>
 
                 <label><b>Name</b></label>
-                <input type="text" placeholder="Enter Your Name" name="name" required>
+                <input id="name-input" type="text" placeholder="Enter Your Name" name="name" required>
 
                 <label><b>Location</b></label>
                 <input type="text" placeholder="Enter Location / Building Name" name="location" required>
@@ -74,6 +75,10 @@
             function closeForm() {
               document.getElementById("myForm").style.display = "none";
             }
+
+            nameInput.addEventListener('input', function() {
+                name.innerHTML = nameInput.value || "Your Name";
+            });
         </script>
 
     </div>
