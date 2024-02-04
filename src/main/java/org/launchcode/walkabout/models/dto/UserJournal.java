@@ -10,11 +10,11 @@ import java.util.Scanner;
 public class UserJournal{
 
     @NotBlank(message = "Please add the journal entry.")
-    @Min(0)
+    @Min(1)
     private String journalEntry;
 
     @NotBlank(message = "Please add the journal location.")
-    @Min(0)
+    @Min(3)
     private String journalLocation;
 
     @NotNull(message = "Please add the journal date.")
@@ -23,13 +23,13 @@ public class UserJournal{
     public UserJournal(String journalEntry, String journalLocation, LocalDateTime journalDate) {
         this.journalEntry = journalEntry;
         this.journalLocation = journalLocation;
-        this.journalDate = journalDate;
+        UserJournal.journalDate = journalDate;
     }
 
     public UserJournal() {
         this.journalEntry = "";
         this.journalLocation = "";
-        this.journalDate = null;
+        journalDate = null;
     }
 
     public String getJournalEntry() {
@@ -53,7 +53,7 @@ public class UserJournal{
     }
 
     public void setJournalDate(LocalDateTime journalDate) {
-        this.journalDate = journalDate;
+        UserJournal.journalDate = journalDate;
     }
 
     @Override
