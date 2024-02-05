@@ -1,0 +1,33 @@
+<!DocType html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<main>
+    <table class="userjournal">
+        <h1>Journal Entries</h1>
+        <h3>View and Leave Journal Entries Here</h3>
+        <form method="post">
+            <tr th:each="UserJournal : ${UserJournal}">
+                <td th:text="${UserJournal.journalEntry}"></td>
+                <td th:text="${UserJournal.journalLocation}"></td>
+                <td th:text="${UserJournal.journalDate}"></td>
+            </tr>
+            <div class="row">
+                <label>Journal Entry: </label>
+                <textarea name="missionDescription"></textarea>
+                <label>Journal Location: </label>
+                <textarea name="missionDescription"></textarea>
+            </div>
+            <div class = "row">
+                <label>Journal Date: <input type="datetime-local"></label>
+            </div>
+            <button onclick="submit" value="Submit">Submit</button>
+        </form>
+        <div class = "row">
+            <button onclick="submit" value="Report">Report Here</button>
+        </div>
+    </table>
+</main>
+</body>
+</html>
