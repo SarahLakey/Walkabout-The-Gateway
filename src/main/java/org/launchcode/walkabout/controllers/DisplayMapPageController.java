@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class DisplayMapPageController {
 
-    @GetMapping("display-map")
+    @GetMapping("map-display")
     public String displayMapController(){
         return "map-display";
     }

@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-
-    <th:block>
-
-    </th:block>
-
-
-</head>
-<body>
-
-</body>
-</html>
+<head th:replace="~{fragments :: head}">
+  </head>
+  <body>
+  <header th:replace="~{fragments :: header}"></header>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" th:src = "@{/script.js}"></script>
+  <div id="map_div" style="display: block; width: 100%; height: 100%; margin: auto"></div>
+  </body>
+  </html>
