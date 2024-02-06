@@ -13,6 +13,8 @@ public class User extends AbstractEntity {
     @NotNull
     private String pwHash;
 
+    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
     public User() {}
 
     public User(String username, String password) {
@@ -24,9 +26,7 @@ public class User extends AbstractEntity {
         return username;
     }
 
-    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-
-    public boolean isMatchingPassword (String password) {
+   public boolean isMatchingPassword (String password) {
         return encoder.matches(password, pwHash);
     }
 

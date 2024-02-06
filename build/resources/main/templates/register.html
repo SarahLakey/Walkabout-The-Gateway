@@ -1,12 +1,30 @@
 <!DocType html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title></title>
-</head>
+<head th:replace="~{fragments :: head}"></head>
 <body>
+<header th:replace="~{fragments :: header}"></header>
     <main>
-        <h1>Register New User</h1>
+        <div class="register">
+        <h1>Welcome!</h1>
+        <h2>Create a New Account:</h2>
+        <form method="post">
+            <div>
+                <label th:for="username">Username</label>
+                <input th:field="${registrationFormDTO.username}" />
+                <p class="error" th:errors="${registrationFormDTO.username}"></p>
+            </div>
+            <div>
+                <label th:for="password">Password</label>
+                <input type="password" th:field="${registrationFormDTO.password}" />
+                <p class="error" th:errors="${registrationFormDTO.password}"></p>
+            </div>
+            <div>
+                <label th:for="verifyPassword">Verify Password</label>
+                <input type="password" th:field="${registrationFormDTO.verifyPassword}" />
+                <p class="error" th:errors="${registrationFormDTO.verifyPassword}"></p>
+            </div>
+            <button type="submit">Join</button>
+        </form>
     </main>
 </body>
 </html>
