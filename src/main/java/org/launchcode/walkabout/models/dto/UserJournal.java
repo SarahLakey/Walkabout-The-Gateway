@@ -2,12 +2,15 @@ package org.launchcode.walkabout.models.dto;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import org.launchcode.walkabout.models.AbstractEntity;
 
+import javax.persistence.Entity;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
 
-public class UserJournal{
+@Entity
+public class UserJournal extends AbstractEntity {
 
     @NotBlank(message = "Please add the journal entry.")
     @Min(1)
@@ -56,7 +59,7 @@ public class UserJournal{
         UserJournal.journalDate = journalDate;
     }
 
-    @Override
+    //@Override
     public String toString(){
         return journalEntry + journalLocation + journalDate;
     }
