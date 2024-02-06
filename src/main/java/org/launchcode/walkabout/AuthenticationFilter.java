@@ -19,7 +19,7 @@ public class AuthenticationFilter implements HandlerInterceptor {
 
 
     private static final List<String> whitelist = Arrays.asList("/register", "/login",
-            "/styles.css", "/images", "/index", "/userjournal");
+            "/styles.css", "/images", "/index");
 
     private static boolean isWhiteListened(String path) {
         for (String pathRoot : whitelist) {

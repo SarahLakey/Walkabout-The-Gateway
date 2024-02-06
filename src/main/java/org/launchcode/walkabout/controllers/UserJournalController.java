@@ -6,11 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("userjournal")
-public class UserJournalController {
+public class UserJournalController{
+
     @GetMapping
-    public String displayMyJournal() {
+    public String userJournalController()
 
-
-        return "userjournal.html";
-    }
+    {return "journalentries/userjournal";}
 }
