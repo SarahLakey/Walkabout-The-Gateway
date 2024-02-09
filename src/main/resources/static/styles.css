@@ -198,3 +198,87 @@ button:active {
     margin: 0;
 }
 
+
+.open-button-two {
+  background-color: #012773;
+  color: #f0e442;
+  font-size: 16px;
+  padding: 5px 20px;
+  border: 3px inset #f0e442;
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 15px;
+  right: 300px;
+  width: 200px;
+  opacity: .8;
+}
+
+.form-popup-two {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 10px;
+  border: 3px solid #f0e442;
+  z-index: 9;
+}
+
+.form-container-two {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+  font-size: 20px;
+
+}
+
+.form-container-two input[type=text] {
+  width: 90%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #D9DADB;
+}
+
+.form-container-two input[type=text]:focus {
+  background-color: #F2F3F4;
+  outline: none;
+}
+
+.form-container-two .btn-two {
+  background-color: #f0e442;
+  color: black;
+  font-family: bebas-neue, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: .2rem;
+  padding: 16px 20px;
+  border: inset #f0e442;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:5px;
+  opacity: .7;
+}
+
+.form-container-two .cancel-two {
+  background-color: #012773;
+  color: white;
+  }
+
+  .form-container-two .btn:hover-two, .open-button:hover-two {
+    opacity: 1;
+  }
+
+button-two {
+    color: #012773;
+    background-color: #f0e442;
+    margin-top: 20px;
+    padding: 5px;
+    outline: none;
+    border: 3px inset #f0e442;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: .8;
+    width: 150px;
+    font-size: 16px;
+}
