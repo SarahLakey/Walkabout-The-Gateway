@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<div>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+        <th>Location</th>
+        <th>Coordinates</th>
+        <th>Description</th>
+        </tr>
+        </thead>
+        <tr th:each="${favorite : favorites}">
+            <td th:text="${favorite.location}"></td>
+            <td th:text="${favorite.longitude}, ${favorite.latitude}"></td>
+            <td th:text="${favorite.description"></td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
