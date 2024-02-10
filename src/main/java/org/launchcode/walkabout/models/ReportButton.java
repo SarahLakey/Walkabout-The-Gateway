@@ -1,6 +1,9 @@
 package org.launchcode.walkabout.models;
 
-public class ReportButton {
+import jakarta.persistence.Entity;
+
+@Entity
+public class ReportButton extends AbstractEntity{
     private String name;
     private String report;
     private String otherUsername;

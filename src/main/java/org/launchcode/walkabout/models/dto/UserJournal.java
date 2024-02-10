@@ -1,16 +1,20 @@
 package org.launchcode.walkabout.models.dto;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import org.launchcode.walkabout.models.AbstractEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.launchcode.walkabout.models.User;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.persistence.Entity;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
-
-public class UserJournal {
+@Entity
+public class UserJournal extends AbstractEntity {
 
     @NotBlank(message = "Please add the journal entry.")
     @Min(1)
@@ -29,11 +33,9 @@ public class UserJournal {
         UserJournal.journalDate = journalDate;
     }
 
-    public UserJournal() {
-        this.journalEntry = "";
-        this.journalLocation = "";
-        journalDate = null;
-    }
+    @Autowired
+    public UserJournal() {}
+
 
     public String getJournalEntry() {
         return journalEntry;
@@ -59,19 +61,14 @@ public class UserJournal {
         UserJournal.journalDate = journalDate;
     }
 
-    @Override
     public String toString(){
         return journalEntry + journalLocation + journalDate;
     }
 
-    public UserJournal createNewJournalEntry(){
-        UserJournal tempJournal = new UserJournal();
-        Scanner tempScanner = new Scanner(System.in);
-        System.out.println("Please enter your journal entry: ");
+    public UserJournal createNewJournalEntry(String journalEntry, String journalLocation, LocalDateTime journalDate){
+        UserJournal tempJournal = new UserJournal(journalEntry, journalLocation, journalDate);
 
-        tempJournal.setJournalEntry(tempScanner.nextLine());
-        tempJournal.setJournalDate(LocalDateTime.now());
         return tempJournal;
-    }
+    };
 
 }
