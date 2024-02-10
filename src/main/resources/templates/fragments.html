@@ -47,29 +47,29 @@
     </div>
 
     <div>
-        <button class="open-button-two" onclick="openForm-two()"><i class='bx bxs-report' ></i>Report Here</button>
+        <button class="open-button-two" onclick="openFormTwo()"><i class='bx bxs-report' ></i>Report Here</button>
         <div class="form-popup-two" id="reportForm">
-            <form action="/profile" class="form-container-two">
+            <form action="" class="form-container-two">
                 <h1>Report Here</h1>
                 <label><b>Name</b> <input id="name" type="text" placeholder="Enter Your Name" name="names" required></label>
                 <label><b>Report Here</b> <input type="text" placeholder="Please report any unsavory behavior here." name="reports" required></label>
                 <button type="submit" class="btn-two">SUBMIT REPORT</button>
-                <button type="button" class="btn cancel-two" onclick="closeForm-two()">CLOSE</button>
+                <button type="button" class="btn cancel-two" onclick="closeFormTwo()">CLOSE</button>
             </form>
         </div>
     </div>
 
     <script>
-        function openForm-two() {
-          document.getElementById("myForm").style.display = "block";
+        function openFormTwo() {
+          document.getElementById("reportForm").style.display = "block";
         }
 
-        function closeForm-two() {
-          document.getElementById("myForm").style.display = "none";
+        function closeFormTwo() {
+          document.getElementById("reportForm").style.display = "none";
         }
 
         nameInput.addEventListener('input', function() {
-            name.innerHTML = nameInput.value || "Your Name";
+            name.innerHTML = name.value || "Your Name";
         });
     </script>
 
