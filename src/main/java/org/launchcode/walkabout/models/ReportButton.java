@@ -2,11 +2,9 @@ package org.launchcode.walkabout.models;
 
 import jakarta.persistence.Entity;
 
-@Entity
-public class ReportButton extends AbstractEntity{
+public class ReportButton{
     private String name;
     private String report;
-    private String otherUsername;
 
     public String getName() {
         return name;
@@ -24,11 +22,4 @@ public class ReportButton extends AbstractEntity{
         this.report = report;
     }
 
-    public String getOtherUsername() {
-        return otherUsername;
-    }
-
-    public void setOtherUsername(String otherUsername) {
-        this.otherUsername = otherUsername;
-    }
 }

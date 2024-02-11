@@ -3,7 +3,12 @@
 <head th:replace="~{fragments :: head}"></head>
 <body>
 <header th:replace="~{fragments :: header}"></header>
-    <td th:text="${userJournal.journalEntry}"></td>
+<h1>Journal Entries</h1>
+<table>
+    <td th:text="${UserJournal.journalEntry}"></td>
+    <td th:text="${UserJournal.journalLocation}"></td>
+    <td th:text="${UserJournal.journalDate}"></td>
+</table>
 </body>
 <footer th:replace="~{fragments :: footer}"></footer>
 </html>

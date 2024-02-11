@@ -1,5 +1,7 @@
 package org.launchcode.walkabout.controllers;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.launchcode.walkabout.data.JournalRepository;
 import org.launchcode.walkabout.models.User;
 import org.launchcode.walkabout.models.dto.UserJournal;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,19 +19,72 @@ import java.util.List;
 @RequestMapping("userjournal")
 public class UserJournalController{
 
-    private static List<UserJournal> userJournals = new ArrayList<>();
-
     @GetMapping
-    public String newJournalController()
+    public String userJournalController()
 
-    {return "userjournal/journalentries";}
+    {return "journalentries/userjournal";}
+}
 
-    @GetMapping
-    public String processCreateEventForm(Model model) {
-        model.addAttribute("title", "All Journals");
-        model.addAttribute("userJournals", userJournals);
-        return "userJournals/create:";
+   /*public UserJournalController(JournalRepository journalRepository) {
+        this.journalRepository = journalRepository;
     }
+
+    @Autowired
+    private final JournalRepository journalRepository;
+
+   private UserJournal getJournalEntry(HttpServletRequest request) {
+       HttpSession session = request.getSession();
+       return journalRepository.getAttribute(UserJournal);
+   } */
+
+
+    /*@RequestMapping(value = "journalTemp", method = RequestMethod.GET)
+    public String journalTemps(Model model) {
+        model.addAttribute("journalTemps", JournalRepository.findall());
+        return "journalTemp/list";
+    }
+
+    @RequestMapping(value = "journalTemp", method = RequestMethod.GET)
+    public ModelAndView journaltemps() {
+        ModelAndView mav = new ModelAndView("journalTemp/list");
+        mav.addObject("journalTemps", JournalRepository.findall());
+        return mav;
+    }
+
+    @ModelAttribute("journalTemps")
+    public Object journalTemps() {
+        return JournalRepository.findall();
+    }
+
+    /*@GetMapping("/userjournal")
+    public List<UserJournal> getJournalEntry() {
+        return (List<UserJournal>) journalRepository.findAll();
+    }
+
+    @PostMapping("/userjournal")
+    void addJournal (@RequestBody UserJournal userJournal) {
+        journalRepository.save(userJournal);
+    }
+
+   /* @GetMapping
+    public String displayAllEventForm(Model model) {
+        model.addAttribute("title", "All Journals");
+        model.addAttribute("userJournals", userJournalsEvents);
+        return "userjournal/index";
+    }
+
+    @GetMapping("create")
+    public String displayCreateEventForm(Model model){
+        model.addAttribute("title","Create Journal");
+        return "userjournal/create";
+    }
+
+   @PostMapping("create")
+    public String processCreateEventForm(@RequestParam String journalEntry){
+        userJournalsEvents.add(new UserJournal());
+        return "redirect";
+    }*/
+
 
 
     /*@Autowired
@@ -55,4 +111,3 @@ public class UserJournalController{
         return "result";
     }*/
 
-}
