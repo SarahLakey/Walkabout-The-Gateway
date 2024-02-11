@@ -5,6 +5,10 @@
 <header th:replace="~{fragments :: header}"></header>
 <main>
     <h1>Your Journal Entries</h1>
+    <p th:text="'journalEntry: ' + ${userjournaltwo.journalEntry}"></p>
+    <p th:text="'journalLocation: ' + ${userjournaltwo.journalLocation}"></p>
+    <p th:text:${UserJournal.journalLocation}=""></p>
 </main>
 </body>
+<footer th:replace="~{fragments :: footer}"></footer>
 </html>

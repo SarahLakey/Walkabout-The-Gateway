@@ -9,10 +9,8 @@ import jakarta.validation.constraints.NotNull;
 import org.launchcode.walkabout.models.AbstractEntity;
 import org.launchcode.walkabout.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.Scanner;
@@ -69,11 +67,17 @@ public class UserJournal extends AbstractEntity {
         return journalEntry + journalLocation + journalDate;
     }
 
-   @RequestMapping("/userjournal")
-    public UserJournal createNewJournalEntry(@RequestParam String journalEntry, String journalLocation, LocalDateTime journalDate){
+   @PostMapping("/userjournal")
+    public UserJournal createNewJournalEntry(String journalEntry, String journalLocation, LocalDateTime journalDate){
         UserJournal tempJournal = new UserJournal(journalEntry, journalLocation, journalDate);
-
+        System.out.println(tempJournal);
         return tempJournal;
     };
+
+    /*@GetMapping("/userjournal")
+    public String newJournal(Model model) {
+        model.addAttribute("journal", journalEntry);
+        return "newJournal.html";
+    }*/
 
 }
