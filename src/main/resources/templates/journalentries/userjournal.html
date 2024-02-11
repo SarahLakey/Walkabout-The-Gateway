@@ -8,12 +8,15 @@
 <main>
     <table class="userjournal">
         <h1>Journal Entries</h1>
-        <h3>View and Leave Journal Entries Here</h3>
-        <form method="post">
+        <h3>View and Leave Journal Entries About Your Walks Here.</h3>
+        <h4>Include any fun details you noticed, how the weather was, or just your review about where you visited!
+             This is for members of your community, so include any information they might want to know!</h4>
+        <form action="newJournal" method="post">
             <tr th:each="UserJournal : ${UserJournal}">
                 <td th:text="${UserJournal.journalEntry}"></td>
                 <td th:text="${UserJournal.journalLocation}"></td>
                 <td th:text="${UserJournal.journalDate}"></td>
+            </tr>
             <div class="row">
                 <label>Journal Entry: </label>
                 <textarea name="missionDescription"></textarea>
@@ -23,9 +26,14 @@
             </div>
             <button onclick="createNewJournalEntry()" value="Submit">Submit</button>
         </form>
-        <h2>Your Journal Entries: </h2>
-
+        <div>
+            <h3>Your Journal Entries</h3>
+            <ol>
+                <li th:text:${UserJournal.journalEntry}="${journalEntry}"></li>
+            </ol>
+        </div>
     </table>
 </main>
 </body>
+<footer th:replace="~{fragments :: footer}"></footer>
 </html>

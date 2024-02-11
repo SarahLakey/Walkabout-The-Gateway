@@ -10,7 +10,9 @@ import org.launchcode.walkabout.models.AbstractEntity;
 import org.launchcode.walkabout.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.time.LocalDateTime;
 import java.util.Scanner;
@@ -67,7 +69,7 @@ public class UserJournal extends AbstractEntity {
         return journalEntry + journalLocation + journalDate;
     }
 
-    //@PostMapping("userJournalForm")
+   @RequestMapping("/userjournal")
     public UserJournal createNewJournalEntry(@RequestParam String journalEntry, String journalLocation, LocalDateTime journalDate){
         UserJournal tempJournal = new UserJournal(journalEntry, journalLocation, journalDate);
 
