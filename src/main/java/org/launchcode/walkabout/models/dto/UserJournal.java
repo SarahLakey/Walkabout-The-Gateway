@@ -1,24 +1,94 @@
 package org.launchcode.walkabout.models.dto;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.persistence.*;
 import org.launchcode.walkabout.models.AbstractEntity;
-import org.launchcode.walkabout.models.User;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDateTime;
-import java.util.Scanner;
 
 @Entity
-public class UserJournal extends AbstractEntity {
+public class UserJournal{
 
-    @NotBlank(message = "Please add the journal entry.")
+    @Id
+    public Integer Id;
+    private String journalEntry;
+    private String journalLocation;
+
+    public UserJournal(String journalEntry, String journalLocation) {
+        this.journalEntry = journalEntry;
+        this.journalLocation =journalLocation;
+    }
+
+    public String getJournalEntry() {
+        return journalEntry;
+    }
+
+    public void setJournalEntry(String journalEntry) {
+        this.journalEntry = journalEntry;
+    }
+
+    public String getJournalLocation() {
+        return journalLocation;
+    }
+
+    public void setJournalLocation(String journalLocation) {
+        this.journalLocation = journalLocation;
+    }
+
+    @Override
+    public String toString(){
+        return journalEntry;
+    }
+
+    /* @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Integer Id;
+    private String journalEntry;
+   private String journalLocation;
+
+   private String journalDate;
+
+    /*public UserJournal(Integer id, String journalEntry, String journalLocation, String journalDate) {
+        Id = id;
+        this.journalEntry = journalEntry;
+        this.journalLocation = journalLocation;
+        this.journalDate = journalDate;
+    }
+
+    public UserJournal() {
+
+    }
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(Integer id) {
+        Id = id;
+    }
+
+    public String getJournalEntry() {
+        return journalEntry;
+    }
+
+    public void setJournalEntry(String journalEntry) {
+        this.journalEntry = journalEntry;
+    }
+
+    public String getJournalLocation() {
+        return journalLocation;
+    }
+
+    public void setJournalLocation(String journalLocation) {
+        this.journalLocation = journalLocation;
+    }
+
+    public String getJournalDate() {
+        return journalDate;
+    }
+
+    public void setJournalDate(String journalDate) {
+        this.journalDate = journalDate;
+    } */
+
+
+    /* @NotBlank(message = "Please add the journal entry.")
     @Min(1)
     private String journalEntry;
 
@@ -74,7 +144,7 @@ public class UserJournal extends AbstractEntity {
         return tempJournal;
     };
 
-    /*@GetMapping("/userjournal")
+    @GetMapping("/userjournal")
     public String newJournal(Model model) {
         model.addAttribute("journal", journalEntry);
         return "newJournal.html";

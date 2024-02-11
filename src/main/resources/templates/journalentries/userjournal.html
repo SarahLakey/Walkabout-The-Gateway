@@ -6,28 +6,30 @@
 <body>
 <header th:replace="~{fragments :: header}"></header>
 <main>
+    <label>
+        User Journal
+        <input type="text" name="journalDescription" class="form-control">
+    </label>
+    <table class="userjournal">
         <h1>Journal Entries</h1>
-        <h3>View and Leave Journal Entries About Your Walks Here.</h3>
-        <h4>Include any fun details you noticed, how the weather was, or just your review about where you visited!
-             These are for members of your community, so include any information they might want to know!</h4>
-        <form action="#" th:action="@{/userjournal}" th:object="${userjournal}" method="post">
-            <p>Journal Entry: <input type="text" th:field="*{journalEntry}" /></p>
-            <p>Journal Location: <input type="text" th:field="*{journalLocation}" /></p>
-            <p>Journal Date: <input type="datetime-local"></p>
-            <p><input type="submit" value="Submit" />
+        <h3>View and Leave Journal Entries Here</h3>
+        <form method="post">
+            <tr th:each="UserJournal : ${UserJournal}">
+                <td th:text="${UserJournal.journalEntry}"></td>
+                <td th:text="${UserJournal.journalLocation}"></td>
+                <td th:text="${UserJournal.journalDate}"></td>
+            </tr>
+            <div class="row">
                 <label>Journal Entry: </label>
                 <textarea name="missionDescription"></textarea>
                 <label>Journal Location: </label>
                 <textarea name="missionDescription"></textarea>
+            </div>
+            <div class = "row">
                 <label>Journal Date: <input type="datetime-local"></label>
-            <input type="button" onclick="createNewJournalEntry()" value="Submit">
+            </div>
+            <button onclick="submit" value="Submit">Submit</button>
         </form>
-    <table class="userjournalshow">
-        <tr th:each="test : ${test}">
-            <td th:text="${journalEntryWrite.journalEntry}"></td>
-            <td th:text="${UserJournal.journalLocation}"></td>
-            <td th:text="${UserJournal.journalDate}"></td>
-        </tr>
     </table>
 </main>
 </body>
