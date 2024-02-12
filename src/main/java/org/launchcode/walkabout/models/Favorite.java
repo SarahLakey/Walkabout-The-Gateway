@@ -23,6 +23,8 @@ public class Favorite extends User {
         this.description = description;
     }
 
+    public Favorite() {};
+
     public String getLocation() {
         return location;
     }
