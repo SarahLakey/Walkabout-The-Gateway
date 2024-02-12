@@ -1,11 +1,10 @@
 package org.launchcode.walkabout.models;
 
 import jakarta.validation.constraints.NotBlank;
-
-import javax.persistence.Entity;
+import jakarta.persistence.Entity;
 
 @Entity
-public class Favorites extends User {
+public class Favorite extends User {
 
     @NotBlank(message = "Name required- put a name to that place!")
     private String location;
@@ -17,7 +16,7 @@ public class Favorites extends User {
 
     private String description;
 
-    public Favorites(String location, int longitude, int latitude, String description){
+    public Favorite(String location, int longitude, int latitude, String description){
         this.location = location;
         this.longitude = longitude;
         this.latitude = latitude;

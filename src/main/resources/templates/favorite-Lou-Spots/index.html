@@ -12,7 +12,7 @@
         <th>Description</th>
         </tr>
         </thead>
-        <tr th:each="${favorite : favorites}">
+        <tr th:each="favorite : ${favorites}">
             <td th:text="${favorite.location}"></td>
             <td th:text="${favorite.longitude}, ${favorite.latitude}"></td>
             <td th:text="${favorite.description"></td>
