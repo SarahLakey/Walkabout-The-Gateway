@@ -6,10 +6,10 @@
     <main>
         <div>
             <h1>Log Your Trip Here!</h1>
-                <form th:action="@{/log-a-trip}" method="post">
+            <form th:action="@{/log-a-trip/log}" method="post">
                 <div>
                     <label>Enter your steps:
-                        <input type="number" th:field="${user.points}">
+                        <input type="number" th:field="${user.points}" min="1" />
                     </label>
                 </div>
                 <div>

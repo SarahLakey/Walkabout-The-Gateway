@@ -32,9 +32,8 @@ public class LogATripController {
 
     @GetMapping
     public String displayLogATrip(HttpServletRequest request, HttpSession session, Model model) {
-        User currentUser = getCurrentUser(request);
 
-        model.addAttribute("user", userRepository.findById(currentUser.getId()));
+        model.addAttribute("user", new User());
         model.addAttribute("loggedIn", session.getAttribute("user") != null);
 
         return "log-a-trip/index";
@@ -45,31 +44,13 @@ public class LogATripController {
     public String processLogATrip(@Valid User user, Errors errors, Model model, HttpSession session, HttpServletRequest request) {
         User currentUser = getCurrentUser(request);
 
-        model.addAttribute("user", userRepository.findById(currentUser.getId()));
-        model.addAttribute("loggedIn", session.getAttribute("user") != null);
 
         currentUser.setPoints(user.getPoints() + currentUser.getPoints());
+        System.out.println("After Update - Current User Points: " + currentUser.getPoints());
 
-       userRepository.save(currentUser);
+        userRepository.save(currentUser);
 
-        return "profile/index";
+        return "redirect:/profile";
     }
-
-//    @PostMapping
-//    public String processLogATrip(@Valid User user, Errors errors, Model model, HttpServletRequest request) {
-//        User currentUser = getCurrentUser(request);
-//
-//        if(errors.hasErrors()) {
-//
-//            return "log-a-trip/index";
-//        }
-//
-//        currentUser.setPoints(user.getPoints() + currentUser.getPoints());
-//
-//        userRepository.save(currentUser);
-//
-//        return "redirect:/profile/index";
-//
-//    }
 
 }

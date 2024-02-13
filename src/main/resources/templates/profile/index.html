@@ -4,10 +4,27 @@
 <body>
 <header th:replace="~{fragments :: header}"></header>
     <main>
-        <h1>Welcome Back!</h1>
-        <h1 th:text="${user.username}">username</h1>
-        <h2>You currently have this many experience points:</h2>
-        <h2 th:text="${user.points}">points</h2>
+        <div>
+            <h1>Welcome Back!</h1>
+            <h1 th:text="${user.username}">username</h1>
+            <h2>You currently have this many experience points:</h2>
+            <h2 th:text="${user.points}">points</h2>
+            <div th:if="${user.points >= 0 and user.points < 10000}">
+                <p>User Level: 1</p>
+            </div>
+            <div th:if="${user.points >= 10001 and user.points < 15000}">
+                <p>User Level: 2</p>
+            </div>
+            <div th:if="${user.points >= 15001 and user.points <25000}">
+                <p>User Level: 3</p>
+            </div>
+            <div th:if="${user.points >= 25001 and user.points <40000}">
+                <p>User Level: 4</p>
+            </div>
+            <div th:if="${user.points >= 40001}">
+                <p>User Level: 5</p>
+            </div>
+        </div>
     </main>
 </body>
 </html>
