@@ -1,11 +1,48 @@
 <!DocType html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments :: head}"></head>
+<head th:replace="~{fragments :: head}">
+    <script src="popup-script.js"></script>
+</head>
 
 <body>
+<header th:replace="~{fragments :: header}"></header>
 
 <main>
     <h1>Welcome to the Admin Page!</h1>
+
+    <section>
+        <h3>Facts Submitted to Be Verified: </h3>
+        <div class="flex-col">
+            <table id="myForm" class="flex-col">
+                <tr>
+                    <td id="name-input">Name</td>
+                </tr>
+                <tr>
+                    <td id="location-input">Location</td>
+                </tr>
+                <tr>
+                    <td id="fact-input">Fact to Be Verified</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <script>
+
+        const form = window.opener.document.getElementById('myForm');
+
+      function show() {
+          document.getElementById("name-input").innerHTML = name-input;
+      }
+
+                  nameInput.addEventListener('input', function() {
+              name.innerHTML = nameInput.value || "Your Name";
+          });
+
+
+    </script>
+
+
 </main>
 
 <footer th:replace="~{fragments :: footer}"></footer>
