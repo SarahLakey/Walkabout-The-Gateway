@@ -25,6 +25,51 @@ public class UserJournalController{
     {return "journalentries/userjournal";}
 }
 
+
+/*@Controller
+@RequestMapping("/userjournal")
+public class UserJournalController {
+
+    @GetMapping("/userjournal")
+    public String showForm() {
+        return "userjournal";
+    }
+
+    @PostMapping("/userjournal")
+    public String submitForm(@RequestParam String name, @RequestParam String journalsub, Model model) {
+        model.addAttribute("name", name);
+        model.addAttribute("journalsub", journalsub);
+        return "userjournal";
+    }
+}
+/*@Controller
+@RequestMapping("/userjournal")
+public class UserJournalController{
+
+    @GetMapping
+    public String userJournalController()
+
+    {return "journalentries/userjournal";}
+
+    @GetMapping("/form")
+    public String showForm() {
+        return "/userjournal/userjournal";
+    }
+
+    @PostMapping("/readjournals")
+    public String submitForm(@RequestParam String name, @RequestParam String journalsub, Model model) {
+        model.addAttribute("name", name);
+        model.addAttribute("journalsub", journalsub);
+        return "readjournals";
+    }
+}
+
+   /* @GetMapping
+    public String userJournalController()
+
+    {return "journalentries/userjournal";}
+}
+
    /*public UserJournalController(JournalRepository journalRepository) {
         this.journalRepository = journalRepository;
     }

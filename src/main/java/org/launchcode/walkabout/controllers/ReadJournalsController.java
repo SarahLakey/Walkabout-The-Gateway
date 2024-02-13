@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("readjournals")
+@RequestMapping("userjournal")
 public class ReadJournalsController {
     @GetMapping
     public String readJournalController()
 
-    {return "journalentries/readjournals";}
+    {return "journalentries/userjournal";}
 
 }
