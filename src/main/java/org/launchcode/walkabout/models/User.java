@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import java.util.Date;
+
 @Entity
 public class User extends AbstractEntity {
 
@@ -30,4 +32,33 @@ public class User extends AbstractEntity {
         return encoder.matches(password, pwHash);
     }
 
+   private String journalEntry="";
+
+    public String getJournalEntry() {
+        return journalEntry;
+    }
+
+    public void setJournalEntry(String journalEntry) {
+        this.journalEntry = journalEntry;
+    }
+
+    private String journalLocation="";
+
+    public String getJournalLocation() {
+        return journalLocation;
+    }
+
+    public void setJournalLocation(String journalLocation) {
+        this.journalLocation = journalLocation;
+    }
+
+    public static Date journalDate;
+
+    public Date getJournalDate() {
+        return journalDate;
+    }
+
+    public void setJournalDate(Date journalDate) {
+        User.journalDate = journalDate;
+    }
 }

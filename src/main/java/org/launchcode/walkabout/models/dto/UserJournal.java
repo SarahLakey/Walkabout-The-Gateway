@@ -6,15 +6,17 @@ import jakarta.validation.constraints.NotNull;
 import org.launchcode.walkabout.models.AbstractEntity;
 import org.launchcode.walkabout.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Scanner;
 
-
-public class UserJournal {
+@Entity
+public class UserJournal extends AbstractEntity{
 
     @NotBlank(message = "Please add the journal entry.")
     @Min(1)
@@ -24,19 +26,18 @@ public class UserJournal {
     @Min(3)
     private String journalLocation;
 
-    @NotNull(message = "Please add the journal date.")
-    private static LocalDateTime journalDate;
+    private Date journalDate;
 
-    public UserJournal(String journalEntry, String journalLocation, LocalDateTime journalDate) {
+    public UserJournal(String journalEntry, String journalLocation, Date journalDate) {
         this.journalEntry = journalEntry;
         this.journalLocation = journalLocation;
-        UserJournal.journalDate = journalDate;
+        User.journalDate = journalDate;
     }
 
     public UserJournal() {
         this.journalEntry = "";
         this.journalLocation = "";
-        journalDate = null;
+        this.journalDate = null;
     }
 
     public String getJournalEntry() {
@@ -55,15 +56,16 @@ public class UserJournal {
         this.journalLocation = journalLocation;
     }
 
-    public LocalDateTime getJournalDate() {
+    public Date getJournalDate() {
         return journalDate;
     }
 
-    public void setJournalDate(LocalDateTime journalDate) {
-        UserJournal.journalDate = journalDate;
+    public void setJournalDate(Date journalDate) {
+       this.journalDate = new Date();
     }
+}
 
-    @Override
+   /* @Override
     public String toString() {
         return journalEntry + journalLocation + journalDate;
     }
@@ -250,4 +252,3 @@ public class UserJournal {
         return "newJournal.html";
     } */
 
-}

@@ -4,8 +4,7 @@ package org.launchcode.walkabout.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-@Controller
+/*@Controller
 @RequestMapping("userjournal")
 public class ReadJournalsController {
     @GetMapping
@@ -13,4 +12,4 @@ public class ReadJournalsController {
 
     {return "journalentries/userjournal";}
 
-}
+}*/

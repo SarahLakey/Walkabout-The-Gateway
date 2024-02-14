@@ -1,24 +1,33 @@
-<!DocType html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<head th:replace="~{fragments :: head}">
-    <title>Submit Form</title>
-</head>
-<body>
-<h1>Submit Form</h1>
-<form action="/userjournal" method="post">
-    Name: <input type="text" name="name"><br>
-    Journal Submission: <input type="text" name="journalsub"><br>
-    <input type="submit" value="Submit">
-</form>
-<div>
-    <h2>Submitted Information:</h2>
-    <p>Name: [[${name}]]</p>
-    <p>Journal Submission: [[${journalsub}]]</p>
-</div>
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{fragments :: head}"></head>
+    <body>
+    <header th:replace="~{fragments :: header}"></header>
+    <main>
+        <div>
+            <h1>Journal Entries: </h1>
+            <form th:action="@{/userjournal/log}" method="post">
+                <div>
+                    <label>Journal Entry:
+                        <input type="text" th:field="${user.journalEntry}" />
+                    </label>
+                    <label>Journal Location:
+                        <input type="text" th:field="${user.journalLocation}">
+                    </label>
+                    <label>Journal Date:
+                        <input type="date" th:field="${user.journalDate}">
+                    </label>
+                </div>
+                <div>
+                    <input type="submit" value="Submit" />
+                </div>
+            </form>
+        </div>
+    </main>
+    </body>
+</main>
 <footer th:replace="~{fragments :: footer}"></footer>
 </body>
 </html>
-
 

@@ -4,8 +4,9 @@ import org.launchcode.walkabout.models.dto.UserJournal;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
+/*@Repository
 public interface JournalRepository extends CrudRepository<UserJournal, Integer> {
 
-}
+
+}*/
 
