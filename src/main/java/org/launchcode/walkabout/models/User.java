@@ -8,6 +8,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class User extends AbstractEntity {
 
     @NotNull
+    private String firstName;
+
+    @NotNull
     private String username;
 
     @NotNull
@@ -20,6 +23,16 @@ public class User extends AbstractEntity {
     public User(String username, String password) {
         this.username = username;
         this.pwHash = encoder.encode(password);
+    }
+
+    public User(String firstName, String username, String password) {
+        this.firstName = firstName;
+        this.username = username;
+        this.pwHash = encoder.encode(password);
+    }
+
+    public String getFirstName() {
+        return firstName;
     }
 
     public String getUsername() {

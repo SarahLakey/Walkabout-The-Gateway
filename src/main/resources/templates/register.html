@@ -9,6 +9,16 @@
         <h2>Create a New Account:</h2>
         <form method="post">
             <div>
+                <label th:for="firstName">First Name</label>
+                <input th:field="${registrationFormDTO.firstName}" />
+                <p class="error" th:errors="${registrationFormDTO.firstName}"></p>
+            </div>
+            <div>
+                <label th:for="lastName">Last Name</label>
+                <input th:field="${registrationFormDTO.lastName}" />
+                <p class="error" th:errors="${registrationFormDTO.lastName}"></p>
+            </div>
+            <div>
                 <label th:for="username">Username</label>
                 <input th:field="${registrationFormDTO.username}" />
                 <p class="error" th:errors="${registrationFormDTO.username}"></p>

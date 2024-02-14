@@ -39,13 +39,13 @@ public class AdminController {
 
     }
 
-    @PostMapping("/admin")
+    @PostMapping("/submitFact")
     public String processSubmitFact(Model model, @ModelAttribute SubmitFact submitFact) {
 
         model.addAttribute("nameInput", submitFact.getNameInput());
         model.addAttribute("locationInput", submitFact.getLocationInput());
         model.addAttribute("factInput", submitFact.getFactInput());
-        return "admin/index";
+        return "redirect:/admin";
 
     }
 }
