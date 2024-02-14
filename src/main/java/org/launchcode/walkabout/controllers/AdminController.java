@@ -35,12 +35,31 @@ public class AdminController {
             model.addAttribute("user", userRepository.findById(user.getId()));
             model.addAttribute("loggedIn", session.getAttribute("user") != null);
             model.addAttribute("submitFact", new SubmitFact());
+
+//            if (request.getAttribute("name") != null) {
+//                model.addAttribute("nameInput", request.getAttribute("name"));
+//            }
+//            if (request.getAttribute("location") != null) {
+//                model.addAttribute("locationInput", request.getAttribute("location"));
+//            }
+//            if (request.getAttribute("fact") != null) {
+//                model.addAttribute("factInput", request.getAttribute("fact"));
+//            }
+
             return "admin/index";
 
     }
 
     @PostMapping("/submitFact")
-    public String processSubmitFact(Model model, @ModelAttribute SubmitFact submitFact) {
+    public String processSubmitFact(HttpServletRequest request, Model model, @ModelAttribute SubmitFact submitFact) {
+//
+//        String nameInput = request.getParameter("name");
+//        String locationInput = request.getParameter("location");
+//        String factInput = request.getParameter("fact");
+//
+//        request.setAttribute("name", nameInput);
+//        request.setAttribute("location", locationInput);
+//        request.setAttribute("fact", factInput);
 
         model.addAttribute("nameInput", submitFact.getNameInput());
         model.addAttribute("locationInput", submitFact.getLocationInput());
