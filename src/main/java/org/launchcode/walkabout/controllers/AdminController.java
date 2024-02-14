@@ -6,6 +6,7 @@ import org.launchcode.walkabout.data.UserRepository;
 import org.launchcode.walkabout.models.SubmitFact;
 import org.launchcode.walkabout.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,13 +39,16 @@ public class AdminController {
 
     }
 
-}
-
-
 //    @PostMapping("/admin")
-//    public String submitFactForm(@ModelAttribute SubmitFact submitFact, Model model) {
-//
-//        model.addAttribute("submitFact", submitFact);
-//        return "admin";
-//    }
+    @PostMapping("/submitFact")
+    public String processSubmitFact(Model model, @ModelAttribute SubmitFact submitFact) {
 
+        model.addAttribute("nameInput", submitFact.getNameInput());
+        model.addAttribute("locationInput", submitFact.getLocationInput());
+        model.addAttribute("factInput", submitFact.getFactInput());
+        return "admin/index";
+
+    }
+
+
+}
