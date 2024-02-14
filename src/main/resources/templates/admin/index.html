@@ -15,32 +15,39 @@
         <div class="flex-col">
             <table id="myForm" class="flex-col">
                 <tr>
-                    <td id="name-input">Name</td>
+                    <td>Name</td>
+<!--                    <td th:each"name : ${names} th:text="${nameInput}"></td>-->
+                    <td th:text="${nameInput}"></td>
+<!--                    <td id="name-input">Name</td>-->
                 </tr>
                 <tr>
-                    <td id="location-input">Location</td>
+                    <td>Location</td>
+                    <td th:text="${locationInput}"></td>
+<!--                    <td id="location-input">Location</td>-->
                 </tr>
                 <tr>
-                    <td id="fact-input">Fact to Be Verified</td>
+                    <td>Fact to Be Verified</td>
+                    <td th:text="${factInput}"></td>
+<!--                    <td id="fact-input">Fact to Be Verified</td>-->
                 </tr>
             </table>
         </div>
     </section>
 
-    <script>
+<!--    <script>-->
 
-        const form = window.opener.document.getElementById('myForm');
+<!--        const form = window.opener.document.getElementById('myForm');-->
 
-      function show() {
-          document.getElementById("name-input").innerHTML = name-input;
-      }
+<!--      function show() {-->
+<!--          document.getElementById("name-input").innerHTML = name-input;-->
+<!--      }-->
 
-                  nameInput.addEventListener('input', function() {
-              name.innerHTML = nameInput.value || "Your Name";
-          });
+<!--                  nameInput.addEventListener('input', function() {-->
+<!--              name.innerHTML = nameInput.value || "Your Name";-->
+<!--          });-->
 
 
-    </script>
+<!--    </script>-->
 
 
 </main>

@@ -39,8 +39,7 @@ public class AdminController {
 
     }
 
-//    @PostMapping("/admin")
-    @PostMapping("/submitFact")
+    @PostMapping("/admin")
     public String processSubmitFact(Model model, @ModelAttribute SubmitFact submitFact) {
 
         model.addAttribute("nameInput", submitFact.getNameInput());
@@ -49,6 +48,4 @@ public class AdminController {
         return "admin/index";
 
     }
-
-
 }
