@@ -6,11 +6,6 @@
     <main>
         <h1>Welcome Back!</h1>
         <h1 th:text="${user.username}">username</h1>
-        <h2>Your Journal Entries: </h2>
-        <h4 th:text="${user.journalEntry}"></h4>
-        <h4 th:text="${user.journalLocation}"></h4>
-        <h4 th:text="${user.journalDate}"></h4>
-
     </main>
 
 <footer th:replace="~{fragments :: footer}"></footer>

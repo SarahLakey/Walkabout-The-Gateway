@@ -10,20 +10,19 @@
             <form th:action="@{/userjournal/log}" method="post">
                 <div>
                     <label>Journal Entry:
-                        <input type="text" th:field="${user.journalEntry}" />
+                        <input type="text" th:field="${userjournal.journalEntryBlank}" />
                     </label>
                     <label>Journal Location:
-                        <input type="text" th:field="${user.journalLocation}">
+                        <input type="text" th:field="${userjournal.journalLocation}">
                     </label>
                     <label>Journal Date:
-                        <input type="date" th:field="${user.journalDate}">
+                        <input type="text" th:field="${userjournal.journalDate}">
                     </label>
                 </div>
                 <div>
                     <input type="submit" value="Submit" />
                 </div>
             </form>
-        </div>
     </main>
     </body>
 </main>

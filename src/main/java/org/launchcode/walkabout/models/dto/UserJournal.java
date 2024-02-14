@@ -19,33 +19,85 @@ import java.util.Scanner;
 public class UserJournal extends AbstractEntity{
 
     @NotBlank(message = "Please add the journal entry.")
-    @Min(1)
-    private String journalEntry;
+    private String journalEntryBlank;
 
     @NotBlank(message = "Please add the journal location.")
-    @Min(3)
     private String journalLocation;
 
-    private Date journalDate;
+    @NotNull
+    private String journalDate;
 
-    public UserJournal(String journalEntry, String journalLocation, Date journalDate) {
-        this.journalEntry = journalEntry;
+    @NotNull
+    private String userName;
+
+    public UserJournal(String userName, String journalEntryBlank, String journalLocation, String journalDate) {
+        this.userName = userName;
+        this.journalEntryBlank = journalEntryBlank;
         this.journalLocation = journalLocation;
-        User.journalDate = journalDate;
+        this.journalDate = journalDate;
     }
 
     public UserJournal() {
-        this.journalEntry = "";
+        this.userName = "";
+        this.journalEntryBlank = "";
         this.journalLocation = "";
-        this.journalDate = null;
+        this.journalDate = "";
     }
 
-    public String getJournalEntry() {
-        return journalEntry;
+    //private String journalEntryBlank="";
+
+    public String getJournalEntryBlank() {
+        return journalEntryBlank;
     }
 
-    public void setJournalEntry(String journalEntry) {
-        this.journalEntry = journalEntry;
+    public void setJournalEntryBlank(String journalEntryBlank) {
+        this.journalEntryBlank = journalEntryBlank;
+    }
+
+    //private String journalLocation="";
+
+    public String getJournalLocation() {
+        return journalLocation;
+    }
+
+    public void setJournalLocation(String journalLocation) {
+        this.journalLocation = journalLocation;
+    }
+
+    //public static String journalDate;
+
+    public String getJournalDate() {
+        return journalDate;
+    }
+
+    public void setJournalDate(String journalDate) {
+        this.journalDate = journalDate;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+}
+
+
+   /* public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getJournalEntryBlank() {
+        return journalEntryBlank;
+    }
+
+    public void setJournalEntryBlank(String journalEntryBlank) {
+        this.journalEntryBlank = journalEntryBlank;
     }
 
     public String getJournalLocation() {
@@ -56,12 +108,12 @@ public class UserJournal extends AbstractEntity{
         this.journalLocation = journalLocation;
     }
 
-    public Date getJournalDate() {
+    public String getJournalDate() {
         return journalDate;
     }
 
-    public void setJournalDate(Date journalDate) {
-       this.journalDate = new Date();
+    public void setJournalDate(String journalDate) {
+       this.journalDate = journalDate;
     }
 }
 

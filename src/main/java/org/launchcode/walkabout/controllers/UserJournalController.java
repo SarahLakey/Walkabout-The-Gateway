@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
+import org.launchcode.walkabout.data.JournalRepository;
 import org.launchcode.walkabout.data.UserRepository;
 import org.launchcode.walkabout.models.User;
 import org.launchcode.walkabout.models.dto.UserJournal;
@@ -31,7 +32,7 @@ public class UserJournalController {
     private AuthenticationController authenticationController;
 
     @Autowired
-    private UserRepository userRepository;
+    private JournalRepository journalRepository;
 
     private User getCurrentUser(HttpServletRequest request) {
         HttpSession session = request.getSession();
@@ -44,24 +45,22 @@ public class UserJournalController {
 
         model.addAttribute("user", new User());
         model.addAttribute("loggedIn", session.getAttribute("user") != null);
+        model.addAttribute("userjournal", new UserJournal());
 
         return "journalentries/userjournal";
     }
 
 
     @PostMapping("/log")
-    public String processUserJournal(@Valid User user, Errors errors, Model model, HttpSession session, HttpServletRequest request) {
-        User currentUser = getCurrentUser(request);
-
-
-        currentUser.setJournalEntry(user.getJournalEntry() + currentUser.getJournalEntry());
-        System.out.println("Journal Entries: " + currentUser.getJournalEntry() + currentUser.getJournalLocation() + currentUser.getJournalLocation());
-
-        userRepository.save(currentUser);
-
-        return "redirect:/profile";
-    }
-}
+    public String processUserJournal(@Valid UserJournal userJournal, Errors errors, Model model, HttpSession session, HttpServletRequest request) {
+        UserJournal journalEntry = new UserJournal(getCurrentUser(request).getUsername(), userJournal.getJournalEntryBlank(), userJournal.getJournalLocation(), userJournal.getJournalDate());
+        System.out.println("Journal Entries: " + journalEntry.getJournalEntryBlank() + journalEntry.getJournalLocation() + journalEntry.getJournalDate());
+        journalRepository.save(journalEntry);
+        return "redirect:/readjournals";
+    }}
+           /* UserJournal.setJournalEntryBlank(user.getJournalEntryBlank() + currentUser.getJournalEntryBlank());
+        UserJournal.setJournalLocation(user.getJournalLocation() + currentUser.getJournalLocation());
+        UserJournal.setJournalDate(user.getJournalDate() + currentUser.getJournalDate());
 
     /*private final JournalRepository journalRepository;
 

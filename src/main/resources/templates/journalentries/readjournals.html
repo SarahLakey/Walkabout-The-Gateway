@@ -2,7 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments :: head}"></head>
 <body>
-
+<header th:replace="~{fragments :: header}"></header>
+<h2>Your Journal Entries: </h2>
+<h4 th:text="${userjournal.journalEntryBlank}"></h4>
+<h4 th:text="${userjournal.journalLocation}"></h4>
+<h4 th:text="${userjournal.journalDate}"></h4>
 </body>
 <footer th:replace="~{fragments :: footer}"></footer>
 </html>

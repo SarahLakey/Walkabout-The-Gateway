@@ -1,6 +1,8 @@
 package org.launchcode.walkabout.models;
 
 import jakarta.persistence.Entity;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -30,35 +32,5 @@ public class User extends AbstractEntity {
 
    public boolean isMatchingPassword (String password) {
         return encoder.matches(password, pwHash);
-    }
-
-   private String journalEntry="";
-
-    public String getJournalEntry() {
-        return journalEntry;
-    }
-
-    public void setJournalEntry(String journalEntry) {
-        this.journalEntry = journalEntry;
-    }
-
-    private String journalLocation="";
-
-    public String getJournalLocation() {
-        return journalLocation;
-    }
-
-    public void setJournalLocation(String journalLocation) {
-        this.journalLocation = journalLocation;
-    }
-
-    public static Date journalDate;
-
-    public Date getJournalDate() {
-        return journalDate;
-    }
-
-    public void setJournalDate(Date journalDate) {
-        User.journalDate = journalDate;
     }
 }
