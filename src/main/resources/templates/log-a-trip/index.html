@@ -3,5 +3,20 @@
 <head th:replace="~{fragments :: head}"></head>
 <body>
 <header th:replace="~{fragments :: header}"></header>
+    <main>
+        <div>
+            <h1>Log Your Trip Here!</h1>
+            <form th:action="@{/log-a-trip/log}" method="post">
+                <div>
+                    <label>Enter your steps:
+                        <input type="number" th:field="${user.points}" min="1" />
+                    </label>
+                </div>
+                <div>
+                    <input type="submit" value="Submit" />
+                </div>
+            </form>
+        </div>
+    </main>
 </body>
 </html>
