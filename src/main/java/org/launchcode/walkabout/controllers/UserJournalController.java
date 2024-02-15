@@ -42,10 +42,12 @@ public class UserJournalController {
 
     @GetMapping
     public String displayUserJournal(HttpServletRequest request, HttpSession session, Model model) {
-
+        List<UserJournal> journalEntries = (List<UserJournal>) journalRepository.findAll();
         model.addAttribute("user", new User());
         model.addAttribute("loggedIn", session.getAttribute("user") != null);
         model.addAttribute("userjournal", new UserJournal());
+        model.addAttribute("journalEntries", journalEntries);
+
 
         return "journalentries/userjournal";
     }

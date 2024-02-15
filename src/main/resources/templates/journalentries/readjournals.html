@@ -3,10 +3,14 @@
 <head th:replace="~{fragments :: head}"></head>
 <body>
 <header th:replace="~{fragments :: header}"></header>
-<h2>Your Journal Entries: </h2>
-<h4 th:text="${userjournal.journalEntryBlank}"></h4>
-<h4 th:text="${userjournal.journalLocation}"></h4>
-<h4 th:text="${userjournal.journalDate}"></h4>
+
+    <h1>Journal Entries</h1>
+    <div th:each="entry : ${journalEntries}">
+        <h2 th:text="${entry.journalEntryBlank}"></h2>
+        <p th:text="${entry.journalLocation}"></p>
+        <p th:text="${entry.journalDate}"></p>
+
+    </div>
 </body>
 <footer th:replace="~{fragments :: footer}"></footer>
 </html>
