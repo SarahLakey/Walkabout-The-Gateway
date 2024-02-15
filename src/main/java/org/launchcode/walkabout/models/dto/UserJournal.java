@@ -1,23 +1,38 @@
-package src.main.java.org.launchcode.walkabout.models.dto;
-import java.time.LocalDate;
+package org.launchcode.walkabout.models.dto;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import org.launchcode.walkabout.models.AbstractEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import javax.persistence.Entity;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
+
 public class UserJournal {
+
+    @NotBlank(message = "Please add the journal entry.")
+    @Min(1)
     private String journalEntry;
+
+    @NotBlank(message = "Please add the journal location.")
+    @Min(3)
     private String journalLocation;
-    private LocalDateTime journalDate;
+
+    @NotNull(message = "Please add the journal date.")
+    private static LocalDateTime journalDate;
 
     public UserJournal(String journalEntry, String journalLocation, LocalDateTime journalDate) {
         this.journalEntry = journalEntry;
         this.journalLocation = journalLocation;
-        this.journalDate = journalDate;
+        UserJournal.journalDate = journalDate;
     }
 
     public UserJournal() {
         this.journalEntry = "";
         this.journalLocation = "";
-        this.journalDate = null;
+        journalDate = null;
     }
 
     public String getJournalEntry() {
@@ -41,7 +56,12 @@ public class UserJournal {
     }
 
     public void setJournalDate(LocalDateTime journalDate) {
-        this.journalDate = journalDate;
+        UserJournal.journalDate = journalDate;
+    }
+
+    @Override
+    public String toString(){
+        return journalEntry + journalLocation + journalDate;
     }
 
     public UserJournal createNewJournalEntry(){
