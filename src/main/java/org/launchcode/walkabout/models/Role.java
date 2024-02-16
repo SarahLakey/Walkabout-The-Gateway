@@ -5,11 +5,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
-import javax.persistence.Entity;
-
+//import javax.persistence.Entity;
+import jakarta.persistence.Entity;
 
 @Entity
 @Table(name = "role")
+//public class Role {
 public class Role extends AbstractEntity {
 
     @Id

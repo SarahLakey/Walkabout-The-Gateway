@@ -36,6 +36,14 @@ public class User extends AbstractEntity {
     private String pwHash;
 
 
+//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//    @JoinTable(
+//            name = "users_roles",
+//            joinColumns = @JoinColumn(
+//                    name = "user_id", referencedColumnName = "id"),
+//            inverseJoinColumns = @JoinColumn(
+//                    name = "role_id", referencedColumnName = "id"))
+
     private Collection<Role> roles = new ArrayList<>();
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -92,6 +100,14 @@ public class User extends AbstractEntity {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public Collection<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Collection<Role> roles) {
+        this.roles = roles;
     }
 
     public boolean isMatchingPassword (String password) {
