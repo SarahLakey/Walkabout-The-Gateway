@@ -5,8 +5,17 @@
 </head>
 
 <body>
-<header th:replace="~{fragments :: header}"></header>
-
+<header>
+    <div class="nav-bar">
+        <img th:src="@{/images/Logo-Yel-nav.png}" width="15%" /> | &nbsp;
+            <a class="navlink" href="/profile">PROFILE</a>  | &nbsp;
+            <a class="navlink" href="/trips">MY TRIPS</a>  | &nbsp;
+            <a class="navlink" href="/log-a-trip">LOG A TRIP</a>  |
+            <a class="navlink" href="/userjournal">MY JOURNALS</a> |
+            <a class="navlink" href="/map-display">MAP DISPLAY</a> |
+            <a class="navlink" href="/logout">LOG OUT</a>
+    </div>
+</header>
 <main>
     <h1>Welcome to the Admin Page!</h1>
 
@@ -16,19 +25,15 @@
             <table id="myForm" class="flex-col">
                 <tr>
                     <td>Name</td>
-<!--                    <td th:each"name : ${names} th:text="${nameInput}"></td>-->
-                    <td th:text="${nameInput}"></td>
-<!--                    <td id="name-input">Name</td>-->
+                    <td th:text="${submitFact.nameInput}"></td>
                 </tr>
                 <tr>
                     <td>Location</td>
-                    <td th:text="${locationInput}"></td>
-<!--                    <td id="location-input">Location</td>-->
+                    <td th:text="${submitFact.locationInput}"></td>
                 </tr>
                 <tr>
                     <td>Fact to Be Verified</td>
-                    <td th:text="${factInput}"></td>
-<!--                    <td id="fact-input">Fact to Be Verified</td>-->
+                    <td th:text="${submitFact.factInput}"></td>
                 </tr>
             </table>
         </div>
