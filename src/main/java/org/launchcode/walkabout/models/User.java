@@ -1,12 +1,13 @@
 package org.launchcode.walkabout.models;
 
 import jakarta.persistence.Entity;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User extends AbstractEntity {
@@ -16,6 +17,8 @@ public class User extends AbstractEntity {
 
     @NotNull
     private String pwHash;
+
+    private Integer points = 0;
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
@@ -32,5 +35,13 @@ public class User extends AbstractEntity {
 
    public boolean isMatchingPassword (String password) {
         return encoder.matches(password, pwHash);
+    }
+
+    public Integer getPoints() {
+        return points;
+    }
+
+    public void setPoints(Integer points) {
+        this.points = points;
     }
 }
