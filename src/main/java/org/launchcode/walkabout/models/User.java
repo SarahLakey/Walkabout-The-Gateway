@@ -4,9 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import javax.management.relation.Role;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "username"))
@@ -36,21 +35,20 @@ public class User extends AbstractEntity {
     private String pwHash;
 
 
-//    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//    @JoinTable(
-//            name = "users_roles",
-//            joinColumns = @JoinColumn(
-//                    name = "user_id", referencedColumnName = "id"),
-//            inverseJoinColumns = @JoinColumn(
-//                    name = "role_id", referencedColumnName = "id"))
-
-    private Collection<Role> roles = new ArrayList<>();
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = {@JoinColumn(
+                    name = "user_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(
+                    name = "role_id", referencedColumnName = "id")})
+    private List<Role> roles = new ArrayList<>();
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     public User() {}
 
-    public User(String firstName, String lastName, String username, String password, Collection<Role> roles) {
+    public User(String firstName, String lastName, String username, String password, List<Role> roles) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
@@ -58,6 +56,7 @@ public class User extends AbstractEntity {
         this.pwHash = encoder.encode(password);
         this.roles = roles;
     }
+
 
     public User(String username, String password) {
         this.username = username;
@@ -102,11 +101,11 @@ public class User extends AbstractEntity {
         this.username = username;
     }
 
-    public Collection<Role> getRoles() {
+    public List<Role> getRoles() {
         return roles;
     }
 
-    public void setRoles(Collection<Role> roles) {
+    public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
 

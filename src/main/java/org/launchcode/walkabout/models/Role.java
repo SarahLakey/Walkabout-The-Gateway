@@ -1,12 +1,10 @@
 package org.launchcode.walkabout.models;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 //import javax.persistence.Entity;
-import jakarta.persistence.Entity;
+
+import java.util.List;
 
 @Entity
 @Table(name = "role")
@@ -18,6 +16,9 @@ public class Role extends AbstractEntity {
     private Integer id;
 
     private String name;
+
+    @ManyToMany(mappedBy = "roles")
+    private List<User> users;
 
     public int getId() {
         return id;
