@@ -52,19 +52,11 @@ public class AdminController {
 
     @PostMapping("/submitFact")
     public String processSubmitFact(HttpServletRequest request, Model model, @ModelAttribute SubmitFact submitFact) {
-//
-//        String nameInput = request.getParameter("name");
-//        String locationInput = request.getParameter("location");
-//        String factInput = request.getParameter("fact");
-//
-//        request.setAttribute("name", nameInput);
-//        request.setAttribute("location", locationInput);
-//        request.setAttribute("fact", factInput);
-
         model.addAttribute("nameInput", submitFact.getNameInput());
         model.addAttribute("locationInput", submitFact.getLocationInput());
         model.addAttribute("factInput", submitFact.getFactInput());
-        return "redirect:/admin";
+        model.addAttribute("submitFact", submitFact);
 
+        return "admin/index";
     }
 }
