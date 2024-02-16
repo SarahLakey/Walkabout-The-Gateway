@@ -20,6 +20,16 @@ public class Role extends AbstractEntity {
     @ManyToMany(mappedBy = "roles")
     private List<User> users;
 
+    public Role(String name) {
+        super();
+        this.name = name;
+    }
+
+    public Role(String name, List<User> users) {
+        this.name = name;
+        this.users = users;
+    }
+
     public int getId() {
         return id;
     }

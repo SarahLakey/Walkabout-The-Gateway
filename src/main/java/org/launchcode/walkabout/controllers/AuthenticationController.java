@@ -3,6 +3,7 @@ package org.launchcode.walkabout.controllers;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import org.launchcode.walkabout.data.RoleRepository;
 import org.launchcode.walkabout.data.UserRepository;
 import org.launchcode.walkabout.models.User;
 import org.launchcode.walkabout.models.dto.LoginFormDTO;
@@ -22,6 +23,9 @@ public class AuthenticationController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private RoleRepository roleRepository;
 
     private static final String userSessionKey = "user";
 
