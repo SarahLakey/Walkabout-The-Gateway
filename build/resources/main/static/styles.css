@@ -79,6 +79,24 @@ p {
   }
 
 
+  .form-facts-table table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            background: white;
+          }
+
+ .form-facts-table td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+          }
+
+.form-facts-table tr:nth-child(even) {
+            background-color: #dddddd;
+          }
+
+
 .nav-bar {
     display: flex;
     flex-direction: row;

@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class AdminController {
 
@@ -27,21 +30,24 @@ public class AdminController {
         return authenticationController.getUserFromSession(session);
     }
 
-
     @GetMapping("/admin")
     public String submitFactForm(HttpServletRequest request, HttpSession session, Model model) {
         User user = getCurrentUser(request);
 
-            model.addAttribute("user", userRepository.findById(user.getId()));
-            model.addAttribute("loggedIn", session.getAttribute("user") != null);
-            model.addAttribute("submitFact", new SubmitFact());
+        model.addAttribute("user", userRepository.findById(user.getId()));
+        model.addAttribute("loggedIn", session.getAttribute("user") != null);
+        model.addAttribute("submitFact", new SubmitFact());
 
-            return "admin/index";
+
+
+
+        return "admin/index";
 
     }
 
     @PostMapping("/admin")
     public String processSubmitFact(HttpServletRequest request, Model model, @ModelAttribute SubmitFact submitFact) {
+
         model.addAttribute("nameInput", submitFact.getNameInput());
         model.addAttribute("locationInput", submitFact.getLocationInput());
         model.addAttribute("factInput", submitFact.getFactInput());

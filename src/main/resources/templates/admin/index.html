@@ -21,39 +21,23 @@
 
     <section>
         <h3>Facts Submitted to Be Verified: </h3>
-        <div class="flex-col">
+        <div class="form-facts-table">
+<!--        <div class="flex-col">-->
             <table id="myForm" class="flex-col">
                 <tr>
-                    <td>Name</td>
+                    <th>Name:</th>
+                    <th>Location:</th>
+                    <th>Fact to Be Verified:</th>
+                </tr>
+                <tr>
                     <td th:text="${submitFact.nameInput}"></td>
-                </tr>
-                <tr>
-                    <td>Location</td>
                     <td th:text="${submitFact.locationInput}"></td>
-                </tr>
-                <tr>
-                    <td>Fact to Be Verified</td>
                     <td th:text="${submitFact.factInput}"></td>
+
                 </tr>
             </table>
         </div>
     </section>
-
-<!--    <script>-->
-
-<!--        const form = window.opener.document.getElementById('myForm');-->
-
-<!--      function show() {-->
-<!--          document.getElementById("name-input").innerHTML = name-input;-->
-<!--      }-->
-
-<!--                  nameInput.addEventListener('input', function() {-->
-<!--              name.innerHTML = nameInput.value || "Your Name";-->
-<!--          });-->
-
-
-<!--    </script>-->
-
 
 </main>
 
