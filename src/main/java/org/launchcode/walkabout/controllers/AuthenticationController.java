@@ -75,7 +75,8 @@ public class AuthenticationController {
             return "register";
         }
 
-        User newUser = new User(registrationFormDTO.getUsername(), registrationFormDTO.getPassword());
+        User newUser = new User(registrationFormDTO.getFirstName(), registrationFormDTO.getUsername(), registrationFormDTO.getPassword());
+//        User newUser = new User(registrationFormDTO.getUsername(), registrationFormDTO.getPassword());
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
         return "redirect:/profile";
