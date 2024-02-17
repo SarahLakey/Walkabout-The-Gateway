@@ -6,11 +6,15 @@ import jakarta.servlet.http.HttpSession;
 import org.launchcode.walkabout.controllers.AuthenticationController;
 import org.launchcode.walkabout.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+
+import static org.springframework.security.config.Customizer.withDefaults;
 
 public class AuthenticationFilter implements HandlerInterceptor {
 
@@ -28,6 +32,19 @@ public class AuthenticationFilter implements HandlerInterceptor {
             }
         }
         return false;
+    }
+
+    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        return http
+                .authorizeHttpRequests(auth -> {
+                    auth.requestMatchers("/").permitAll();
+                    auth.anyRequest().authenticated();
+                })
+
+                .formLogin(form->form.loginPage("/login").permitAll())
+//                .formLogin(withDefaults())
+                .oauth2Login(withDefaults())
+                .build();
     }
 
     @Override
