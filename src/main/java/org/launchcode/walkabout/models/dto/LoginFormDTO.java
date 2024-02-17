@@ -6,14 +6,6 @@ import jakarta.validation.constraints.Size;
 
 public class LoginFormDTO {
 
-    @NotNull(message = "First name is required")
-    @NotBlank(message = "First name is required")
-    private String firstName;
-
-    @NotNull(message = "Last name is required")
-    @NotBlank(message = "Last name is required")
-    private String lastName;
-
     @NotNull(message = "Username is required")
     @NotBlank(message = "Username is required")
     @Size(min = 4, max = 25, message = "Username must be 4-25 characters long")
@@ -40,19 +32,4 @@ public class LoginFormDTO {
         this.password = password;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
 }
