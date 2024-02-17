@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
     <head th:replace="~{fragments :: head}"></head>
     <body>
     <header th:replace="~{fragments :: header}"></header>
@@ -22,9 +21,6 @@
                     <input type="submit" value="Submit" />
                 </div>
             </form>
-        <div>
-            <p th:text="${journalEntries}"></p>
-        </div>
     </main>
 <footer th:replace="~{fragments :: footer}"></footer>
 </body>
