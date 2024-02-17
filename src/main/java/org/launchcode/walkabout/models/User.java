@@ -1,6 +1,7 @@
 package org.launchcode.walkabout.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -19,6 +20,9 @@ public class User extends AbstractEntity {
     private String pwHash;
 
     private Integer points = 0;
+
+    @ManyToOne
+    private Favorite favorites;
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
@@ -44,4 +48,14 @@ public class User extends AbstractEntity {
     public void setPoints(Integer points) {
         this.points = points;
     }
+
+    public Favorite getFavorites(){
+        return favorites;
+    }
+
+    public void setFavorites(Favorite favorites){
+        this.favorites=favorites;
+    }
+
+
 }

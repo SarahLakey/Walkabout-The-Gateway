@@ -57,6 +57,7 @@ public class AuthenticationController {
         //send user back to form if errors are found
         if (errors.hasErrors()) {
             return "register";
+
         }
 
         User existingUser = userRepository.findByUsername(registrationFormDTO.getUsername());

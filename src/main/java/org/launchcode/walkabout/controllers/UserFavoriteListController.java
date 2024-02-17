@@ -9,6 +9,7 @@ import org.launchcode.walkabout.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,11 +17,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/favorites")
+@RequestMapping("favorites")
 public class UserFavoriteListController {
 
-   // @Autowired
-   FavoritesRepository favoritesRepository;
+     @Autowired
+    FavoritesRepository favoritesRepository;
 
     @Autowired
     private UserRepository userRepository;
@@ -34,28 +35,42 @@ public class UserFavoriteListController {
     }
 
     @GetMapping
-    public String displayFavorites(Model model){
+    public String displayFavorites(Model model, HttpServletRequest request, HttpSession session){
+        User user = getCurrentUser(request);
+        model.addAttribute("user", userRepository.findById(user.getId()));
+        model.addAttribute("loggedIn", session.getAttribute("user") != null);
         model.addAttribute("title", "Your Favorites");
-   // model.addAttribute("favorites", favoritesRepository.findAll());
+        model.addAttribute("favorites", user.getFavorites());
+
         return "favorite-Lou-Spots/index";
     }
 
     @GetMapping("/add-a-fave")
-    public String addAFavorite(Model model){
+    public String addAFavorite(Model model, HttpServletRequest request, HttpSession session){
+        User user = getCurrentUser(request);
+
+        model.addAttribute("user", userRepository.findById(user.getId()));
+        model.addAttribute("loggedIn", session.getAttribute("user") != null);
+
         model.addAttribute("title", "Add a Favorite");
         model.addAttribute(new Favorite());
         return "favorite-Lou-Spots/add-a-fave";
     }
 
     @PostMapping("/add-a-fave")
-    public String addAFavorite(@ModelAttribute @Valid Favorite newFavorite, Model model, Errors errors){
+    public String processAFavorite(HttpServletRequest request, HttpSession session, @ModelAttribute @Valid Favorite favorite, Model model, Errors errors){
 
-    if(errors.hasErrors()){
-        model.addAttribute("title", "Add a Favorite");
-        return "/add-a-fave";
-    }
+        User user = getCurrentUser(request);
+        model.addAttribute("loggedIn", session.getAttribute("user") != null);
 
-        favoritesRepository.save(newFavorite);
+
+        if(errors.hasErrors()){
+            model.addAttribute("title", "Add a Favorite");
+            model.addAttribute(new Favorite());
+            return "redirect:/favorite-Lou-Spots/add-a-fave";
+        }
+
+        favoritesRepository.save(favorite);
         return "redirect:/favorites";
     }
 
