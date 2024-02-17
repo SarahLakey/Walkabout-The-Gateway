@@ -11,6 +11,9 @@ public class User extends AbstractEntity {
     private String firstName;
 
     @NotNull
+    private String lastName;
+
+    @NotNull
     private String username;
 
     @NotNull
@@ -27,6 +30,13 @@ public class User extends AbstractEntity {
 
     public User(String firstName, String username, String password) {
         this.firstName = firstName;
+        this.username = username;
+        this.pwHash = encoder.encode(password);
+    }
+
+    public User(String firstName, String lastName, String username, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.username = username;
         this.pwHash = encoder.encode(password);
     }
