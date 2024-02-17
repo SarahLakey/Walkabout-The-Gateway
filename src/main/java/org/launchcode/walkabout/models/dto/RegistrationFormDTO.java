@@ -7,9 +7,11 @@ import jakarta.validation.constraints.Size;
 public class RegistrationFormDTO extends LoginFormDTO {
 
     @NotNull(message = "First name is required")
+    @NotBlank(message = "First name is required")
     private String firstName;
 
     @NotNull(message = "Last name is required")
+    @NotBlank(message = "Last name is required")
     private String lastName;
 
     @NotNull(message = "Password is required")
