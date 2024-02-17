@@ -18,10 +18,10 @@ import java.util.Scanner;
 @Entity
 public class UserJournal extends AbstractEntity{
 
-    @NotBlank(message = "Please add the journal entry.")
+    @NotNull
     private String journalEntryBlank;
 
-    @NotBlank(message = "Please add the journal location.")
+    @NotNull
     private String journalLocation;
 
     @NotNull
@@ -81,6 +81,7 @@ public class UserJournal extends AbstractEntity{
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
 }
 
 

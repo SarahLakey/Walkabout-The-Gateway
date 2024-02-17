@@ -13,3 +13,5 @@ public class ReadJournalsController {
     {return "journalentries/readjournals";}
 
 }
+
+

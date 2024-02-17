@@ -1,13 +1,12 @@
 
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
     <head th:replace="~{fragments :: head}"></head>
     <body>
     <header th:replace="~{fragments :: header}"></header>
     <main>
-        <div>
             <h1>Journal Entries: </h1>
-            <form th:action="@{/userjournal/log}" method="post">
+            <form th:action="@{/userjournal/journalsubmission}" method="post">
                 <div>
                     <label>Journal Entry:
                         <input type="text" th:field="${userjournal.journalEntryBlank}" />
@@ -23,7 +22,10 @@
                     <input type="submit" value="Submit" />
                 </div>
             </form>
-    </body>
+        <div>
+            <p th:text="${journalEntries}"></p>
+        </div>
+    </main>
 <footer th:replace="~{fragments :: footer}"></footer>
 </body>
 </html>

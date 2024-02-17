@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
+import jakarta.validation.constraints.NotNull;
 import org.launchcode.walkabout.data.JournalRepository;
 import org.launchcode.walkabout.data.UserRepository;
 import org.launchcode.walkabout.models.User;
@@ -23,10 +24,17 @@ import java.util.List;
 @Controller
 @RequestMapping("/userjournal")
 public class UserJournalController {
-        /*@GetMapping
-        public String userJournalController()
+    @NotNull
+    private String journalEntryBlank;
 
-        {return "journalentries/userjournal";}*/
+    @NotNull
+    private String journalLocation;
+
+    @NotNull
+    private String journalDate;
+
+    @NotNull
+    private String userName;
 
     @Autowired
     private AuthenticationController authenticationController;
@@ -43,23 +51,26 @@ public class UserJournalController {
     @GetMapping
     public String displayUserJournal(HttpServletRequest request, HttpSession session, Model model) {
         List<UserJournal> journalEntries = (List<UserJournal>) journalRepository.findAll();
-        model.addAttribute("user", new User());
-        model.addAttribute("loggedIn", session.getAttribute("user") != null);
+
+        //model.addAttribute("user", new User());
+        //model.addAttribute("loggedIn", session.getAttribute("user") != null);
         model.addAttribute("userjournal", new UserJournal());
         model.addAttribute("journalEntries", journalEntries);
-
 
         return "journalentries/userjournal";
     }
 
 
-    @PostMapping("/log")
+    @PostMapping("/journalsubmission")
     public String processUserJournal(@Valid UserJournal userJournal, Errors errors, Model model, HttpSession session, HttpServletRequest request) {
         UserJournal journalEntry = new UserJournal(getCurrentUser(request).getUsername(), userJournal.getJournalEntryBlank(), userJournal.getJournalLocation(), userJournal.getJournalDate());
-        System.out.println("Journal Entries: " + journalEntry.getJournalEntryBlank() + journalEntry.getJournalLocation() + journalEntry.getJournalDate());
+        //UserJournal journalEntry = new UserJournal();
+        //journalEntry.setJournalEntryBlank(userJournal.getJournalEntryBlank() + userJournal.getJournalEntryBlank());
         journalRepository.save(journalEntry);
         return "redirect:/readjournals";
     }}
+
+
            /* UserJournal.setJournalEntryBlank(user.getJournalEntryBlank() + currentUser.getJournalEntryBlank());
         UserJournal.setJournalLocation(user.getJournalLocation() + currentUser.getJournalLocation());
         UserJournal.setJournalDate(user.getJournalDate() + currentUser.getJournalDate());
