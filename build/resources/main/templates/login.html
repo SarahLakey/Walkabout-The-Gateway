@@ -11,7 +11,7 @@
             <div class="row">
                 <div class ="col-4">
                     <label th:for="username">Username</label>
-                    <input th:field="${loginFormDTO.username}" />
+                    <input th:field="${loginFormDTO.username}"/>
                     <p class="error" th:errors="${loginFormDTO.username}"></p>
                 </div>
             </div>
@@ -19,15 +19,34 @@
         <div class="row">
             <div class ="col-4">
                 <label th:for="password">Password</label>
-                <input th:field="${loginFormDTO.password}" type="password" />
+                <input th:field="${loginFormDTO.password}" type="password"/>
                 <p class="error" th:errors="${loginFormDTO.password}"></p>
             </div>
         </div>
         <button type="submit">Sign In</button>
     </form>
+
+        <div class="container unauthenticated">
+            <button type="submit"><a href="/oauth2/authorization/github">Login with Github</a></button>
+        </div>
+
+        <div class="container unauthenticated">
+            <button type="submit"><a href="/oauth2/authorization/google">Login with Google</a></button>
+        </div>
+
+<!--        <div class="container unauthenticated">-->
+<!--            With GitHub: <a href="/oauth2/authorization/github">Login with Github</a>-->
+<!--        </div>-->
+
+<!--        <div class="container unauthenticated">-->
+<!--            With Google: <a href="/oauth2/authorization/google">Login with Google</a>-->
+<!--        </div>-->
+
         <p>Don't have an account yet?</p>
         <p><a href="/register" >Click Here to Register Now!</a> </p>
     </div>
+
+
 </main>
 
 <footer th:replace="~{fragments :: footer}"></footer>
