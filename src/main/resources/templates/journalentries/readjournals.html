@@ -1,5 +1,5 @@
 <!DocType html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="~{fragments :: head}"></head>
 <body>
 <header th:replace="~{fragments :: header}"></header>
@@ -19,6 +19,8 @@
             <td th:text="${userjournal.journalEntryBlank}"></td>
             <td th:text="${userjournal.journalLocation}"></td>
             <td th:text="${userjournal.journalDate}"></td>
+            <td><a class="navlink" href="/editjournals">&#9998</a></td>
+            <td><button type="submit" onclick="delete">&#128465</button></td>
             </tr>
             </tbody>
         </table>

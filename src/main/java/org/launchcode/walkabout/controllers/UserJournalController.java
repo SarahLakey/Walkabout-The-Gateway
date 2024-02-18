@@ -63,4 +63,5 @@ public class UserJournalController {
         //journalEntry.setJournalEntryBlank(userJournal.getJournalEntryBlank() + userJournal.getJournalEntryBlank());
         journalRepository.save(journalEntry);
         return "redirect:/readjournals";
-    }}
+    }
+}

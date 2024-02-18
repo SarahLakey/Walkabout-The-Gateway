@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface JournalRepository extends CrudRepository<UserJournal, String> {
-
-
+    List<UserJournal> findAllByUserName(String userName);
+    List<UserJournal> findAllByJournalLocation(String journalLocation);
 }
 

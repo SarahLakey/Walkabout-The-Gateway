@@ -3,6 +3,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import org.launchcode.walkabout.models.AbstractEntity;
 
+import java.util.List;
+
 @Entity
 public class UserJournal extends AbstractEntity{
 
@@ -17,6 +19,8 @@ public class UserJournal extends AbstractEntity{
 
     @NotNull
     private String userName;
+
+    private String comments;
 
     public UserJournal(String userName, String journalEntryBlank, String journalLocation, String journalDate) {
         this.userName = userName;
@@ -67,4 +71,15 @@ public class UserJournal extends AbstractEntity{
         this.userName = userName;
     }
 
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
+    public UserJournal(String comments) {
+        this.comments = comments;
+    }
 }
