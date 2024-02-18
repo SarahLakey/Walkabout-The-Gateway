@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("favorites")
 public class UserFavoriteListController {
@@ -37,10 +39,11 @@ public class UserFavoriteListController {
     @GetMapping
     public String displayFavorites(Model model, HttpServletRequest request, HttpSession session){
         User user = getCurrentUser(request);
+        Favorite favorites = user.getFavorites();
         model.addAttribute("user", userRepository.findById(user.getId()));
         model.addAttribute("loggedIn", session.getAttribute("user") != null);
         model.addAttribute("title", "Your Favorites");
-        model.addAttribute("favorites", user.getFavorites());
+        model.addAttribute("favorites", favoritesRepository.findAll());
 
         return "favorite-Lou-Spots/index";
     }
@@ -64,11 +67,11 @@ public class UserFavoriteListController {
         model.addAttribute("loggedIn", session.getAttribute("user") != null);
 
 
-        if(errors.hasErrors()){
+     /*   if(errors.hasErrors()){
             model.addAttribute("title", "Add a Favorite");
             model.addAttribute(new Favorite());
             return "redirect:/favorite-Lou-Spots/add-a-fave";
-        }
+        }*/
 
         favoritesRepository.save(favorite);
         return "redirect:/favorites";

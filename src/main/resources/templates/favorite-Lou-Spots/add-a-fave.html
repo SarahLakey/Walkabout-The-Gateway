@@ -4,23 +4,22 @@
 <body>
 <header th:replace="~{fragments :: header}"></header>
 
-<p th:text="${errorMsg}"></p>
 
 <form method="post">
     <div class="form-group">
         <label th:for="location">Location</label>
             <input th:field="${favorite.location}" class="form-control">
-        <p class="error" th:errors="${favorite.location}"></p>
+
     </div>
     <div class = "form-group">
         <label th:for="longitude">Longitude</label>
             <input th:field="${favorite.longitude}" class="form-control">
-        <p class="error" th:errors="${favorite.longitude}"></p>
+
     </div>
     <div class="form-group">
         <label th:for="latitude">Latitude</label>
             <input th:field="${favorite.latitude}" class="form-control">
-        <p class="error" th:errors="${favorite.latitude}"></p>
+
     </div>
     <div class="form-group">
         <label>Description
