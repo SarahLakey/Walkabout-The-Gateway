@@ -3,6 +3,7 @@ package org.launchcode.walkabout.controllers;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.launchcode.walkabout.data.UserRepository;
+import org.launchcode.walkabout.models.ReportButton;
 import org.launchcode.walkabout.models.SubmitFact;
 import org.launchcode.walkabout.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,4 +56,18 @@ public class AdminController {
 
         return "admin/index";
     }
+
+
+    @GetMapping("/adminTwo")
+    public String submitReportForm(Model model){
+        model.addAttribute("reportButton", new ReportButton());
+        return "submitReport";
+    }
+
+    @PostMapping("/adminTwo")
+    public String submitReportForm(@ModelAttribute ReportButton reportButton, Model model) {
+        model.addAttribute("reportButton", reportButton);
+        return "result";
+    }
+
 }

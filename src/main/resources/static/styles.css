@@ -21,6 +21,7 @@ main {
     margin-top: 5rem ;
     padding: 30px 100px;
     background: #F2F3F4;
+    margin-bottom: 5rem;
 }
 
 h1 {
@@ -180,6 +181,10 @@ p {
   z-index: 9;
 }
 
+.form-popup h1, b, .form-popup-two h1, b {
+  color: #012773
+}
+
 .form-container {
   max-width: 300px;
   padding: 12px;
@@ -225,6 +230,7 @@ p {
   .form-container .btn:hover {
     opacity: 1;
    background-color: #f0e442;
+   color: #012773;
   }
 
   .form-container .cancel:hover {
@@ -265,7 +271,6 @@ p {
     background-color: #012773;
     color: #f0e442;
     font-size: 0.9rem;
-    font-weight: 400;
     padding: 6px 30px;
 }
 
@@ -273,7 +278,7 @@ p {
     color: #F5DC0F;
     font-family: bebas-neue, sans-serif;
     font-style: normal;
-    font-weight: 400;
+    font-size: 0.9rem;
     letter-spacing: .2rem;
     text-decoration: none;
 }
@@ -425,3 +430,126 @@ button:active {
     font-size: 0.9rem;
     margin: 0;
 }
+
+
+.open-button-two {
+  background-color: #012773;
+  color: #f0e442;
+  font-size: 16px;
+  padding: 5px 20px;
+  border: 3px inset #f0e442;
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 15px;
+  right: 300px;
+  width: 200px;
+  opacity: .8;
+}
+
+.form-popup-two {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 10px;
+  z-index: 9;
+}
+
+.form-container-two {
+  margin-right: 15rem;
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+  font-size: 20px;
+  align-content: center;
+}
+
+.form-container-two label{
+ width: 100%;
+}
+
+.form-container-two input[type=text] {
+  width: 100%;
+  padding: 10px;
+  font-size: 10pt;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #D9DADB;
+  align-content: center;
+}
+
+.form-container-two input[type=text]:focus {
+  background-color: #F2F3F4;
+  outline: none;
+}
+
+.form-container-two .btn-two {
+  background-color: #f0e442;
+  color: black;
+  font-family: bebas-neue, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: .2rem;
+  padding: 9px 10px;
+  border: inset #f0e442;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: .7;
+}
+
+.form-container-two .cancel-two {
+      background-color: #012773;
+      color: white;
+        font-family: bebas-neue, sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: .2rem;
+        padding: 9px 10px;
+        border: inset #f0e442;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 10px;
+        opacity: .7;
+}
+
+  .form-container-two .btn-two:hover {
+    opacity: 1;
+   background-color: #f0e442;
+  }
+
+.form-container-two .cancel-two:hover {
+     background-color: #012773;
+     color: white;
+     opacity: 1;
+      }
+
+  .form-container-two .open-button-two:hover {
+    opacity: 1;
+  }
+
+
+  .form-container-two .button-two {
+    color: #012773;
+    background-color: #f0e442;
+    margin-top: 20px;
+    padding: 5px;
+    outline: none;
+    border: 3px inset #f0e442;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: .8;
+    width: 150px;
+    font-size: 16px;
+}
+
+  .form-container-two .button-two hover {
+    opacity: 1;
+   background-color: #f0e442;
+}
+
+  .form-container-two .btn:hover-two, {
+    opacity: 1;
+   background-color: #f0e442;
+  }

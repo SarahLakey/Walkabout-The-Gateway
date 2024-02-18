@@ -1,47 +1,46 @@
 package org.launchcode.walkabout.models.dto;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import org.launchcode.walkabout.models.AbstractEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.persistence.Entity;
-import java.time.LocalDateTime;
-import java.util.Scanner;
+@Entity
+public class UserJournal extends AbstractEntity{
 
+    @NotNull
+    private String journalEntryBlank;
 
-public class UserJournal {
-
-    @NotBlank(message = "Please add the journal entry.")
-    @Min(1)
-    private String journalEntry;
-
-    @NotBlank(message = "Please add the journal location.")
-    @Min(3)
+    @NotNull
     private String journalLocation;
 
-    @NotNull(message = "Please add the journal date.")
-    private static LocalDateTime journalDate;
+    @NotNull
+    private String journalDate;
 
-    public UserJournal(String journalEntry, String journalLocation, LocalDateTime journalDate) {
-        this.journalEntry = journalEntry;
+    @NotNull
+    private String userName;
+
+    public UserJournal(String userName, String journalEntryBlank, String journalLocation, String journalDate) {
+        this.userName = userName;
+        this.journalEntryBlank = journalEntryBlank;
         this.journalLocation = journalLocation;
-        UserJournal.journalDate = journalDate;
+        this.journalDate = journalDate;
     }
 
     public UserJournal() {
-        this.journalEntry = "";
+        this.userName = "";
+        this.journalEntryBlank = "";
         this.journalLocation = "";
-        journalDate = null;
+        this.journalDate = "";
     }
 
-    public String getJournalEntry() {
-        return journalEntry;
+
+    public String getJournalEntryBlank() {
+        return journalEntryBlank;
     }
 
-    public void setJournalEntry(String journalEntry) {
-        this.journalEntry = journalEntry;
+    public void setJournalEntryBlank(String journalEntryBlank) {
+        this.journalEntryBlank = journalEntryBlank;
     }
+
 
     public String getJournalLocation() {
         return journalLocation;
@@ -51,27 +50,21 @@ public class UserJournal {
         this.journalLocation = journalLocation;
     }
 
-    public LocalDateTime getJournalDate() {
+
+    public String getJournalDate() {
         return journalDate;
     }
 
-    public void setJournalDate(LocalDateTime journalDate) {
-        UserJournal.journalDate = journalDate;
+    public void setJournalDate(String journalDate) {
+        this.journalDate = journalDate;
     }
 
-    @Override
-    public String toString(){
-        return journalEntry + journalLocation + journalDate;
+    public String getUserName() {
+        return userName;
     }
 
-    public UserJournal createNewJournalEntry(){
-        UserJournal tempJournal = new UserJournal();
-        Scanner tempScanner = new Scanner(System.in);
-        System.out.println("Please enter your journal entry: ");
-
-        tempJournal.setJournalEntry(tempScanner.nextLine());
-        tempJournal.setJournalDate(LocalDateTime.now());
-        return tempJournal;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
 }

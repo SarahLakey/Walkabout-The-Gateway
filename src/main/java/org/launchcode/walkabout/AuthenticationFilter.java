@@ -23,12 +23,13 @@ public class AuthenticationFilter implements HandlerInterceptor {
 
     private static boolean isWhiteListed(String path) {
         for (String pathRoot : whitelist) {
-            if (path.equals("/") || path.startsWith(pathRoot)) {
+            if (path.equals(pathRoot) || path.startsWith(pathRoot + "/")) {
                 return true;
             }
         }
         return false;
     }
+
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response,

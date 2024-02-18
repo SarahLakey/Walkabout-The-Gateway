@@ -31,18 +31,18 @@
     <div class="nav-bar fixed-top">
         <img th:src="@{/images/Logo-Yel-nav.png}" width="15%" /> | &nbsp;
         <th:block th:unless="${loggedIn}">
-                <a class="navlink" href="/">HOME</a>  | &nbsp;&nbsp;
-                <a class="navlink" href="/login">LOG IN</a>  | &nbsp;
-                <a class="navlink" href="/register">REGISTER</a>
-            </th:block>
-            <th:block th:if="${loggedIn}">
-                <a class="navlink" href="/profile">PROFILE</a>  | &nbsp;
-                <a class="navlink" href="/trips">MY TRIPS</a>  | &nbsp;
-                <a class="navlink" href="/log-a-trip">LOG A TRIP</a>  |
-                <a class="navlink" href="/userjournal">MY JOURNALS</a> |
-                <a class="navlink" href="/map-display">MAP DISPLAY</a> |
-                <a class="navlink" href="/logout">LOG OUT</a>
-            </th:block>
+            <a class="navlink" href="/">HOME</a>  | &nbsp;&nbsp;
+            <a class="navlink" href="/login">LOG IN</a>  | &nbsp;
+            <a class="navlink" href="/register">REGISTER</a>
+        </th:block>
+        <th:block th:if="${loggedIn}">
+            <a class="navlink" href="/profile">PROFILE</a>  | &nbsp;
+            <a class="navlink" href="/trips">MY TRIPS</a>  | &nbsp;
+            <a class="navlink" href="/log-a-trip">LOG A TRIP</a>  |
+            <a class="navlink" href="/userjournal">MY JOURNALS</a> |
+            <a class="navlink" href="/map-display">MAP DISPLAY</a> |
+            <a class="navlink" href="/logout">LOG OUT</a>
+        </th:block>
     </div>
 </header>
 
@@ -52,6 +52,33 @@
     <div>
         <p>&copy;<script>document.write(new Date().getFullYear());</script> JSCubed</p>
     </div>
+
+    <div>
+        <button class="open-button-two" onclick="openFormTwo()"><i class='bx bxs-report' ></i>Report Here</button>
+        <div class="form-popup-two" id="reportForm">
+            <form action="" class="form-container-two">
+                <h1>Report Here</h1>
+                <label><b>Name</b> <input id="name" type="text" placeholder="Enter Your Name" name="names" required></label>
+                <label><b>Report Here</b> <input type="text" placeholder="Please report any unsavory behavior here." name="reports" required></label>
+                <button type="submit" class="btn-two">SUBMIT REPORT</button>
+                <button type="button" class="btn cancel-two" onclick="closeFormTwo()">CLOSE</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openFormTwo() {
+          document.getElementById("reportForm").style.display = "block";
+        }
+
+        function closeFormTwo() {
+          document.getElementById("reportForm").style.display = "none";
+        }
+
+        name.addEventListener('input', function() {
+            name.innerHTML = name.value || "Your Name";
+        });
+    </script>
 
     <div>
         <button class="open-button" onclick="openForm()"><i class='bx bxs-report' ></i> Submit Fact </button>
