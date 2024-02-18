@@ -40,7 +40,7 @@ public class UserFavoriteListController {
         model.addAttribute("user", userRepository.findById(user.getId()));
         model.addAttribute("loggedIn", session.getAttribute("user") != null);
         model.addAttribute("title", "Your Favorites");
-        model.addAttribute("favorites", user.getFavorites());
+        model.addAttribute("favorites", favoritesRepository.findAll());
 
         return "favorite-Lou-Spots/index";
     }
