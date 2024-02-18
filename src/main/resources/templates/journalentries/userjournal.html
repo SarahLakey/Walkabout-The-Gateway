@@ -1,35 +1,28 @@
-<!DocType html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments :: head}">
-    <title>My Journals</title>
-</head>
-<body>
-<header th:replace="~{fragments :: header}"></header>
-<main>
-    <table class="userjournal">
-        <h1>Journal Entries</h1>
-        <h3>View and Leave Journal Entries Here</h3>
-        <form method="post">
-            <tr th:each="UserJournal : ${UserJournal}">
-                <td th:text="${UserJournal.journalEntry}"></td>
-                <td th:text="${UserJournal.journalLocation}"></td>
-                <td th:text="${UserJournal.journalDate}"></td>
-            </tr>
-            <div class="row">
-                <label>Journal Entry: </label>
-                <textarea name="missionDescription"></textarea>
-                <label>Journal Location: </label>
-                <textarea name="missionDescription"></textarea>
-            </div>
-            <div class = "row">
-                <label>Journal Date: <input type="datetime-local"></label>
-            </div>
-            <button onclick="submit" value="Submit">Submit</button>
-        </form>
-        <div class = "row">
-            <button onclick="submit" value="Report">Report Here</button>
-        </div>
-    </table>
-</main>
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+    <head th:replace="~{fragments :: head}"></head>
+    <body>
+    <header th:replace="~{fragments :: header}"></header>
+    <main>
+            <h1>Journal Entries: </h1>
+            <form th:action="@{/userjournal/journalsubmission}" method="post">
+                <div>
+                    <label>Journal Entry:
+                        <input type="text" th:field="${userjournal.journalEntryBlank}" />
+                    </label>
+                    <label>Journal Location:
+                        <input type="text" th:field="${userjournal.journalLocation}">
+                    </label>
+                    <label>Journal Date:
+                        <input type="text" th:field="${userjournal.journalDate}">
+                    </label>
+                </div>
+                <div>
+                    <input type="submit" value="Submit" />
+                </div>
+            </form>
+    </main>
+<footer th:replace="~{fragments :: footer}"></footer>
 </body>
 </html>
+
