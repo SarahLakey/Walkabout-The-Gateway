@@ -4,10 +4,14 @@
 <body>
 <header th:replace="~{fragments :: header}"></header>
 <main>
-
+    <h1>Leave a Comment Here: </h1>
+    <form th:action="@{/userjournal/comment}" method="post">
+        <div>
+            <label>Journal Entry:
+                <input type="text" th:field="${userjournal.comments}" />
+            </label>
+        </div>
+    </form>
 </main>
-</head>
-<body>
-
 </body>
 </html>
