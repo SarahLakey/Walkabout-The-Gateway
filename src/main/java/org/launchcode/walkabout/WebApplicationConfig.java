@@ -12,7 +12,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
-
 @Configuration
 @EnableWebSecurity
 public class WebApplicationConfig implements WebMvcConfigurer {
@@ -31,33 +30,13 @@ public class WebApplicationConfig implements WebMvcConfigurer {
 
 
 //                .formLogin(withDefaults())
-                .formLogin(form->form
-                        .loginPage("/login").permitAll())
+                .formLogin(
+                        form->form.loginPage("/login").permitAll())
 //                .oauth2Login(withDefaults())
 
                 .build();
     }
 
-//    @Bean
-//    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        return http
-//                .authorizeHttpRequests(
-//                        auth -> auth
-//                                .requestMatchers("/").permitAll()
-//                                .requestMatchers("/static/**").permitAll()
-//                                .requestMatchers("/images/**").permitAll()
-//                                .requestMatchers("/css/**").permitAll()
-//                                .anyRequest().authenticated())
-//
-//                .formLogin(withDefaults())
-////                .formLogin(form->form
-////                        .loginPage("/login").permitAll())
-//                .oauth2Login(withDefaults())
-//
-//
-//
-//                .build();
-//    }
 
     @Bean
     public AuthenticationFilter authenticationFilter() {
@@ -69,5 +48,6 @@ public class WebApplicationConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(authenticationFilter());
     }
+
 
 }

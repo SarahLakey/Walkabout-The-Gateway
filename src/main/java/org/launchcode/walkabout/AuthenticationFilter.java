@@ -4,23 +4,24 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.launchcode.walkabout.controllers.AuthenticationController;
+import org.launchcode.walkabout.data.UserRepository;
 import org.launchcode.walkabout.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.web.SecurityFilterChain;
+
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.springframework.security.config.Customizer.withDefaults;
 
 public class AuthenticationFilter implements HandlerInterceptor {
 
     @Autowired
     AuthenticationController authenticationController;
+
+    @Autowired
+    private UserRepository userRepository;
 
 
     private static final List<String> whitelist = Arrays.asList("/register", "/login",
@@ -35,21 +36,6 @@ public class AuthenticationFilter implements HandlerInterceptor {
         return false;
     }
 
-    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http
-                .authorizeHttpRequests(
-                        auth -> auth
-                                .requestMatchers("/").permitAll()
-                                .requestMatchers("/static/**").permitAll()
-                                .requestMatchers("/images/**").permitAll()
-                                .requestMatchers("/css/**").permitAll()
-                                .anyRequest().authenticated())
-
-                .formLogin(form->form.loginPage("/login").permitAll())
-//                .formLogin(withDefaults())
-//                .oauth2Login(withDefaults())
-                .build();
-    }
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
