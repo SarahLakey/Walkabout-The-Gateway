@@ -1,4 +1,10 @@
-body {
+html {
+    background: #F2F3F4;
+
+}
+
+main {
+    padding: 30px 100px;
     background: #F2F3F4;
 }
 
@@ -35,15 +41,16 @@ p {
 
 .form-container {
   max-width: 300px;
-  padding: 10px;
+  padding: 12px;
   background-color: white;
   font-size: 20px;
 
 }
 
 .form-container input[type=text] {
-  width: 90%;
-  padding: 15px;
+  width: 100%;
+  padding: 10px;
+  font-size: 10pt;
   margin: 5px 0 22px 0;
   border: none;
   background: #D9DADB;
@@ -61,11 +68,11 @@ p {
   font-style: normal;
   font-weight: 400;
   letter-spacing: .2rem;
-  padding: 16px 20px;
+  padding: 9px 10px;
   border: inset #f0e442;
   cursor: pointer;
   width: 100%;
-  margin-bottom:5px;
+  margin-bottom: 10px;
   opacity: .7;
 }
 
@@ -74,7 +81,18 @@ p {
   color: white;
   }
 
-  .form-container .btn:hover, .open-button:hover {
+  .form-container .btn:hover {
+    opacity: 1;
+   background-color: #f0e442;
+  }
+
+  .form-container .cancel:hover {
+      opacity: 1;
+      background-color: #012773;
+      color: white;
+    }
+
+  .open-button:hover {
     opacity: 1;
   }
 
@@ -130,13 +148,14 @@ p {
 .footer-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, auto));
-    padding: 5px 20px;
+    padding: 15px 20px;
     margin: 0 auto;
     gap: 3.5rem;
     background-color: #012773;
     color: #f0e442;
     font-family: bebas-neue, sans-serif;
     font-style: normal;
+    font-size: 0.9rem;
     font-weight: 400;
     letter-spacing: .2rem;
     position: absolute;
@@ -181,8 +200,10 @@ button {
     border-radius: 10px;
     cursor: pointer;
     opacity: .8;
-    width: 150px;
-    font-size: 16px;
+    width: 200px;
+    font-size: 14px;
+    display: inline-block;
+
 }
 
 button:hover {
@@ -193,13 +214,21 @@ button:active {
   transform: translateY(4px);
 }
 
-.login, .register {
+.register-form{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.register h1, h2{
     text-align: center;
 }
 
 .login label, .register label {
-  padding: 12px 12px 12px 0;
   display: inline-block;
+  font-weight: bold;
+  text-align: left;
 }
 
 .login input, . register input {
@@ -209,10 +238,49 @@ button:active {
   resize: vertical;
 }
 
+.google-button a:link, .google-button a:visited, .google-button a:active {
+
+    color: white;
+    background-color: #4285F4;
+    margin-top: 20px;
+    padding: 5px;
+    outline: none;
+    border: 3px inset white;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: .8;
+    width: 200px;
+    font-size: 17px;
+    display: inline-block;
+    text-decoration: none;
+    letter-spacing: 0;
+}
+
+
+.github-button a:link, .github-button a:visited, .github-button a:active {
+    color: #fafbfc;
+    background-color: #2b3137;
+    margin-top: 20px;
+    padding: 5px;
+    outline: none;
+    border: 3px inset #fafbfc;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: .8;
+    width: 200px;
+    font-size: 17px;
+    display: inline-block;
+    text-decoration: none;
+    letter-spacing: 0;
+}
+
+.google-button a:hover, .github-button a:hover {
+    opacity: 1;
+}
+
 
 .error {
     color: #C70F2E;
     font-size: 0.9rem;
     margin: 0;
 }
-

@@ -4,35 +4,41 @@
 <body>
 <header th:replace="~{fragments :: header}"></header>
 <main>
-    <div class="login">
+    <div class="login text-center">
     <h1>Welcome Back! Please log in:</h1>
-    <form th:action="@{login}" method="post">
-        <div class="container">
-            <div class="row">
-                <div class ="col-4">
+<!--    <form th:action="@{login}" method="post">-->
+    <form method="post">
+            <div class = "form-group">
+                <div class="register-form mb-3">
                     <label th:for="username">Username</label>
                     <input th:field="${loginFormDTO.username}"/>
                     <p class="error" th:errors="${loginFormDTO.username}"></p>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class ="col-4">
+        <div class = "form-group">
+            <div class="register-form mb-3">
                 <label th:for="password">Password</label>
                 <input th:field="${loginFormDTO.password}" type="password"/>
                 <p class="error" th:errors="${loginFormDTO.password}"></p>
             </div>
         </div>
-        <button type="submit">Sign In</button>
+            <div>
+                <button type="submit">Sign In</button>
+            </div>
+            <div class="container-unauthenticated">
+                <div class ="github-button">
+                    <a href="/oauth2/authorization/github"><i class='bx bxl-github'></i>  Sign in with Github</a>
+                </div>
+            </div>
+
+            <div class="container-unauthenticated">
+                <div class ="google-button">
+                <a href="/oauth2/authorization/google"><i class='bx bxl-google'></i>  Sign in with Google</a>
+                </div>
+            </div>
     </form>
 
-        <div class="container unauthenticated">
-            <button type="submit"><a href="/oauth2/authorization/github">Login with Github</a></button>
-        </div>
 
-        <div class="container unauthenticated">
-            <button type="submit"><a href="/oauth2/authorization/google">Login with Google</a></button>
-        </div>
 
 <!--        <div class="container unauthenticated">-->
 <!--            With GitHub: <a href="/oauth2/authorization/github">Login with Github</a>-->
@@ -41,9 +47,11 @@
 <!--        <div class="container unauthenticated">-->
 <!--            With Google: <a href="/oauth2/authorization/google">Login with Google</a>-->
 <!--        </div>-->
+        &nbsp;
 
-        <p>Don't have an account yet?</p>
-        <p><a href="/register" >Click Here to Register Now!</a> </p>
+            <p>Don't have an account yet?</p>
+            <p><a href="/register" > Click Here to Register Now! </a> </p>
+
     </div>
 
 
