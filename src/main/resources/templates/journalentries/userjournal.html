@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-    <head th:replace="~{fragments :: head}"></head>
-    <body>
-    <header th:replace="~{fragments :: header}"></header>
-    <main>
-            <h1>Journal Entries: </h1>
-            <form th:action="@{/userjournal/journalsubmission}" method="post">
-                <div>
-                    <label>Journal Entry:
-                        <input type="text" th:field="${userjournal.journalEntryBlank}" />
-                    </label>
-                    <label>Journal Location:
-                        <input type="text" th:field="${userjournal.journalLocation}">
-                    </label>
-                    <label>Journal Date:
-                        <input type="text" th:field="${userjournal.journalDate}">
-                    </label>
-                </div>
-                <div>
-                    <input type="submit" value="Submit" />
-                </div>
-            </form>
-    </main>
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<main>
+    <h1>Journal Entries: </h1>
+    <form th:action="@{/userjournal/journalsubmission}" method="post">
+        <div>
+            <label>Journal Entry:
+                <input type="text" th:field="${userjournal.journalEntryBlank}" />
+            </label>
+            <label>Journal Location:
+                <input type="text" th:field="${userjournal.journalLocation}">
+            </label>
+            <label>Journal Date:
+                <input type="text" th:field="${userjournal.journalDate}">
+            </label>
+        </div>
+        <div>
+            <input type="submit" value="Submit" />
+        </div>
+    </form>
+</main>
 <footer th:replace="~{fragments :: footer}"></footer>
 </body>
 </html>
-
