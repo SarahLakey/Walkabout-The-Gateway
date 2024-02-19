@@ -10,15 +10,25 @@
     <script type="text/javascript" th:src="@{/script.js}"></script>
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 
-<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>-->
-<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />-->
+    <!-- BootStrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous">
+
+    <!-- Box Icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
 </head>
 <body>
 <header th:fragment="header">
-    <div class="nav-bar">
+    <div class="nav-bar fixed-top">
         <img th:src="@{/images/Logo-Yel-nav.png}" width="15%" /> | &nbsp;
         <th:block th:unless="${loggedIn}">
                 <a class="navlink" href="/">HOME</a>  | &nbsp;&nbsp;
@@ -37,12 +47,9 @@
 </header>
 
 <footer th:fragment="footer">
-<!--    <div class="footer-content">-->
-<!--        <p>&copy;<script>document.write(new Date().getFullYear());</script> JSCubed</p>-->
-<!--        <p><i class='bx bxs-report' ></i><a href="/submit-fact">Submit Fact</a></p>-->
-<!--        <p><i class='bx bxs-error'></i>Report An Issue</p>-->
-<!--    </div>-->
-    <div class="footer-content">
+
+    <div class="footer-content fixed-bottom">
+    <div>
         <p>&copy;<script>document.write(new Date().getFullYear());</script> JSCubed</p>
     </div>
 
@@ -77,23 +84,23 @@
         <button class="open-button" onclick="openForm()"><i class='bx bxs-report' ></i> Submit Fact </button>
 
         <div class="form-popup" id="myForm">
-            <form action="/profile" class="form-container">
-<!--            <form action="/profile" method="POST" class="form-container">-->
+            <form method="POST" action="/admin" class="form-container">
                 <h1>Submit Fact</h1>
 
-                <label><b>Name</b></label>
-                <input id="name-input" type="text" placeholder="Enter Your Name" name="name" required>
+                <label for="nameInput"><b>Name</b></label>
+                <input id="nameInput" type="text" placeholder="Enter Your Name" name="nameInput" required>
 
-                <label><b>Location</b></label>
-                <input type="text" placeholder="Enter Location / Building Name" name="location" required>
+                <label for="locationInput"><b>Location</b></label>
+                <input id="locationInput" type="text" placeholder="Enter Location / Building Name" name="locationInput" required>
 
-                <label><b>Fact</b></label>
-                <input type="text" placeholder="Enter Fact to be Verified" name="fact" required>
+                <label for="factInput"><b>Fact</b></label>
+                <input id="factInput" type="text" placeholder="Enter Fact to be Verified" name="factInput" required>
 
 
                 <button type="submit" class="btn">SUBMIT FACT</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
             </form>
+
         </div>
 
         <script>
@@ -105,11 +112,9 @@
               document.getElementById("myForm").style.display = "none";
             }
 
-            nameInput.addEventListener('input', function() {
-                name.innerHTML = nameInput.value || "Your Name";
-            });
         </script>
 
+    </div>
     </div>
 </footer>
 
