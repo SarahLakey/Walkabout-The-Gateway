@@ -30,6 +30,8 @@ public class User extends AbstractEntity {
     @ManyToOne
     private Favorite favorites;
 
+    private List<String> badges = new ArrayList<>();
+
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     public User() {}
@@ -81,4 +83,12 @@ public class User extends AbstractEntity {
     }
 
 
+
+    public List<String> getBadges() {
+        return badges;
+    }
+
+    public void setBadges(List<String> badges) {
+        this.badges = badges;
+    }
 }

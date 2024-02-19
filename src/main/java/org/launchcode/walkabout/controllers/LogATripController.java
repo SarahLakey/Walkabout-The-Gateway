@@ -45,8 +45,8 @@ public class LogATripController {
         User currentUser = getCurrentUser(request);
 
 
-        currentUser.setPoints(user.getPoints() + currentUser.getPoints());
-        System.out.println("After Update - Current User Points: " + currentUser.getPoints());
+        currentUser.setPoints(user.getPoints() + currentUser.getPoints() + (user.getBadges().size() * 250));
+        System.out.println("After Update - Current User Points: " + user.getBadges());
 
         userRepository.save(currentUser);
 
