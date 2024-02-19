@@ -12,57 +12,62 @@
         <!-- Steps -->
         <div class="insights row">
             <div class="steps col">
-                <span class="material-symbols-outlined ">footprint</span>
-                <div class="middle">
+                <span class="material-symbols-outlined" style="font-size: 75px">footprint</span>                <div class="middle">
                     <div class="left">
                         <h3>Steps</h3>
                         <h1>8,459</h1>
                     </div>
+                <div class="progress">
                     <svg>
                         <circle cx='38' cy='38' r='36'></circle>
                     </svg>
-                    <div class="number">
-                        <p>85%</p>
-                    </div>
                 </div>
-<!--            <small class="text-muted">Last 24 Hours</small>-->
-        </div>
+                <div class="number">
+                    <p>85%</p>
+                </div>
+            </div>
+                <small class="text-muted">Last 24 Hours</small>
+            </div>
 
         <!-- Total Points -->
         <div class="points col">
-                <span class="material-symbols-outlined">star_rate</span>
+                <span class="material-symbols-outlined" style="font-size: 75px">star_rate</span>
                 <div class="middle">
                     <div class="left">
                         <h3>Total Points</h3>
                         <h1>3,210</h1>
                     </div>
+                    <div class="progress">
                     <svg>
                         <circle cx='38' cy='38' r='36'></circle>
                     </svg>
+                    </div>
                     <div class="number">
                         <p>34%</p>
                     </div>
                 </div>
-<!--            <small class="text-muted">Last 24 Hours</small>-->
+            <small class="text-muted">Last 24 Hours</small>
         </div>
 
         <!-- Badges  -->
         <div class="badges col">
-                <span class="material-symbols-outlined">social_leaderboard</span>
+                <span class="material-symbols-outlined" style="font-size: 75px">social_leaderboard</span>
                 <div class="middle">
                     <div class="left">
                         <h3>Badges Earned</h3>
                         <h1>6</h1>
                     </div>
+                    <div class="progress">
                     <svg>
                         <circle cx='38' cy='38' r='36'></circle>
                     </svg>
+                    </div>
                     <div class="number">
                         <p>60%</p>
                     </div>
                 </div>
 <!--            </div>-->
-<!--            <small class="text-muted">Last 24 Hours</small>-->
+            <small class="text-muted">Last 24 Hours</small>
         </div>
             <div class="badges col">
 <!--                <div class="middle">                &nbsp;-->
@@ -91,7 +96,7 @@
                 </div>
                 <!-- Display "Coming Soon" if user.points is empty or not defined -->
                 <div th:unless="${user.points}">
-                    <span class="material-symbols-outlined">clock_loader_40</span>
+                    <span class="material-symbols-outlined" style="font-size: 75px">clock_loader_40</span>
                     <p>Additional Progress Information Coming Soon!</p>
 <!--                </div>-->
                 </div>

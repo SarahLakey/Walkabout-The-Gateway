@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     outline: 0;
-    appearance: none;
     border: 0;
     text-decoration: none;
     list-style: none;
@@ -23,6 +22,7 @@ main {
     background: #F2F3F4;
     margin-bottom: 5rem;
 }
+
 
 h1 {
     font-weight: 800;
@@ -51,8 +51,6 @@ text-muted {
 
 .container {
     display: grid;
-    width: 90%;
-    gap: 1.8rem;
     background: #F2F3F4;
 }
 
@@ -80,7 +78,6 @@ main .insights > div span {
     padding: 0.5 rem;
     border-radius: 50%;
     color: white;
-    font-size: 2 rem;
 }
 
 .materials-symbols-outline {
@@ -143,7 +140,7 @@ main .insights .progress .number {
     width: 100%
     display: flex;
     justify-content: center;
-    align-items: left;
+    align-items: center;
 }
 
 
