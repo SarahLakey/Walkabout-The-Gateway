@@ -4,27 +4,26 @@
 <body>
 <header th:replace="~{fragments :: header}"></header>
 
-<p th:text="${errorMsg}"></p>
 
 <form method="post">
-    <div>
+    <div class="form-group">
         <label th:for="location">Location</label>
-            <input th:field="${userFavoritesDTO.location}">
-        <p class="error" th:errors="${userFavoritesDTO.location}"></p>
+            <input th:field="${favorite.location}" class="form-control">
+
     </div>
-    <div>
+    <div class = "form-group">
         <label th:for="longitude">Longitude</label>
-            <input th:field="${userFavoritesDTO.longitude}">
-        <p class="error" th:errors="${userFavoritesDTO.longitude}"></p>
+            <input th:field="${favorite.longitude}" class="form-control">
+
     </div>
-    <div>
+    <div class="form-group">
         <label th:for="latitude">Latitude</label>
-            <input th:field="${userFavoritesDTO.latitude}">
-        <p class="error" th:errors="${userFavoritesDTO.latitude}"></p>
+            <input th:field="${favorite.latitude}" class="form-control">
+
     </div>
-    <div>
+    <div class="form-group">
         <label>Description
-            <input th:field="${favorite.description}">
+            <input th:field="${favorite.description}" class="form-control">
         </label>
     </div>
     <div>
