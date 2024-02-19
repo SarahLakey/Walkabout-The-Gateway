@@ -31,18 +31,18 @@
     <div class="nav-bar fixed-top">
         <img th:src="@{/images/Logo-Yel-nav.png}" width="15%" /> | &nbsp;
         <th:block th:unless="${loggedIn}">
-            <a class="navlink" href="/">HOME</a>  | &nbsp;&nbsp;
-            <a class="navlink" href="/login">LOG IN</a>  | &nbsp;
-            <a class="navlink" href="/register">REGISTER</a>
-        </th:block>
-        <th:block th:if="${loggedIn}">
-            <a class="navlink" href="/profile">PROFILE</a>  | &nbsp;
-            <a class="navlink" href="/trips">MY TRIPS</a>  | &nbsp;
-            <a class="navlink" href="/log-a-trip">LOG A TRIP</a>  |
-            <a class="navlink" href="/userjournal">MY JOURNALS</a> |
-            <a class="navlink" href="/map-display">MAP DISPLAY</a> |
-            <a class="navlink" href="/logout">LOG OUT</a>
-        </th:block>
+                <a class="navlink" href="/">HOME</a>  | &nbsp;&nbsp;
+                <a class="navlink" href="/login">LOG IN</a>  | &nbsp;
+                <a class="navlink" href="/register">REGISTER</a>
+            </th:block>
+            <th:block th:if="${loggedIn}">
+                <a class="navlink" href="/profile">PROFILE</a>  | &nbsp;
+                <a class="navlink" href="/log-a-trip">LOG A TRIP</a>  |
+                <a class="navlink" href="/userjournal">SUBMIT A JOURNAL</a> |
+                <a class="navlink" href="/readjournals"> READ YOUR JOURNALS</a> |
+                <a class="navlink" href="/map-display">MAP DISPLAY</a> |
+                <a class="navlink" href="/logout">LOG OUT</a>
+            </th:block>
     </div>
 </header>
 

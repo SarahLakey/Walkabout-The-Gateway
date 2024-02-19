@@ -26,6 +26,8 @@ public class User extends AbstractEntity {
 
     private Integer points = 0;
 
+    private List<String> badges = new ArrayList<>();
+
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     public User() {}
@@ -66,5 +68,13 @@ public class User extends AbstractEntity {
 
     public void setPoints(Integer points) {
         this.points = points;
+    }
+
+    public List<String> getBadges() {
+        return badges;
+    }
+
+    public void setBadges(List<String> badges) {
+        this.badges = badges;
     }
 }
