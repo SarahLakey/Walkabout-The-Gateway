@@ -26,10 +26,13 @@
                     <th>Fact to Be Verified:</th>
                 </tr>
                 <tr>
-                    <td th:text="${submitFact.nameInput}"></td>
+<!--                    <td th:text="${submitFact.nameInput}"></td>-->
+<!--                    <td th:text="${submitFact.locationInput}"></td>-->
+<!--                    <td th:text="${submitFact.factInput}"></td>-->
+                    <td th:each="submitFact: ${submitFacts}"></td>
+                    <td th:each="${submitFact.nameInput}"></td>
                     <td th:text="${submitFact.locationInput}"></td>
                     <td th:text="${submitFact.factInput}"></td>
-
                 </tr>
             </table>
         </div>

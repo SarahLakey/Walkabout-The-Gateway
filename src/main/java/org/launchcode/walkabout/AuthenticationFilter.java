@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.launchcode.walkabout.controllers.AuthenticationController;
+import org.launchcode.walkabout.data.SubmitFactRepository;
 import org.launchcode.walkabout.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -16,6 +17,9 @@ public class AuthenticationFilter implements HandlerInterceptor {
 
     @Autowired
     AuthenticationController authenticationController;
+
+    @Autowired
+    SubmitFactRepository submitFactRepository;
 
 
     private static final List<String> whitelist = Arrays.asList("/", "/register", "/login",

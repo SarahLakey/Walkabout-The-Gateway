@@ -1,6 +1,6 @@
 package org.launchcode.walkabout.data;
 
-import org.jetbrains.annotations.NotNull;
+//import org.jetbrains.annotations.NotNull;
 import org.launchcode.walkabout.models.User;
 import org.launchcode.walkabout.models.dto.UserJournal;
 import org.springframework.data.repository.CrudRepository;
