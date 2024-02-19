@@ -6,6 +6,7 @@ import org.launchcode.walkabout.data.UserRepository;
 import org.launchcode.walkabout.models.ReportButton;
 import org.launchcode.walkabout.models.SubmitFact;
 import org.launchcode.walkabout.models.User;
+import org.launchcode.walkabout.models.dto.UserJournal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
@@ -58,16 +59,21 @@ public class AdminController {
     }
 
 
-    @GetMapping("/adminTwo")
-    public String submitReportForm(Model model){
+   @GetMapping("/report")
+    public String submitReportForm(HttpServletRequest request, HttpSession session, Model model) {
+        User user = getCurrentUser(request);
+        model.addAttribute("user", userRepository.findById(user.getId()));
+        model.addAttribute("loggedIn", session.getAttribute("user") != null);
         model.addAttribute("reportButton", new ReportButton());
-        return "submitReport";
+        return "admin/reportbutton";
     }
 
-    @PostMapping("/adminTwo")
-    public String submitReportForm(@ModelAttribute ReportButton reportButton, Model model) {
+    @PostMapping("/report")
+    public String processReportForm(HttpServletRequest request, Model model, @ModelAttribute ReportButton reportButton) {
+        model.addAttribute("name", reportButton.getName());
+        model.addAttribute("report", reportButton.getReport());
         model.addAttribute("reportButton", reportButton);
-        return "result";
+        return "admin/reportbutton";
     }
 
 }

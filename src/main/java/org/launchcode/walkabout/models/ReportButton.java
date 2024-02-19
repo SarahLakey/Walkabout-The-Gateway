@@ -1,7 +1,8 @@
 package org.launchcode.walkabout.models;
 
-import jakarta.persistence.Entity;
+import javax.persistence.Entity;
 
+@Entity
 public class ReportButton{
     private String name;
     private String report;
