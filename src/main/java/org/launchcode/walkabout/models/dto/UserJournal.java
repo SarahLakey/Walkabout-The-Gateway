@@ -22,11 +22,12 @@ public class UserJournal extends AbstractEntity{
 
     private String comments;
 
-    public UserJournal(String userName, String journalEntryBlank, String journalLocation, String journalDate) {
+    public UserJournal(String userName, String journalEntryBlank, String journalLocation, String journalDate, String comments) {
         this.userName = userName;
         this.journalEntryBlank = journalEntryBlank;
         this.journalLocation = journalLocation;
         this.journalDate = journalDate;
+        this.comments = comments;
     }
 
     public UserJournal() {
@@ -34,6 +35,7 @@ public class UserJournal extends AbstractEntity{
         this.journalEntryBlank = "";
         this.journalLocation = "";
         this.journalDate = "";
+        this.comments = "";
     }
 
 
@@ -79,7 +81,4 @@ public class UserJournal extends AbstractEntity{
         this.comments = comments;
     }
 
-    public UserJournal(String comments) {
-        this.comments = comments;
-    }
 }

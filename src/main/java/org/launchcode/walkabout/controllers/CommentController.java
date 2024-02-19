@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/comment")
+@RequestMapping("/comments")
 public class CommentController {
     @Autowired
     private JournalRepository journalRepository;
@@ -36,14 +36,12 @@ public class CommentController {
         model.addAttribute("loggedIn", session.getAttribute("user") != null);
         model.addAttribute("userjournal", new UserJournal());
         model.addAttribute("journalEntries", journalEntries);
-        return "journalentries/comment";
+        return "journalentries/comments";
     }
 
     @PostMapping("/comments")
-    public String processUserJournal(@Valid UserJournal userJournal, Errors errors, Model model, HttpSession session, HttpServletRequest request) {
-        UserJournal journalEntry = new UserJournal(getCurrentUser(request).getUsername(), userJournal.getJournalEntryBlank(), userJournal.getJournalLocation(), userJournal.getJournalDate());
-        //UserJournal journalEntry = new UserJournal();
-        //journalEntry.setJournalEntryBlank(userJournal.getJournalEntryBlank() + userJournal.getJournalEntryBlank());
+    public String processUserComment(@Valid UserJournal userJournal, Errors errors, Model model, HttpSession session, HttpServletRequest request) {
+        UserJournal journalEntry = new UserJournal(getCurrentUser(request).getUsername(), userJournal.getJournalEntryBlank(), userJournal.getJournalLocation(), userJournal.getJournalDate(), userJournal.getComments());
         journalRepository.save(journalEntry);
         return "redirect:/communityjournals";
     }

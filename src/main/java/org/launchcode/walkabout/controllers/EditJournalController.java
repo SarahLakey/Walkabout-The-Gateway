@@ -45,7 +45,7 @@ public class EditJournalController {
 
     @PostMapping("/edit")
     public String processUserJournal(@Valid UserJournal userJournal, Errors errors, Model model, HttpSession session, HttpServletRequest request) {
-        UserJournal journalEntry = new UserJournal(getCurrentUser(request).getUsername(), userJournal.getJournalEntryBlank(), userJournal.getJournalLocation(), userJournal.getJournalDate());
+        UserJournal journalEntry = new UserJournal(getCurrentUser(request).getUsername(), userJournal.getJournalEntryBlank(), userJournal.getJournalLocation(), userJournal.getJournalDate(), userJournal.getComments());
         //UserJournal journalEntry = new UserJournal();
         //journalEntry.setJournalEntryBlank(userJournal.getJournalEntryBlank() + userJournal.getJournalEntryBlank());
         journalRepository.save(journalEntry);
