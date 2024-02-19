@@ -132,7 +132,7 @@ main .insights .points svg circle {
 
 main .insights .badges svg circle {
     stroke-dashoffset: 20;
-    stroke-dasharray: 80;
+    stroke-dasharray: 85;
 }
 
 main .insights .progress .number {

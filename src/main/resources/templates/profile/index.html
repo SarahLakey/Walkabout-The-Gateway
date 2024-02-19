@@ -64,8 +64,8 @@
 <!--            </div>-->
 <!--            <small class="text-muted">Last 24 Hours</small>-->
         </div>
-            <div>
-                &nbsp;
+            <div class="badges col">
+<!--                <div class="middle">                &nbsp;-->
                 <!-- Check if user.points is not empty -->
                 <div th:if="${user.points}">
 
@@ -93,7 +93,9 @@
                 <div th:unless="${user.points}">
                     <span class="material-symbols-outlined">clock_loader_40</span>
                     <p>Additional Progress Information Coming Soon!</p>
+<!--                </div>-->
                 </div>
+            </div>
         </div>
         </div>
 
