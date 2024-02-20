@@ -12,13 +12,55 @@
         <!-- Steps -->
         <div class="insights row">
             <div class="steps col">
-                <span class="material-symbols-outlined" style="font-size: 75px">footprint</span>                <div class="middle">
+                <span class="material-symbols-outlined" style="font-size: 75px">footprint</span>
+                <div class="middle">
                 <div class="left">
                     <h3>Steps</h3>
                     <h1>8,459</h1>
                 </div>
                 <div class="progress">
+                    <!-- Currently hardcoded graphs / data until daily steps tracking code is completed -->
                     <img th:src="@{/images/80.png}"/>
+
+
+                    <!-- Conditionals below are for graphs once daily steps tracking code is completed;
+                        calculated primarily based on rounding up or down to nearest thousandths place
+                        e.g. 1400 rounds down to 1000
+                                1000 is 10% of daily goal (daily goal = 10,000) -->
+
+<!--                    <div th:if="${user.steps >= 0 and user.steps < 1500}">-->
+<!--                        <img th:src="@{/images/10.png}"/>-->
+<!--                    </div>-->
+<!--                    <div th:if="${user.steps >= 1500 and user.steps < 2500}">-->
+<!--                        <img th:src="@{/images/20.png}"/>-->
+<!--                    </div>-->
+<!--                    <div th:if="${user.steps >= 2500 and user.steps < 3500}">-->
+<!--                        <img th:src="@{/images/30.png}"/>-->
+<!--                    </div>-->
+<!--                    <div th:if="${user.steps >= 3500 and user.steps < 4500}">-->
+<!--                        <img th:src="@{/images/40.png}"/>-->
+<!--                    </div>-->
+<!--                    <div th:if="${user.steps >= 4500 and user.steps < 5500}">-->
+<!--                        <img th:src="@{/images/50.png}"/>-->
+<!--                    </div>-->
+<!--                    <div th:if="${user.steps >= 5500 and user.steps < 6500}">-->
+<!--                        <img th:src="@{/images/60.png}"/>-->
+<!--                    </div>-->
+<!--                    <div th:if="${user.steps >= 6500 and user.steps < 7500}">-->
+<!--                        <img th:src="@{/images/70.png}"/>-->
+<!--                    </div>-->
+<!--                    <div th:if="${user.steps >= 7500 and user.steps < 8500}">-->
+<!--                        <img th:src="@{/images/80.png}"/>-->
+<!--                    </div>-->
+<!--                    <div th:if="${user.steps >= 8500 and user.steps < 9999}">-->
+<!--                        <img th:src="@{/images/90.png}"/>-->
+<!--                    </div>-->
+<!--                    <div th:if="${user.steps >= 10000}">-->
+<!--                        <img th:src="@{/images/100.png}"/>-->
+<!--                    </div>-->
+
+
+
                 </div>
                 <div class="number">
                     <p>85%</p>
