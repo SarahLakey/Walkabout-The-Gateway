@@ -553,7 +553,3 @@ button:active {
     opacity: 1;
    background-color: #f0e442;
   }
-
-  .hidden{
-  display : none;
-  }

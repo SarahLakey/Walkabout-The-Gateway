@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+
+
+<form method="post">
+    <div class="form-group">
+        <label th:for="location">Location</label>
+            <input th:field="${favorite.location}" class="form-control">
+
+    </div>
+    <div class = "form-group">
+        <label th:for="longitude">Longitude</label>
+            <input th:field="${favorite.longitude}" class="form-control">
+
+    </div>
+    <div class="form-group">
+        <label th:for="latitude">Latitude</label>
+            <input th:field="${favorite.latitude}" class="form-control">
+
+    </div>
+    <div class="form-group">
+        <label>Description
+            <input th:field="${favorite.description}" class="form-control">
+        </label>
+    </div>
+    <div>
+        <button type="submit">Add</button>
+    </div>
+
+
+</form>
+<div>
+    <p><a href="/favorites">Click here to view your favorite locales!</a></p>
+</div>
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>

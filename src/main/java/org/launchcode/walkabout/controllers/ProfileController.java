@@ -39,9 +39,9 @@ private User getCurrentUser(HttpServletRequest request) {
             return "profile/index";
         }
 
-        @GetMapping ("/admin/index")
+        @GetMapping ("/admin")
     public String style(){
-            return "admin/index";
+            return "admin";
         }
 
 
