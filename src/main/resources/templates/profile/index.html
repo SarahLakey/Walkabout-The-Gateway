@@ -3,20 +3,20 @@
 <head th:replace="~{fragments :: head}"></head>
 <body>
 <header th:replace="~{fragments :: header}"></header>
-    <main>
-        <div class="container">
-<!--        <h1>Welcome Back!</h1>-->
-<!--        <h1 th:text="${user.firstName}">User</h1>-->
+<main>
+    <div class="container">
+        <!--        <h1>Welcome Back!</h1>-->
+        <!--        <h1 th:text="${user.firstName}">User</h1>-->
         <h1 th:text="'Welcome back, ' + ${user.firstName} + '!'">Welcome back, User!</h1>
 
         <!-- Steps -->
         <div class="insights row">
             <div class="steps col">
                 <span class="material-symbols-outlined" style="font-size: 75px">footprint</span>                <div class="middle">
-                    <div class="left">
-                        <h3>Steps</h3>
-                        <h1>8,459</h1>
-                    </div>
+                <div class="left">
+                    <h3>Steps</h3>
+                    <h1>8,459</h1>
+                </div>
                 <div class="progress">
                     <img th:src="@{/images/80.png}"/>
                 </div>
@@ -27,8 +27,8 @@
                 <small class="text-muted">Last 24 Hours</small>
             </div>
 
-        <!-- Total Points -->
-        <div class="points col">
+            <!-- Total Points -->
+            <div class="points col">
                 <span class="material-symbols-outlined" style="font-size: 75px">star_rate</span>
                 <div class="middle">
                     <div class="left">
@@ -42,11 +42,11 @@
                         <p>34%</p>
                     </div>
                 </div>
-            <small class="text-muted">Current points toward leveling up</small>
-        </div>
+                <small class="text-muted">Current points toward leveling up</small>
+            </div>
 
-        <!-- Badges  -->
-        <div class="badges col">
+            <!-- Badges  -->
+            <div class="badges col">
                 <span class="material-symbols-outlined" style="font-size: 75px">social_leaderboard</span>
                 <div class="middle">
                     <div class="left">
@@ -60,8 +60,8 @@
                         <p>60%</p>
                     </div>
                 </div>
-            <small class="text-muted">Earned by exploring St. Louis locations</small>
-        </div>
+                <small class="text-muted">Earned by exploring St. Louis locations</small>
+            </div>
 
             <div class="badges col">
                 <img th:src="@{/images/Leadership-Board.gif}"
@@ -73,41 +73,41 @@
                 <span class="material-symbols-outlined" style="font-size: 75px">emoji_events</span>
                 <div class="left">
 
-                <!-- Check if user.points is not empty -->
-                <div th:if="${user.points}">
+                    <!-- Check if user.points is not empty -->
+                    <div th:if="${user.points}">
 
-                    <!-- Display user points -->
+                        <!-- Display user points -->
 
-                    <div th:if="${user.points >= 0 and user.points < 10000}">
+                        <div th:if="${user.points >= 0 and user.points < 10000}">
+                            <h3>User Level</h3>
+                            <h1>1</h1>
+                        </div>
+                        <div th:if="${user.points >= 10001 and user.points < 15000}">
+                            <h3>User Level</h3>
+                            <h1>2</h1>
+                        </div>
+                        <div th:if="${user.points >= 15001 and user.points <25000}">
+                            <h3>User Level</h3>
+                            <h1>3</h1>
+                        </div>
+                        <div th:if="${user.points >= 25001 and user.points <40000}">
+                            <h3>User Level</h3>
+                            <h1>4</h1>
+                        </div>
+                        <div th:if="${user.points >= 40001}">
+                            <h3>User Level</h3>
+                            <h1>5</h1>
+                        </div>
+                        <small class="text-muted" th:text="'Total  Experience Points: ' + ${user.points}">points</small>
+
+                    </div>
+                    <!-- Display if user.points is empty or not defined -->
+                    <div th:unless="${user.points}">
                         <h3>User Level</h3>
                         <h1>1</h1>
-                    </div>
-                    <div th:if="${user.points >= 10001 and user.points < 15000}">
-                        <h3>User Level</h3>
-                        <h1>2</h1>
-                    </div>
-                    <div th:if="${user.points >= 15001 and user.points <25000}">
-                        <h3>User Level</h3>
-                        <h1>3</h1>
-                    </div>
-                    <div th:if="${user.points >= 25001 and user.points <40000}">
-                        <h3>User Level</h3>
-                        <h1>4</h1>
-                    </div>
-                    <div th:if="${user.points >= 40001}">
-                        <h3>User Level</h3>
-                        <h1>5</h1>
-                    </div>
-                    <small class="text-muted" th:text="'Total  Experience Points: ' + ${user.points}">points</small>
+                        <small class="text-muted">Total  Experience Points: 3,210</small>
 
-                </div>
-                <!-- Display if user.points is empty or not defined -->
-                <div th:unless="${user.points}">
-                    <h3>User Level</h3>
-                    <h1>1</h1>
-                    <small class="text-muted">Total  Experience Points: 3,210</small>
-
-                </div>
+                    </div>
 
 
                 </div>
@@ -115,9 +115,9 @@
 
             </div>
         </div>
-        </div>
+    </div>
 
-    </main>
+</main>
 <footer th:replace="~{fragments :: footer}"></footer>
 
 </body>

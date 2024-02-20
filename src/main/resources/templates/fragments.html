@@ -5,7 +5,7 @@
     <title>Walkabout the Gateway</title>
     <link th:href="@{/styles.css}" rel="stylesheet" />
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
-<!--    <script th:src="@{/script.js}"></script>-->
+    <!--    <script th:src="@{/script.js}"></script>-->
 
     <script type="text/javascript" th:src="@{/script.js}"></script>
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
@@ -31,90 +31,90 @@
     <div class="nav-bar fixed-top">
         <img th:src="@{/images/Logo-Yel-nav.png}" width="15%" /> | &nbsp;
         <th:block th:unless="${loggedIn}">
-                <a class="navlink" href="/">HOME</a>  | &nbsp;&nbsp;
-                <a class="navlink" href="/login">LOG IN</a>  | &nbsp;
-                <a class="navlink" href="/register">REGISTER</a>
-            </th:block>
-            <th:block th:if="${loggedIn}">
-                <a class="navlink" href="/profile">PROFILE</a>  | &nbsp;
-                <a class="navlink" href="/log-a-trip">LOG A TRIP</a>  |
-                <a class="navlink" href="/userjournal">SUBMIT A JOURNAL</a> |
-                <a class="navlink" href="/readjournals"> READ YOUR JOURNALS</a> |
-                <a class="navlink" href="/map-display">MAP DISPLAY</a> |
-                <a class="navlink" href="/logout">LOG OUT</a>
-            </th:block>
+            <a class="navlink" href="/">HOME</a>  | &nbsp;&nbsp;
+            <a class="navlink" href="/login">LOG IN</a>  | &nbsp;
+            <a class="navlink" href="/register">REGISTER</a>
+        </th:block>
+        <th:block th:if="${loggedIn}">
+            <a class="navlink" href="/profile">PROFILE</a>  | &nbsp;
+            <a class="navlink" href="/log-a-trip">LOG A TRIP</a>  |
+            <a class="navlink" href="/userjournal">SUBMIT A JOURNAL</a> |
+            <a class="navlink" href="/readjournals"> READ YOUR JOURNALS</a> |
+            <a class="navlink" href="/map-display">MAP DISPLAY</a> |
+            <a class="navlink" href="/logout">LOG OUT</a>
+        </th:block>
     </div>
 </header>
 
 <footer th:fragment="footer">
 
     <div class="footer-content fixed-bottom">
-    <div>
-        <p>&copy;<script>document.write(new Date().getFullYear());</script> JSCubed</p>
-    </div>
-
-    <div>
-        <button class="open-button-two" onclick="openFormTwo()"><i class='bx bxs-report' ></i>Report Here</button>
-        <div class="form-popup-two" id="reportForm">
-            <form action="" class="form-container-two">
-                <h1>Report Here</h1>
-                <label><b>Name</b> <input id="name" type="text" placeholder="Enter Your Name" name="names" required></label>
-                <label><b>Report Here</b> <input type="text" placeholder="Please report any unsavory behavior here." name="reports" required></label>
-                <button type="submit" class="btn-two">SUBMIT REPORT</button>
-                <button type="button" class="btn cancel-two" onclick="closeFormTwo()">CLOSE</button>
-            </form>
+        <div>
+            <p>&copy;<script>document.write(new Date().getFullYear());</script> JSCubed</p>
         </div>
-    </div>
 
-    <script>
-        function openFormTwo() {
-          document.getElementById("reportForm").style.display = "block";
-        }
-
-        function closeFormTwo() {
-          document.getElementById("reportForm").style.display = "none";
-        }
-
-        name.addEventListener('input', function() {
-            name.innerHTML = name.value || "Your Name";
-        });
-    </script>
-
-    <div>
-        <button class="open-button" onclick="openForm()"><i class='bx bxs-report' ></i> Submit Fact </button>
-
-        <div class="form-popup" id="myForm">
-            <form method="POST" action="/admin" class="form-container">
-                <h1>Submit Fact</h1>
-
-                <label for="nameInput"><b>Name</b></label>
-                <input id="nameInput" type="text" placeholder="Enter Your Name" name="nameInput" required>
-
-                <label for="locationInput"><b>Location</b></label>
-                <input id="locationInput" type="text" placeholder="Enter Location / Building Name" name="locationInput" required>
-
-                <label for="factInput"><b>Fact</b></label>
-                <input id="factInput" type="text" placeholder="Enter Fact to be Verified" name="factInput" required>
-
-
-                <button type="submit" class="btn">SUBMIT FACT</button>
-                <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
-            </form>
-
+        <div>
+            <button class="open-button-two" onclick="openFormTwo()"><i class='bx bxs-report' ></i>Report Here</button>
+            <div class="form-popup-two" id="reportForm">
+                <form action="" class="form-container-two">
+                    <h1>Report Here</h1>
+                    <label><b>Name</b> <input id="name" type="text" placeholder="Enter Your Name" name="names" required></label>
+                    <label><b>Report Here</b> <input type="text" placeholder="Please report any unsavory behavior here." name="reports" required></label>
+                    <button type="submit" class="btn-two">SUBMIT REPORT</button>
+                    <button type="button" class="btn cancel-two" onclick="closeFormTwo()">CLOSE</button>
+                </form>
+            </div>
         </div>
 
         <script>
-            function openForm() {
-              document.getElementById("myForm").style.display = "block";
+            function openFormTwo() {
+              document.getElementById("reportForm").style.display = "block";
             }
 
-            function closeForm() {
-              document.getElementById("myForm").style.display = "none";
+            function closeFormTwo() {
+              document.getElementById("reportForm").style.display = "none";
             }
 
+            name.addEventListener('input', function() {
+                name.innerHTML = name.value || "Your Name";
+            });
         </script>
 
-    </div>
+        <div>
+            <button class="open-button" onclick="openForm()"><i class='bx bxs-report' ></i> Submit Fact </button>
+
+            <div class="form-popup" id="myForm">
+                <form method="POST" action="/admin" class="form-container">
+                    <h1>Submit Fact</h1>
+
+                    <label for="nameInput"><b>Name</b></label>
+                    <input id="nameInput" type="text" placeholder="Enter Your Name" name="nameInput" required>
+
+                    <label for="locationInput"><b>Location</b></label>
+                    <input id="locationInput" type="text" placeholder="Enter Location / Building Name" name="locationInput" required>
+
+                    <label for="factInput"><b>Fact</b></label>
+                    <input id="factInput" type="text" placeholder="Enter Fact to be Verified" name="factInput" required>
+
+
+                    <button type="submit" class="btn">SUBMIT FACT</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
+                </form>
+
+            </div>
+
+            <script>
+                function openForm() {
+                  document.getElementById("myForm").style.display = "block";
+                }
+
+                function closeForm() {
+                  document.getElementById("myForm").style.display = "none";
+                }
+
+            </script>
+
+        </div>
     </div>
 </footer>
 
