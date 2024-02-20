@@ -29,7 +29,7 @@ public class CommunityJournalsController {
         String journalLocation = authenticationController.getUserFromSession(session).getUsername();
         //String journalLocation = userJournalController.displayUserJournal(journalLocation);
         List<UserJournal> journalEntries = (List<UserJournal>) journalRepository.findAll();
-        Collections.reverse(journalEntries);
+
 
         model.addAttribute("user", new User());
         model.addAttribute("loggedIn", session.getAttribute("user") != null);

@@ -13,7 +13,7 @@
             <th>Journal Entry</th>
             <th>Journal Location</th>
             <th>Journal Date</th>
-            </tr>
+            </tr>Í
             </thead>
             <tbody>
             <tr th:each="userjournal : ${journalEntries}">
@@ -30,6 +30,7 @@
   var div = document.getElementById("delete");
   div.classList.toggle('hidden');
 } </script>
+    </div>
 </main>
 </body>
 <footer th:replace="~{fragments :: footer}"></footer>

@@ -22,6 +22,9 @@ public class UserJournal extends AbstractEntity{
 
     private String comments;
 
+    /*@GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Id
+    @Column(name = "journalId")*/
     private Integer journalId;
 
     public UserJournal(String userName, String journalEntryBlank, String journalLocation, String journalDate, String comments) {
