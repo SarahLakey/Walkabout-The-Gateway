@@ -32,7 +32,7 @@
                 <span class="material-symbols-outlined" style="font-size: 75px">star_rate</span>
                 <div class="middle">
                     <div class="left">
-                        <h3>Experience Points</h3>
+                        <h3>Points</h3>
                         <h1>3,210</h1>
                     </div>
                     <div class="progress">
@@ -42,7 +42,7 @@
                         <p>34%</p>
                     </div>
                 </div>
-<!--            <small class="text-muted">Last 24 Hours</small>-->
+            <small class="text-muted">Current points toward leveling up</small>
         </div>
 
         <!-- Badges  -->
@@ -50,7 +50,7 @@
                 <span class="material-symbols-outlined" style="font-size: 75px">social_leaderboard</span>
                 <div class="middle">
                     <div class="left">
-                        <h3>Badges Earned</h3>
+                        <h3>Badges</h3>
                         <h1>6</h1>
                     </div>
                     <div class="progress">
@@ -60,8 +60,7 @@
                         <p>60%</p>
                     </div>
                 </div>
-<!--            </div>-->
-<!--            <small class="text-muted">Last 24 Hours</small>-->
+            <small class="text-muted">Earned by exploring St. Louis locations</small>
         </div>
 
             <div class="badges col">
@@ -70,37 +69,51 @@
                      align-content: center" />
             </div>
 
-            <div class="badges col">
-<!--                <div class="middle">                &nbsp;-->
+            <div class="user-level col">
+                <span class="material-symbols-outlined" style="font-size: 75px">emoji_events</span>
+                <div class="left">
+
                 <!-- Check if user.points is not empty -->
                 <div th:if="${user.points}">
 
                     <!-- Display user points -->
-                    <h2>Additional Information on Progress:</h2>
-        <!--            <h2>You currently have this many experience points:</h2>-->
-                    <h2 th:text="${user.points}">points</h2>
+
+<!--                    <h2 th:text="' Total  Experience Points: ' + ${user.points}">points</h2>-->
                     <div th:if="${user.points >= 0 and user.points < 10000}">
-                        <p>User Level: 1</p>
+                        <h3>User Level</h3>
+                        <h1>1</h1>
                     </div>
                     <div th:if="${user.points >= 10001 and user.points < 15000}">
-                        <p>User Level: 2</p>
+                        <h3>User Level</h3>
+                        <h1>2</h1>
                     </div>
                     <div th:if="${user.points >= 15001 and user.points <25000}">
-                        <p>User Level: 3</p>
+                        <h3>User Level</h3>
+                        <h1>3</h1>
                     </div>
                     <div th:if="${user.points >= 25001 and user.points <40000}">
-                        <p>User Level: 4</p>
+                        <h3>User Level</h3>
+                        <h1>4</h1>
                     </div>
                     <div th:if="${user.points >= 40001}">
-                        <p>User Level: 5</p>
+                        <h3>User Level</h3>
+                        <h1>5</h1>
                     </div>
+                    <small class="text-muted" th:text="'Total  Experience Points: ' + ${user.points}">points</small>
+
                 </div>
-                <!-- Display "Coming Soon" if user.points is empty or not defined -->
+                <!-- Display if user.points is empty or not defined -->
                 <div th:unless="${user.points}">
-                    <span class="material-symbols-outlined" style="font-size: 75px">clock_loader_40</span>
-                    <p>Additional Progress Information Coming Soon!</p>
-<!--                </div>-->
+                    <h3>User Level</h3>
+                    <h1>1</h1>
+                    <small class="text-muted">Total  Experience Points: 3,210</small>
+
                 </div>
+
+
+                </div>
+
+
             </div>
         </div>
         </div>
