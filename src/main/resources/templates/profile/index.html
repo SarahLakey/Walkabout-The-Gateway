@@ -17,6 +17,9 @@
                 <div class="left">
                     <h3>Steps</h3>
                     <h1>8,459</h1>
+                    <!-- Currently hardcoded until daily steps tracking with SQL queries
+                    to calculate percentages code is completed -->
+
                 </div>
                 <div class="progress">
                     <!-- Currently hardcoded graphs / data until daily steps tracking code is completed -->
@@ -76,6 +79,10 @@
                     <div class="left">
                         <h3>Points</h3>
                         <h1>3,210</h1>
+                        <!-- Currently hardcoded until code altered with SQL queries to track individual point logs
+                         to differentiate between levels
+                        e.g. Level 2 is between 10000 - 15000 so if a user has 11,000 points - it would should
+                            1,000 current points toward levels up, which would have a progress of 20% -->
                     </div>
                     <div class="progress">
                         <img th:src="@{/images/30.png}"/>
