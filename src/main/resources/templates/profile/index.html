@@ -3,10 +3,10 @@
 <head th:replace="~{fragments :: head}"></head>
 <body>
 <header th:replace="~{fragments :: header}"></header>
-    <main>
-        <div class="container">
-<!--        <h1>Welcome Back!</h1>-->
-<!--        <h1 th:text="${user.firstName}">User</h1>-->
+<main>
+    <div class="container">
+        <!--        <h1>Welcome Back!</h1>-->
+        <!--        <h1 th:text="${user.firstName}">User</h1>-->
         <h1 th:text="'Welcome back, ' + ${user.firstName} + '!'">Welcome back, User!</h1>
 
         <!-- Steps -->
@@ -25,11 +25,11 @@
                         <p>85%</p>
                     </div>
                 </div>
-<!--            <small class="text-muted">Last 24 Hours</small>-->
-        </div>
+                <!--            <small class="text-muted">Last 24 Hours</small>-->
+            </div>
 
-        <!-- Total Points -->
-        <div class="points col">
+            <!-- Total Points -->
+            <div class="points col">
                 <span class="material-symbols-outlined">star_rate</span>
                 <div class="middle">
                     <div class="left">
@@ -43,11 +43,11 @@
                         <p>34%</p>
                     </div>
                 </div>
-<!--            <small class="text-muted">Last 24 Hours</small>-->
-        </div>
+                <!--            <small class="text-muted">Last 24 Hours</small>-->
+            </div>
 
-        <!-- Badges  -->
-        <div class="badges col">
+            <!-- Badges  -->
+            <div class="badges col">
                 <span class="material-symbols-outlined">social_leaderboard</span>
                 <div class="middle">
                     <div class="left">
@@ -61,9 +61,9 @@
                         <p>60%</p>
                     </div>
                 </div>
-<!--            </div>-->
-<!--            <small class="text-muted">Last 24 Hours</small>-->
-        </div>
+                <!--            </div>-->
+                <!--            <small class="text-muted">Last 24 Hours</small>-->
+            </div>
             <div>
                 &nbsp;
                 <!-- Check if user.points is not empty -->
@@ -71,7 +71,7 @@
 
                     <!-- Display user points -->
                     <h2>Additional Information on Progress:</h2>
-        <!--            <h2>You currently have this many experience points:</h2>-->
+                    <!--            <h2>You currently have this many experience points:</h2>-->
                     <h2 th:text="${user.points}">points</h2>
                     <div th:if="${user.points >= 0 and user.points < 10000}">
                         <p>User Level: 1</p>
@@ -94,10 +94,13 @@
                     <span class="material-symbols-outlined">clock_loader_40</span>
                     <p>Additional Progress Information Coming Soon!</p>
                 </div>
+            </div>
         </div>
+        <div>
+            <p><a href="/favorites">Click here to view your favorite locales!</a></p>
         </div>
 
-    </main>
+</main>
 <footer th:replace="~{fragments :: footer}"></footer>
 
 </body>

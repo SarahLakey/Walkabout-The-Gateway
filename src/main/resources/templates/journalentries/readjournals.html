@@ -5,20 +5,20 @@
 <header th:replace="~{fragments :: header}"></header>
 <main>
     <div>
-    <h1>Journal Entries</h1>
+        <h1>Journal Entries</h1>
         <table>
             <thead>
             <tr>
-            <th>Journal Entry</th>
-            <th>Journal Location</th>
-            <th>Journal Date</th>
+                <th>Journal Entry</th>
+                <th>Journal Location</th>
+                <th>Journal Date</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="userjournal : ${journalEntries}">
-            <td th:text="${userjournal.journalEntryBlank}"></td>
-            <td th:text="${userjournal.journalLocation}"></td>
-            <td th:text="${userjournal.journalDate}"></td>
+                <td th:text="${userjournal.journalEntryBlank}"></td>
+                <td th:text="${userjournal.journalLocation}"></td>
+                <td th:text="${userjournal.journalDate}"></td>
             </tr>
             </tbody>
         </table>
