@@ -4,20 +4,13 @@
     <script src="popup-script.js"></script>
 </head>
 <body>
-<header>
-    <div class="nav-bar">
-        <img th:src="@{/images/Logo-Yel-nav.png}" width="15%" /> | &nbsp;
-        <a class="navlink" >ADMIN DASHBOARD</a>   | &nbsp;&nbsp;
-        <a class="navlink" href="/logout">LOG OUT</a>
-    </div>
-</header>
+<header th:replace="~{fragments :: header}"></header>
 <main>
     <h1>Welcome to the Admin Page!</h1>
     <section>
         <h3>Reports Made: </h3>
         <div class="report-button-table">
             <table id="reportForm" class="flex-col">
-            <table>
                 <tr>
                 <th>Name: </th>
                 <th>Report: </th>
@@ -30,14 +23,6 @@
         </div>
     </section>
 </main>
-
 <footer th:replace="~{fragments :: footer}"></footer>
-
-<footer>
-    <div class="footer-content">
-        <p>&copy;<script>document.write(new Date().getFullYear());</script> JSCubed</p>
-    </div>
-</footer>
-
 </body>
 </html>

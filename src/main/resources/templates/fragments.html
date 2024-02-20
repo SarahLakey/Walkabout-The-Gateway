@@ -40,7 +40,7 @@
                 <a class="navlink" href="/log-a-trip">LOG A TRIP</a>  |
                 <a class="navlink" href="/userjournal">SUBMIT A JOURNAL</a> |
                 <a class="navlink" href="/readjournals">READ YOUR JOURNALS</a> |
-                <a class="navlink" href="/communitjournals">COMMUNITY JOURNALS</a>
+                <a class="navlink" href="/communityjournals">COMMUNITY JOURNALS</a> |
                 <a class="navlink" href="/map-display">MAP DISPLAY</a> |
                 <a class="navlink" href="/logout">LOG OUT</a>
             </th:block>
@@ -57,10 +57,10 @@
     <div>
         <button class="open-button-two" onclick="openFormTwo()"><i class='bx bxs-report' ></i>Report Here</button>
         <div class="form-popup-two" id="reportForm">
-            <form action="" class="form-container-two">
+            <form method="POST" action="/report" class="form-container-two">
                 <h1>Report Here</h1>
-                <label><b>Name</b> <input id="name" type="text" placeholder="Enter Your Name" name="names" required></label>
-                <label><b>Report Here</b> <input type="text" placeholder="Please report any unsavory behavior here." name="reports" required></label>
+                <label><b>Name</b> <input id="name" type="text" placeholder="Enter Your Name" name="name"></label>
+                <label><b>Report Here</b> <input id="report" type="text" placeholder="Please report to admins here." name="report"></label>
                 <button type="submit" class="btn-two">SUBMIT REPORT</button>
                 <button type="button" class="btn cancel-two" onclick="closeFormTwo()">CLOSE</button>
             </form>
@@ -75,10 +75,6 @@
         function closeFormTwo() {
           document.getElementById("reportForm").style.display = "none";
         }
-
-        name.addEventListener('input', function() {
-            name.innerHTML = name.value || "Your Name";
-        });
     </script>
 
     <div>
