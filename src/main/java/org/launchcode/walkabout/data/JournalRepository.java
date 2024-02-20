@@ -12,5 +12,6 @@ import java.util.List;
 public interface JournalRepository extends CrudRepository<UserJournal, String> {
     List<UserJournal> findAllByUserName(String userName);
     List<UserJournal> findAllByJournalLocation(String journalLocation);
+    List<UserJournal> getById(int journalId);
 }
 
