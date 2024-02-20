@@ -257,6 +257,7 @@ p {
           }
 
 
+
 .nav-bar {
     display: flex;
     flex-direction: row;
@@ -277,6 +278,13 @@ p {
     letter-spacing: .2rem;
     text-decoration: none;
 }
+
+.nav-bar a {
+    text-align: center;
+    justify-content: right;
+}
+
+
 
 .nav-bar a:hover {
     float: right;
