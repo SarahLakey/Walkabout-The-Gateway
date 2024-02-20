@@ -2,7 +2,18 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body>
-<header th:replace="~{fragments :: header}"></header>
+
+<form th:action="@{/favorites}">
+    <label>Search Tags...
+        <select>
+            <option th:each="favoriteTag : ${favoriteTags}"
+                    th:text="${favoriteTag.name}"
+            ></option>
+        </select>
+    </label>
+    <button type="submit">Filter</button>
+</form>
+
 <div>
     <table class="table table-bordered">
         <thead>
@@ -12,6 +23,7 @@
             <th>Longitude</th>
             <th>Latitude</th>
             <th>Description</th>
+            <th>Tag</th>
         </tr>
         </thead>
         <tbody>
@@ -21,6 +33,7 @@
             <td th:text="${favorite.longitude}"></td>
             <td th:text="${favorite.latitude}"></td>
             <td th:text="${favorite.description}"></td>
+            <td th:text="${favorite.favoriteTag}"></td>
         </tr>
         </tbody>
     </table>
