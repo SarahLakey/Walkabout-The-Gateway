@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body>
-
+<header th:replace="~{fragments :: header}"></header>
 <form th:action="@{/favorites}" method="post">
     <label>
         <select name="tags">
@@ -16,6 +16,7 @@
     <button type="submit">Filter</button>
 </form>
 
+<main>
 <div>
     <table class="table table-bordered">
         <thead>
@@ -25,7 +26,6 @@
             <th>Longitude</th>
             <th>Latitude</th>
             <th>Description</th>
-            <th>Tag</th>
         </tr>
         </thead>
         <tbody>
@@ -43,6 +43,7 @@
 <div>
     <p><a href="/favorites/add-a-fave">Click here to add more locations to your favorites.</a></p>
 </div>
+</main>
 <footer th:replace="~{fragments :: footer}"></footer>
 </body>
 </html>

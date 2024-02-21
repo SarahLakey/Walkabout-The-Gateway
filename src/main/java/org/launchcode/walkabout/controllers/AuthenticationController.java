@@ -57,7 +57,6 @@ public class AuthenticationController {
         //send user back to form if errors are found
         if (errors.hasErrors()) {
             return "register";
-
         }
 
         User existingUser = userRepository.findByUsername(registrationFormDTO.getUsername());
@@ -76,7 +75,8 @@ public class AuthenticationController {
             return "register";
         }
 
-        User newUser = new User(registrationFormDTO.getUsername(), registrationFormDTO.getPassword());
+        User newUser = new User(registrationFormDTO.getFirstName(), registrationFormDTO.getLastName(), registrationFormDTO.getUsername(), registrationFormDTO.getPassword());
+//        User newUser = new User(registrationFormDTO.getFirstName(), registrationFormDTO.getUsername(), registrationFormDTO.getPassword());
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
         return "redirect:/profile";

@@ -31,4 +31,5 @@ public class LoginFormDTO {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

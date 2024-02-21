@@ -62,7 +62,7 @@ public class User extends AbstractEntity {
         return username;
     }
 
-   public boolean isMatchingPassword (String password) {
+    public boolean isMatchingPassword (String password) {
         return encoder.matches(password, pwHash);
     }
 
@@ -77,12 +77,6 @@ public class User extends AbstractEntity {
     public Favorite getFavorites(){
         return favorites;
     }
-
-    public void setFavorites(Favorite favorites){
-        this.favorites=favorites;
-    }
-
-
 
     public List<String> getBadges() {
         return badges;

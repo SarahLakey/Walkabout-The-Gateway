@@ -3,6 +3,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import org.launchcode.walkabout.models.AbstractEntity;
 
+import java.util.List;
+
 @Entity
 public class UserJournal extends AbstractEntity{
 
@@ -18,11 +20,19 @@ public class UserJournal extends AbstractEntity{
     @NotNull
     private String userName;
 
-    public UserJournal(String userName, String journalEntryBlank, String journalLocation, String journalDate) {
+    private String comments;
+
+    /*@GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Id
+    @Column(name = "journalId")*/
+    private Integer journalId;
+
+    public UserJournal(String userName, String journalEntryBlank, String journalLocation, String journalDate, String comments) {
         this.userName = userName;
         this.journalEntryBlank = journalEntryBlank;
         this.journalLocation = journalLocation;
         this.journalDate = journalDate;
+        this.comments = comments;
     }
 
     public UserJournal() {
@@ -30,6 +40,8 @@ public class UserJournal extends AbstractEntity{
         this.journalEntryBlank = "";
         this.journalLocation = "";
         this.journalDate = "";
+        this.comments = "";
+        this.journalId = 0;
     }
 
 
@@ -67,4 +79,19 @@ public class UserJournal extends AbstractEntity{
         this.userName = userName;
     }
 
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
+    public Integer getJournalId() {
+        return journalId;
+    }
+
+    public void setJournalId(Integer journalId) {
+        this.journalId = journalId;
+    }
 }

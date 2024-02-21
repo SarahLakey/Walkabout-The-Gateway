@@ -1,0 +1,28 @@
+<!DocType html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head}">
+    <script src="popup-script.js"></script>
+</head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<main>
+    <h1>Welcome to the Admin Page!</h1>
+    <section>
+        <h3>Reports Made: </h3>
+        <div class="report-button-table">
+            <table id="reportForm" class="flex-col">
+                <tr>
+                <th>Name: </th>
+                <th>Report: </th>
+                </tr>
+                <tr>
+                <td th:text="${reportButton.name}"></td>
+                <td th:text="${reportButton.report}"></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+</main>
+<footer th:replace="~{fragments :: footer}"></footer>
+</body>
+</html>
