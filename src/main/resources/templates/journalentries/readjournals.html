@@ -1,27 +1,35 @@
 <!DocType html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="~{fragments :: head}"></head>
 <body>
 <header th:replace="~{fragments :: header}"></header>
 <main>
     <div>
-        <h1>Journal Entries</h1>
+    <h1>Journal Entries</h1>
+        <div id="delete">
         <table>
             <thead>
             <tr>
-                <th>Journal Entry</th>
-                <th>Journal Location</th>
-                <th>Journal Date</th>
+            <th>Journal Entry</th>
+            <th>Journal Location</th>
+            <th>Journal Date</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="userjournal : ${journalEntries}">
-                <td th:text="${userjournal.journalEntryBlank}"></td>
-                <td th:text="${userjournal.journalLocation}"></td>
-                <td th:text="${userjournal.journalDate}"></td>
+            <td th:text="${userjournal.journalEntryBlank}"></td>
+            <td th:text="${userjournal.journalLocation}"></td>
+            <td th:text="${userjournal.journalDate}"></td>
+            <td><a class="navlink" href="/editjournals">&#9998</a></td>
+            <td><button type="submit" onclick="showdelete()">&#128465</button></td>
             </tr>
             </tbody>
         </table>
+    </div>
+    <script>function showdelete() {
+  var div = document.getElementById("delete");
+  div.classList.toggle('hidden');
+} </script>
     </div>
 </main>
 </body>
