@@ -3,7 +3,7 @@ let appName = "Walkabout the Gateway";
         google.charts.load("current", {
           "packages":["map"],
 
-
+          "mapsApiKey": "AIzaSyD4EMSLU3zejs7I5l--s6YTyNuzbz2Anz4"
         });
          google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
