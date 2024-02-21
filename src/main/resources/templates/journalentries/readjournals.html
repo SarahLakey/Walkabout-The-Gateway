@@ -20,18 +20,28 @@
             <td th:text="${userjournal.journalEntryBlank}"></td>
             <td th:text="${userjournal.journalLocation}"></td>
             <td th:text="${userjournal.journalDate}"></td>
+                <td>
+                <form th:action="@{/readjournals/deletejournal}" method="POST" th:object="${userjournal}">
+                    <input type="hidden" name="deletejournal" th:field="${userjournal.journalId}">
+                    <button type="submit" value="Delete" class="btn btn-delete">&#128465</button>
+                </form>
+                    <!--<form th:action="@{/readjournals/editjournals"  method="POST" th:object="${userjournal}">
+                        <input type="hidden" name="editjournals" th:field="{$userjournal.journalId}">
+                        <button type="submit" value="Edit" class="btn btn-edit">&#9998</button>
+                    </form>-->
+                </td>
             <td><a class="navlink" href="/editjournals">&#9998</a></td>
-            <td><button type="submit" onclick="showdelete()">&#128465</button></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <script>function showdelete() {
-  var div = document.getElementById("delete");
-  div.classList.toggle('hidden');
-} </script>
-    </div>
-</main>
-</body>
-<footer th:replace="~{fragments :: footer}"></footer>
-</html>
+                <!--<td><button type="submit" onclick="showdelete()">&#128465</button></td>-->
+                 </tr>
+                 </tbody>
+             </table>
+         </div>
+        <!--<script>function showdelete() {
+       var div = document.getElementById("delete");
+       div.classList.toggle('hidden');
+     } </script>-->
+         </div>
+     </main>
+     </body>
+     <footer th:replace="~{fragments :: footer}"></footer>
+     </html>

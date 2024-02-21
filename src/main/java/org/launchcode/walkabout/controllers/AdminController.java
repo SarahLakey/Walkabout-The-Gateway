@@ -1,5 +1,6 @@
 package org.launchcode.walkabout.controllers;
 
+import jakarta.servlet.annotation.HttpConstraint;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.launchcode.walkabout.data.UserRepository;
@@ -58,16 +59,21 @@ public class AdminController {
     }
 
 
-    @GetMapping("/adminTwo")
-    public String submitReportForm(Model model){
+    @GetMapping("/report")
+    public String submitReportForm(HttpServletRequest request, HttpSession session, Model model){
+        User user = getCurrentUser(request);
+        model.addAttribute("user", userRepository.findById(user.getId()));
+        model.addAttribute("loggedIn", session.getAttribute("user") != null);
         model.addAttribute("reportButton", new ReportButton());
-        return "submitReport";
+        return "admin/reportbutton";
     }
 
-    @PostMapping("/adminTwo")
-    public String submitReportForm(@ModelAttribute ReportButton reportButton, Model model) {
+    @PostMapping("/report")
+    public String submitReportForm(HttpServletRequest request, Model model,@ModelAttribute ReportButton reportButton) {
+        model.addAttribute("name", reportButton.getName());
+        model.addAttribute("report", reportButton.getReport());
         model.addAttribute("reportButton", reportButton);
-        return "result";
+        return "admin/reportbutton";
     }
 
 }

@@ -11,17 +11,15 @@ import org.launchcode.walkabout.models.User;
 import org.launchcode.walkabout.models.dto.UserJournal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import org.launchcode.walkabout.controllers.AuthenticationController;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -49,6 +47,23 @@ public class ReadJournalsController {
         for (int )
     };*/
 
+    @Transactional
+    @RequestMapping(value = "/deletejournal", method = RequestMethod.POST)
+    public String deleteUserJournal(@RequestParam Integer journalId){
+
+        journalRepository.deleteByJournalId(journalId);
+        System.out.println(journalId);
+        return "journalentries/readjournals";
+    }
+
+    /*@RequestMapping(value = "/editjournals", method = RequestMethod.POST)
+    public String editUserJournal(@RequestParam Integer journalId){
+        UserJournal editJournal = journalRepository.findByJournalId(journalId);
+        String editJournalEntryBlank = editJournal.getJournalEntryBlank();
+        String editJournalLocation = editJournal.getJournalLocation();
+        String editJournalDate = editJournal.getJournalDate();
+        return "journalentries/readjournals" + editJournalEntryBlank + editJournalLocation + editJournalDate;
+    }*/
 
 }
 
