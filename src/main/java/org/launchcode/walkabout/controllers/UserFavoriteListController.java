@@ -44,22 +44,31 @@ public class UserFavoriteListController {
     }
 
     @GetMapping
-    public String displayFavorites(@RequestParam(required=false) Integer tagFavoriteId, Model model, HttpServletRequest request, HttpSession session){
+    public String displayFavorites( Model model, HttpServletRequest request, HttpSession session){
         User user = getCurrentUser(request);
 
         model.addAttribute("user", userRepository.findById(user.getId()));
         model.addAttribute("loggedIn", session.getAttribute("user") != null);
 
-        if (tagFavoriteId == null) {
             model.addAttribute("title", "All");
             model.addAttribute("favorites", favoritesRepository.findAll());
             model.addAttribute("favoriteTags", favoriteTagRepository.findAll());
-        } else {
-            Optional<FavoriteTag> result = favoriteTagRepository.findById(tagFavoriteId);
-            FavoriteTag favoriteTag = result.get();
-            model.addAttribute("title", "Places marked " + favoriteTag.getDisplayName());
-            model.addAttribute("favoriteTags", favoriteTag);
-        }
+
+        return "favorite-Lou-Spots/index";
+    }
+
+    @PostMapping
+    public String processdisplaySearch(@RequestParam(required=false) int tags, Model model, HttpServletRequest request, HttpSession session){
+        User user = getCurrentUser(request);
+
+        model.addAttribute("user", userRepository.findById(user.getId()));
+        model.addAttribute("loggedIn", session.getAttribute("user") != null);
+
+
+            Optional<FavoriteTag> result = favoriteTagRepository.findById(tags);
+
+            model.addAttribute("favorites", result.get().getFavorites());
+            model.addAttribute("favoriteTags", favoriteTagRepository.findAll());
 
         return "favorite-Lou-Spots/index";
     }
