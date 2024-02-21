@@ -4,8 +4,9 @@
 <body>
 
 <form th:action="@{/favorites}">
-    <label>Search Tags...
+    <label>
         <select>
+            <option value="">Filter by:</option>
             <option th:each="favoriteTag : ${favoriteTags}"
                     th:text="${favoriteTag.name}"
             ></option>

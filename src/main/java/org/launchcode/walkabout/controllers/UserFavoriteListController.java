@@ -56,10 +56,10 @@ public class UserFavoriteListController {
             model.addAttribute("favoriteTags", favoriteTagRepository.findAll());
         } else {
             Optional<FavoriteTag> result = favoriteTagRepository.findById(tagFavoriteId);
-                FavoriteTag favoriteTag = result.get();
-                model.addAttribute("title", "Places marked " + favoriteTag.getDisplayName());
-                model.addAttribute("favoriteTags", favoriteTag);
-            }
+            FavoriteTag favoriteTag = result.get();
+            model.addAttribute("title", "Places marked " + favoriteTag.getDisplayName());
+            model.addAttribute("favoriteTags", favoriteTag);
+        }
 
         return "favorite-Lou-Spots/index";
     }
