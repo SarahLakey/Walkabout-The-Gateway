@@ -2,6 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body>
+
+
 <header th:replace="~{fragments :: header}"></header>
 <main>
 
@@ -27,6 +29,16 @@
         </label>
     </div>
     <div>
+        <label>Tag
+            <select th:field="${favorite.favoriteTag}">
+                <option th:each="favoriteTag : ${favoriteTags}"
+                        th:value="${favoriteTag.id}"
+                        th:text="${favoriteTag.name}"
+                ></option>
+            </select>
+        </label>
+    </div>
+    <div>
         <button type="submit">Add</button>
     </div>
 
@@ -39,4 +51,4 @@
 </main>
 <footer th:replace="~{fragments :: footer}"></footer>
 </body>
-</html>git pu
+</html>
