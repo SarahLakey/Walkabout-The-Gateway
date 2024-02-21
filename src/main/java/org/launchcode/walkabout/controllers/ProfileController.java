@@ -16,19 +16,19 @@ public class ProfileController {
 
     //TODO: Add @Autowired annotation + repositories
 
-@Autowired
-   private UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-@Autowired
-private AuthenticationController authenticationController;
+    @Autowired
+    private AuthenticationController authenticationController;
 
-private User getCurrentUser(HttpServletRequest request) {
-    HttpSession session = request.getSession();
-    return authenticationController.getUserFromSession(session);
-}
+    private User getCurrentUser(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        return authenticationController.getUserFromSession(session);
+    }
 
 
-        @GetMapping
+    @GetMapping
     public String displayProfilePage(HttpServletRequest request, HttpSession session, Model model) {
         User user = getCurrentUser(request);
 
@@ -36,13 +36,13 @@ private User getCurrentUser(HttpServletRequest request) {
         model.addAttribute("loggedIn", session.getAttribute("user") != null);
 
 
-            return "profile/index";
-        }
-
-        @GetMapping ("/admin")
-    public String style(){
-            return "admin";
-        }
-
-
+        return "profile/index";
     }
+
+    @GetMapping ("/admin/index")
+    public String style(){
+        return "admin/index";
+    }
+
+
+}

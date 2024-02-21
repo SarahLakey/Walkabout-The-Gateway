@@ -1,5 +1,8 @@
 package org.launchcode.walkabout.models;
 
+import javax.persistence.Entity;
+
+@Entity
 public class SubmitFact {
 
     private String nameInput;
