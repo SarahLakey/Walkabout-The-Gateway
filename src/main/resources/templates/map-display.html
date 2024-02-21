@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="~{fragments :: head}">
-  </head>
+
+</head>
   <body>
   <header th:replace="~{fragments :: header}"></header>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript" th:src = "@{/mapdisplayjs/mapScript.js}"></script>
-  <div id="map_div" style="display: block; width: 100%; height: 100%; margin: auto"></div>
-<script type="text/javascript" th:src = "@{/mapdisplayjs/coordinatesButton.js}"></script>
-  <div class="form">
-    <button id="location" onclick = "getLocation()">Give me my coordinates!</button>
-</div>
+
+
+  <script th:src = "@{/map/mapScript.js}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgfwP9_Iur5vGE5suxMVNq3qwiONfMq2I&callback=initMap"></script>
+  <div>
+    <div id='map'></div>
+  </div>
+
+
   </body>
   </html>
