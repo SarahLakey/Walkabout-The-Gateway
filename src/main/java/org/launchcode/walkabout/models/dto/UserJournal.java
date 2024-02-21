@@ -2,8 +2,7 @@ package org.launchcode.walkabout.models.dto;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import org.launchcode.walkabout.models.AbstractEntity;
-
-import java.util.List;
+import org.springframework.data.annotation.Id;
 
 @Entity
 public class UserJournal extends AbstractEntity{
@@ -25,7 +24,14 @@ public class UserJournal extends AbstractEntity{
     /*@GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Id
     @Column(name = "journalId")*/
-    private Integer journalId;
+    //int journalInt = 0;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Integer journalId = 0;
+    /*private static int newId=1;
+    public int UserJournal(int journalId){
+        return journalId=newId++;
+    };*/
 
     public UserJournal(String userName, String journalEntryBlank, String journalLocation, String journalDate, String comments) {
         this.userName = userName;
@@ -87,11 +93,11 @@ public class UserJournal extends AbstractEntity{
         this.comments = comments;
     }
 
-    public Integer getJournalId() {
+    public int getJournalId() {
         return journalId;
     }
 
-    public void setJournalId(Integer journalId) {
+    public void setJournalId(int journalId) {
         this.journalId = journalId;
     }
 }
