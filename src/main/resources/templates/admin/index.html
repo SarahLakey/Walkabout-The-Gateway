@@ -4,7 +4,7 @@
     <script src="popup-script.js"></script>
 </head>
 
-<body>
+<body class="admin">
 <header>
     <div class="nav-bar">
         <img th:src="@{/images/Logo-Yel-nav.png}" width="15%" /> | &nbsp;
@@ -29,15 +29,12 @@
                     <td th:text="${submitFact.nameInput}"></td>
                     <td th:text="${submitFact.locationInput}"></td>
                     <td th:text="${submitFact.factInput}"></td>
-
                 </tr>
             </table>
         </div>
     </section>
 
 </main>
-
-<footer th:replace="~{fragments :: footer}"></footer>
 
 <footer>
     <div class="footer-content">
@@ -46,3 +43,4 @@
 </footer>
 
 </body>
+</html>
