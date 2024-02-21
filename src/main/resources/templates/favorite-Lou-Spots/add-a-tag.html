@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+
+<form method="post">
+    <div class="form-group">
+        <label>Name
+            <input th:field="${favoriteTag.name}" class="form-control">
+        </label>
+    </div>
+    <input type="submit" value="Create" class="btn btn-primary">
+</form>
+</body>
+</html>

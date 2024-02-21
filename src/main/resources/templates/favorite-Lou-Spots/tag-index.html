@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body class="container">
+
+
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Current Tags</th>
+    </tr>
+    </thead>
+    <tr th:each="favoriteTag : ${favoriteTags}">
+        <td th:text="${favoriteTag.name}"></td>
+    </tr>
+
+</table>
+
+</body>
+</html>

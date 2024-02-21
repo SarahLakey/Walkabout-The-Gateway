@@ -3,58 +3,32 @@
 <head th:replace="~{fragments :: head}"></head>
 <body>
 <header th:replace="~{fragments :: header}"></header>
-<main>
-    <div class="register text-center">
+    <main>
+        <div class="register">
         <h1>Welcome!</h1>
         <h2>Create a New Account:</h2>
-        <!--            <form method="post" th:object="${user}">-->
-
         <form method="post">
-            <div class = "form-group">
-                <div class="register-form mb-3">
-                    <label th:for="firstName">First Name</label>
-                    <input th:field="${registrationFormDTO.firstName}" />
-                    <p class="error" th:errors="${registrationFormDTO.firstName}"></p>
-                </div>
+            <div>
+                <label th:for="username">Username</label>
+                <input th:field="${registrationFormDTO.username}" />
+                <p class="error" th:errors="${registrationFormDTO.username}"></p>
             </div>
-            <div class = "form-group">
-                <div class="register-form mb-3">
-                    <label th:for="lastName">Last Name</label>
-                    <input th:field="${registrationFormDTO.lastName}" />
-                    <p class="error" th:errors="${registrationFormDTO.lastName}"></p>
-                </div>
+            <div>
+                <label th:for="password">Password</label>
+                <input type="password" th:field="${registrationFormDTO.password}" />
+                <p class="error" th:errors="${registrationFormDTO.password}"></p>
             </div>
-            <div class = "form-group">
-                <div class="register-form mb-3">
-                    <label th:for="username">Username</label>
-                    <input th:field="${registrationFormDTO.username}" />
-                    <p class="error" th:errors="${registrationFormDTO.username}"></p>
-                </div>
-            </div>
-            <div class = "form-group">
-                <div class="register-form mb-3">
-                    <label th:for="password">Password</label>
-                    <input type="password" th:field="${registrationFormDTO.password}" />
-                    <p class="error" th:errors="${registrationFormDTO.password}"></p>
-                </div>
-            </div>
-            <div class = "form-group">
-                <div class="register-form mb-3">
-                    <label th:for="verifyPassword">Verify Password</label>
-                    <input type="password" th:field="${registrationFormDTO.verifyPassword}" />
-                    <p class="error" th:errors="${registrationFormDTO.verifyPassword}"></p>
-                </div>
+            <div>
+                <label th:for="verifyPassword">Verify Password</label>
+                <input type="password" th:field="${registrationFormDTO.verifyPassword}" />
+                <p class="error" th:errors="${registrationFormDTO.verifyPassword}"></p>
             </div>
             <button type="submit">Join</button>
         </form>
-    </div>
-</main>
+        </div>
+    </main>
 
-<footer>
-    <div class="footer-content">
-        <p>&copy;<script>document.write(new Date().getFullYear());</script> JSCubed</p>
-    </div>
-</footer>
+<footer th:replace="~{fragments :: footer}"></footer>
 
 
 </body>

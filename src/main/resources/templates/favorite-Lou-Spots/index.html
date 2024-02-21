@@ -3,6 +3,7 @@
 <head th:replace="fragments :: head"></head>
 <body>
 <header th:replace="~{fragments :: header}"></header>
+
 <main>
 <div>
     <table class="table table-bordered">
@@ -13,6 +14,7 @@
             <th>Longitude</th>
             <th>Latitude</th>
             <th>Description</th>
+
         </tr>
         </thead>
         <tbody>
@@ -26,6 +28,20 @@
         </tbody>
     </table>
 </div>
+    <div>
+        <form th:action="@{/favorites}" method="post">
+            <label>
+                <select name="tags">
+                    <option value="">Filter by:</option>
+                    <option th:each="favoriteTag : ${favoriteTags}"
+                            th:value="${favoriteTag.id}"
+                            th:text="${favoriteTag.name}"
+                    ></option>
+                </select>
+            </label>
+            <button type="submit">Filter</button>
+        </form>
+    </div>
 <div>
     <p><a href="/favorites/add-a-fave">Click here to add more locations to your favorites.</a></p>
 </div>
