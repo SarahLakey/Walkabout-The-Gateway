@@ -7,18 +7,30 @@
     <h1>Journal Entries: </h1>
     <form th:action="@{/userjournal/journalsubmission}" method="post">
         <div>
-            <label>Journal Entry:
-                <input type="text" th:field="${userjournal.journalEntryBlank}" />
-            </label>
-            <label>Journal Location:
-                <input type="text" th:field="${userjournal.journalLocation}">
-            </label>
-            <label>Journal Date:
-                <input type="text" th:field="${userjournal.journalDate}">
-            </label>
+            <div class = "form-group">
+                <div class="register-form mb-3">
+                    <label>Journal Date:
+                    <input type="date" th:field="${userjournal.journalDate}">
+                </label>
+            </div>
+            </div>
+            <div class = "form-group">
+                <div class="register-form mb-3">
+                   <label>Journal Location:
+                        <input type="text" th:field="${userjournal.journalLocation}">
+                    </label>
+                 </div>
+            </div>
+            <div class = "form-group">
+                <div class="register-form mb-3">
+                    <label>Journal Entry:
+                    <input type="text" th:field="${userjournal.journalEntryBlank}" />
+                </label>
+            </div>
+            </div>
         </div>
         <div>
-            <input type="submit" value="Submit" />
+            <button type="submit">Submit Journal</button>
         </div>
     </form>
 </main>

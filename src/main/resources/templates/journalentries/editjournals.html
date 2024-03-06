@@ -7,14 +7,14 @@
     <h1>Edit Journal Entry: </h1>
     <form th:action="@{/editjournals/edit}" method="post">
         <div>
-            <label>Journal Entry:
-                <input type="text" th:field="${userjournal.journalEntryBlank}" />
+            <label>Journal Date:
+                <input type="text" th:field="${userjournal.journalDate}">
             </label>
             <label>Journal Location:
                 <input type="text" th:field="${userjournal.journalLocation}">
             </label>
-            <label>Journal Date:
-                <input type="text" th:field="${userjournal.journalDate}">
+            <label>Journal Entry:
+                <input type="text" th:field="${userjournal.journalEntryBlank}" />
             </label>
         </div>
         <div>
