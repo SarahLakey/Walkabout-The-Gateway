@@ -10,16 +10,16 @@
         <table>
             <thead>
             <tr>
-            <th>Journal Entry</th>
-            <th>Journal Location</th>
-            <th>Journal Date</th>
+                <th>Journal Date</th>
+                <th>Journal Location</th>
+                <th>Journal Entry</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="userjournal : ${journalEntries}">
-            <td th:text="${userjournal.journalEntryBlank}"></td>
-            <td th:text="${userjournal.journalLocation}"></td>
-            <td th:text="${userjournal.journalDate}"></td>
+                <td th:text="${userjournal.journalDate}"></td>
+                <td th:text="${userjournal.journalLocation}"></td>
+                <td th:text="${userjournal.journalEntryBlank}"></td>
                 <td>
                 <form th:action="@{/readjournals/deletejournal}" method="POST" th:object="${userjournal}">
                     <input type="hidden" name="deletejournal" th:field="${userjournal.journalId}">
