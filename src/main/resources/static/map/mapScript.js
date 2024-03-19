@@ -8,7 +8,8 @@
 
       let data = google.visualization.arrayToDataTable([
                      ['Lat', 'Long', 'Name'],
-                     [38.6270,  -90.1994, 'St. Louis'],
+//                     [38.6270,  -90.1994, 'St. Louis'],
+                     [38.62544116444965, -90.18678794218731, 'Arch'],
                      [38.65214508187943, -90.2595139, 'LaunchCode'],
                    ]);
 
