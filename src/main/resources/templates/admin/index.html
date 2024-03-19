@@ -5,15 +5,17 @@
 </head>
 
 <body class="admin">
-<header>
-    <div class="nav-bar">
-        <img th:src="@{/images/Logo-Yel-nav.png}" width="15%" /> | &nbsp;
-        <a class="navlink" >ADMIN DASHBOARD</a>   | &nbsp;&nbsp;
-        <a class="navlink" href="/logout">LOG OUT</a>
-    </div>
-</header>
+<header th:replace="~{fragments :: header}"></header>
+
+<!--<header>-->
+<!--    <div class="nav-bar">-->
+<!--        <img th:src="@{/images/Logo-Yel-nav.png}" width="15%" /> | &nbsp;-->
+<!--        <a class="navlink" >ADMIN DASHBOARD</a>   | &nbsp;&nbsp;-->
+<!--        <a class="navlink" href="/logout">LOG OUT</a>-->
+<!--    </div>-->
+<!--</header>-->
 <main>
-    <h1>Welcome to the Admin Page!</h1>
+    <h1>Admin Dashboard</h1>
 
     <section>
         <h3>Facts Submitted to Be Verified: </h3>

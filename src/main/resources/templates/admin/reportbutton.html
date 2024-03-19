@@ -3,26 +3,35 @@
 <head th:replace="~{fragments :: head}">
     <script src="popup-script.js"></script>
 </head>
-<body>
+<body class="admin">
 <header th:replace="~{fragments :: header}"></header>
+
 <main>
-    <h1>Welcome to the Admin Page!</h1>
+    <h1>Admin Dashboard</h1>
     <section>
         <h3>Reports Made: </h3>
-        <div class="report-button-table">
-            <table id="reportForm" class="flex-col">
+        <div class="form-facts-table">
+<!--        <div class="report-button-table">-->
+<!--            <table id="reportForm" class="flex-col">-->
+            <table id="myForm" class="flex-col">
                 <tr>
-                <th>Name: </th>
-                <th>Report: </th>
+                    <th>Name: </th>
+                    <th>Report: </th>
                 </tr>
                 <tr>
-                <td th:text="${reportButton.name}"></td>
-                <td th:text="${reportButton.report}"></td>
+                    <td th:text="${reportButton.name}"></td>
+                    <td th:text="${reportButton.report}"></td>
                 </tr>
             </table>
         </div>
     </section>
 </main>
-<footer th:replace="~{fragments :: footer}"></footer>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy;<script>document.write(new Date().getFullYear());</script> JSCubed</p>
+    </div>
+</footer>
+
 </body>
 </html>
