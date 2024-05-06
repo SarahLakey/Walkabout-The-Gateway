@@ -5,14 +5,14 @@
 <header th:replace="~{fragments :: header}"></header>
 <main>
     <h1>Leave a Comment Here: </h1>
-    <form th:action="@{/comments/comments}" method="post">
+    <form th:action="@{/comments/comments}" method="post" style="width:200px">
         <div>
             <label>Journal Entry:
-                <input type="text" th:field="${userjournal.comments}"/>
+                <input type="text" style="width:85vw; height:5vw" th:field="${userjournal.comments}"/>
             </label>
         </div>
         <div>
-            <input type="submit" value="Comment!" />
+            <button type="submit">Comment</button>
         </div>
     </form>
 </main>
